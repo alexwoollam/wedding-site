@@ -5,8 +5,14 @@ interface TextSent {
 }
 
 function TextBlock( props:TextSent ) {
+  if( ! props.text ){
+    return null;
+  }
   return (
-    <p className="text-gray-600 font-sans text-base text-center" >
+    <p 
+    className="text-block text-gray-600 font-sans text-base text-center" 
+    data-testid="text-block"
+    >
         { props.text }
     </p>
   );

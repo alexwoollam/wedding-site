@@ -1,26 +1,27 @@
 import React from 'react';
 import Heading from './Components/Text/Heading';
+import HeaderImage from './Components/Media/HeaderImage';
 import TextBlock from './Components/Text/TextBlock';
 import KeepMeUpdated from './Components/Forms/KeepMeUpdated';
+
+const text = ({
+  intro: "Alex & Lydia are Getting Married!",
+  subtitle: "MORE INFORMATION COMING SOON..."
+});
+
+const headingImage = ({
+  src: "Images/wedding-top.png",
+  alt: "Illustration of a boquet of flowers"
+});
 
 function App() {
   return (
     <div className="App container mx-auto">
-      <div className="Header flex justify-center">
-        <img 
-          className="object-scale-down object-center w-150 h-50 m-5"
-          src="Images/wedding-top.png" 
-          alt="Illustration of a boquet of flowers"
-          style={{
-            maxWidth: "350px"
-          }}
-        />
-      </div>
+      <HeaderImage src={ headingImage.src } alt={ headingImage.src }/>
       <div className="Intro">
-        <Heading text="Alex & Lydia are Getting Married!" />
-        <TextBlock text="MORE INFORMATION COMING SOON..." />
+        <Heading text={text.intro}/>
+        <TextBlock text={text.subtitle}/>
         <KeepMeUpdated/>
-
       </div>
     </div>
   );
