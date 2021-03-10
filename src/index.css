@@ -1,4 +1,5 @@
 /*main stlyle shee*/
 @tailwind base;
 @tailwind components;
+@tailwind forms;
 @tailwind utilities;

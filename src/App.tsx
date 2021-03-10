@@ -1,4 +1,7 @@
 import React from 'react';
+import Heading from './Components/Text/Heading';
+import TextBlock from './Components/Text/TextBlock';
+import KeepMeUpdated from './Components/Forms/KeepMeUpdated';
 
 function App() {
   return (
@@ -14,16 +17,10 @@ function App() {
         />
       </div>
       <div className="Intro">
-        <h1
-          className="text-grey-700 font-serif text-3xl text-center m-5"
-        >
-          Alex & Lydia are Getting Married!
-        </h1>
-        <p
-          className="text-gray-600 font-sans text-base text-center"
-        >
-          MORE INFORMATION COMING SOON...
-        </p>
+        <Heading text="Alex & Lydia are Getting Married!" />
+        <TextBlock text="MORE INFORMATION COMING SOON..." />
+        <KeepMeUpdated/>
+
       </div>
     </div>
   );
