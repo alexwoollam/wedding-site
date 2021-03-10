@@ -15,6 +15,7 @@ const headingImage = ({
 });
 
 function App() {
+
   return (
     <div className="App container mx-auto">
       <HeaderImage src={ headingImage.src } alt={ headingImage.src }/>
