@@ -23,7 +23,7 @@ interface KeepMeUpdatedInterface {
     name: string,
     email: string,
     form: boolean,
-  }
+}
 
 function KeepMeUpdated() {
 
@@ -48,6 +48,7 @@ function KeepMeUpdated() {
         if( GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID ) ){
             setUser({...user, form: true});
         };
+    }
 
     const setTheEmail = ( event:any ) => {
         var set_email:string = event.target.value;
@@ -90,8 +91,7 @@ function KeepMeUpdated() {
                 <Thanks name={username} />
             </>
         )
-    }
-    
+    }   
 }
 
 export default KeepMeUpdated;
