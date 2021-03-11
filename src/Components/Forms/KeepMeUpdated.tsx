@@ -10,6 +10,7 @@ function Submit( props:any ) {
                 className="my-3 bg-indigo-600 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" 
                 aria-expanded="false"
                 data-testid="submit-button"
+
                 >
                 Submit
             </button>
@@ -38,6 +39,7 @@ function KeepMeUpdated() {
     const user_data = {
         Name: user.name,
         Email: user.email,
+
     };
       
     const handlePostForm = ( event:any ) => {
@@ -46,7 +48,6 @@ function KeepMeUpdated() {
         if( GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID ) ){
             setUser({...user, form: true});
         };
-    }
 
     const setTheEmail = ( event:any ) => {
         var set_email:string = event.target.value;
@@ -79,6 +80,7 @@ function KeepMeUpdated() {
                 ></input>
     
                 <Submit name={user.name} email={user.email} />
+
             </form>
         );
     } else {
