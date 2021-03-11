@@ -5,7 +5,7 @@ import KeepMeUpdated from '../../../Components/Forms/KeepMeUpdated';
 
 test('renders keep me updated form lable', () => {
   render(<KeepMeUpdated />);
-  const linkElement = screen.getByText(/Keep me updated:/i);
+  const linkElement = screen.getByText('Keep me updated');
   expect(linkElement).toBeInTheDocument();
 });
 

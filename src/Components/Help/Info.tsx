@@ -7,16 +7,19 @@ interface TextSent {
 }
 
 function Info( props:TextSent ) {
+  
   if( ! props.text ){
     return null;
   }
   return (
     <>
-        <label data-tip={ props.tooltip } className="font-mono my-6"
+        <label data-tip data-for='registerTip' className="font-mono my-6"
         >
             { props.text }
         </label>
-        <ReactTooltip />
+        <ReactTooltip id="registerTip" place="top" effect="solid">
+        { props.tooltip }
+        </ReactTooltip>
     </>
   );
 }
