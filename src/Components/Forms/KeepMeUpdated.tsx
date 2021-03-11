@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GoogleSheets from '../../Controllers/Forms/GoogleSheets';
+import ReCAPTCHA from "react-google-recaptcha";
 import Info from '../Help/Info';
 import Thanks from './Thanks';
 
@@ -31,10 +32,15 @@ interface KeepMeUpdatedInterface {
     form: boolean,
 }
 
+function outPutRecaptcha(value:any) {
+    console.log("Captcha value:", value);
+}
+
 function KeepMeUpdated() {
 
     const SPREADSHEET_ID:string = process.env.REACT_APP_SPREADSHEET_ID!;
     const SHEET_ID:string = process.env.REACT_APP_SHEET_ID!;
+    const RECAPTCHAKEY:string = process.env.REACT_APP_RECAPTCHAKEY!;
     
     const [user, setUser] = useState<KeepMeUpdatedInterface>({
         name: '',
@@ -84,7 +90,12 @@ function KeepMeUpdated() {
                 placeholder="arya_stark@winterfell.gov"
                 onChange={ setTheEmail }
                 ></input>
-            
+
+                <ReCAPTCHA
+                    sitekey={ RECAPTCHAKEY }
+                    size="invisible"
+                    onChange={ outPutRecaptcha }
+                />
     
                 <Submit name={user.name} email={user.email} />
 
