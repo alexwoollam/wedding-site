@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Holder from './Pages/Holder';
+import Music from './Pages/Music';
 
 function App() {
 
@@ -18,6 +19,9 @@ function App() {
         <Route path="/rsvp">
           
         </Route>
+        <Route path="/music">
+            <Music/>
+          </Route>
         <Route path="/">
           <Holder/>
         </Route>
