@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GoogleSheets from '../../Controllers/Forms/GoogleSheets';
+import Info from '../Help/Info';
 import Thanks from './Thanks';
 
 function Submit( props:any ) {
@@ -7,7 +8,7 @@ function Submit( props:any ) {
         return (
             <button 
                 type="submit" 
-                className="my-3 bg-indigo-600 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" 
+                className="my-3 transform bg-indigo-600 hover:bg-indigo-300 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" 
                 aria-expanded="false"
                 data-testid="submit-button"
 
@@ -17,6 +18,11 @@ function Submit( props:any ) {
         )
     }
     return null;
+}
+
+const text = {
+    text: 'Keep me updated',
+    tooltip: 'We will use this information to keep you updated when important information has been added to this site!'
 }
 
 interface KeepMeUpdatedInterface {
@@ -62,9 +68,8 @@ function KeepMeUpdated() {
     if( ! user.form ){
         return (
             <form onSubmit={ handlePostForm } className="m-auto max-w-md my-10">
-                <label
-                className="font-mono my-6"
-                >Keep me updated:</label>
+                
+                <Info text={ text.text } tooltip={ text.tooltip }/>
     
                 <input 
                 type="text" 
@@ -79,6 +84,7 @@ function KeepMeUpdated() {
                 placeholder="arya_stark@winterfell.gov"
                 onChange={ setTheEmail }
                 ></input>
+            
     
                 <Submit name={user.name} email={user.email} />
 

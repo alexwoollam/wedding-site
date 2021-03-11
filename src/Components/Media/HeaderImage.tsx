@@ -9,7 +9,7 @@ function TextBlock( props:ImageSent ) {
   if( ! props.src ){
     return null;
   }
-    
+
   return (
     <div 
         className="Header flex justify-center"
