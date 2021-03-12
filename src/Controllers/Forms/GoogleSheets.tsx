@@ -38,8 +38,7 @@ function GoogleSheets( data:any, SPREADSHEET_ID:string, SHEET_ID:string ): boole
     
     if( appendSpreadsheet(data) ){
         return true;    
-    };
-    return false;
+    }
 }
 
 export default GoogleSheets;
