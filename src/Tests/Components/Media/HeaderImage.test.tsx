@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import HeaderImage from '../../../Components/Media/HeaderImage';
 
@@ -25,5 +26,10 @@ describe('<HeaderImage/> component', () => {
     render(<HeaderImage />);
     const linkElement = screen.queryByTestId("header-image-block");
     expect(linkElement).not.toBeInTheDocument();
-});
+  });
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<HeaderImage src="foo.png" alt="bar" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

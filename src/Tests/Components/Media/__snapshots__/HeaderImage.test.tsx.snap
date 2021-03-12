@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderImage/> component renders correctly 1`] = `
+<div
+  className="Header flex justify-center"
+  data-testid="header-image-block"
+>
+  <img
+    alt="bar"
+    className="object-scale-down object-center w-150 h-50 m-5"
+    src="foo.png"
+    style={
+      Object {
+        "maxWidth": "350px",
+      }
+    }
+  />
+</div>
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextBlock/> component renders correctly 1`] = `
+<p
+  className="text-block text-gray-600 font-sans text-base text-center"
+  data-testid="text-block"
+>
+  text block
+</p>
+`;
