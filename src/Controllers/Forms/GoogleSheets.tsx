@@ -34,11 +34,13 @@ function GoogleSheets( data:any, SPREADSHEET_ID:string, SHEET_ID:string ): boole
           console.error('Error: ', e);
           return false;
         }
+
     };
     
     if( appendSpreadsheet(data) ){
         return true;    
     }
+    return false;
 }
 
 export default GoogleSheets;
