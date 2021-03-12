@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Track from './Track';
@@ -9,9 +10,25 @@ interface theTracksInterface{
 function SearchTracks() {
 
     const [theToken, setTheToken] = useState();
+    const [trackList, setTrackList] = useState([]);
     const [theTracks, setTheTracks] = useState<theTracksInterface>({
-        tracks: []
+        tracks: [],
     });
+
+    const addTrack = ( id: string, title: string, artist: string, image: string ) => {
+        
+        setTrackList([ ...trackList, { 
+            id: trackList.length, 
+            trackid: id,
+            trackname: title,
+            trackartist: artist,
+            trackimage: image,
+        } ] );
+    }
+
+    useEffect(() => {
+        console.log(trackList);
+    }, [trackList]);
 
     useEffect(() => {
         if( ! theToken ){
@@ -66,7 +83,7 @@ function SearchTracks() {
                 onChange={ searchForTrack }
                 ></input>
             </form>
-            <Track data={ theTracks.tracks }/>
+            <Track data={ theTracks.tracks } addTrack={ addTrack } />
             </>
         );
     } else {
