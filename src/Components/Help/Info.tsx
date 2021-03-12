@@ -13,7 +13,7 @@ function Info( props:TextSent ) {
   }
   return (
     <>
-        <label data-tip data-for='registerTip' className="font-mono my-6"
+        <label data-tip data-for='registerTip' data-testid="info" className="font-mono my-6"
         >
             { props.text }
         </label>
