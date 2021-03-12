@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import Info from '../../../Components/Help/Info';
 
@@ -21,4 +22,5 @@ describe('<InfoBlock /> component', () => {
       const linkElement = screen.queryByTestId('info');
       expect(linkElement).not.toBeInTheDocument();
   });
+
 });

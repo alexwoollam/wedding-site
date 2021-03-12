@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import Enzyme, {shallow, mount} from 'enzyme'
+import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-17-updated';
 import { render, screen } from '@testing-library/react';
 import KeepMeUpdated, {Submit} from '../../../Components/Forms/KeepMeUpdated';
@@ -32,4 +33,5 @@ describe('<KeepMeUpdated/> component', () => {
     const buttonElement = screen.queryByTestId('submit-button');
     expect(buttonElement).not.toBeInTheDocument();
   });
+  
 });

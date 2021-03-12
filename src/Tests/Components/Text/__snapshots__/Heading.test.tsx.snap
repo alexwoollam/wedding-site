@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Heading/> component renders correctly 1`] = `
+<h1
+  className="text-grey-700 font-serif text-3xl text-center m-5"
+  data-testid="text-block"
+>
+  Heading text
+</h1>
+`;
