@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import Info from '../Help/Info';
 import Thanks from './Thanks';
 
-function Submit( props:any ) {
+export function Submit( props:any ) {
     if( props.name && props.email ){
         return (
             <button 
@@ -21,6 +21,8 @@ function Submit( props:any ) {
     return null;
 }
 
+
+
 const text = {
     text: 'Keep me updated',
     tooltip: 'We will use this information to keep you updated when important information has been added to this site!'
@@ -30,10 +32,6 @@ interface KeepMeUpdatedInterface {
     name: string,
     email: string,
     form: boolean,
-}
-
-function outPutRecaptcha(value:any) {
-    console.log("Captcha value:", value);
 }
 
 function KeepMeUpdated() {
@@ -96,7 +94,6 @@ function KeepMeUpdated() {
                 <ReCAPTCHA
                     sitekey={ RECAPTCHAKEY }
                     size="invisible"
-                    onChange={ outPutRecaptcha }
                 />
     
                 <Submit name={user.name} email={user.email} />

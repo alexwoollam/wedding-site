@@ -21,4 +21,9 @@ describe('<HeaderImage/> component', () => {
       const linkElement = screen.getByAltText("bar");
       expect(linkElement).toBeInTheDocument();
   });
+  test('Components shouldnt render if no props', () => {
+    render(<HeaderImage />);
+    const linkElement = screen.queryByTestId("header-image-block");
+    expect(linkElement).not.toBeInTheDocument();
+});
 });
