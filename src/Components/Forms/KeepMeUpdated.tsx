@@ -78,13 +78,15 @@ function KeepMeUpdated() {
                 <Info text={ text.text } tooltip={ text.tooltip }/>
     
                 <input 
+                id='name'
                 type="text" 
                 className="mb-3 p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
                 placeholder="Arya Stark"
                 onChange={ setTheName }
                 ></input>
     
-                <input 
+                <input
+                id='email'
                 type="email" 
                 className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
                 placeholder="arya_stark@winterfell.gov"

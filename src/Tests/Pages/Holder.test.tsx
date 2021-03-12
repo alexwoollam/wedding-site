@@ -1,7 +1,12 @@
 import React from 'react';
+import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
+import Holder from '../../Pages/Holder';
 
-
-test('The homepage should most certainly have my name on it.', () => {
-  
+describe('<Holding /> tests.', () => {
+    test('Holder page should render', () => {
+        render(<Holder/>);
+        const title = screen.getByText('Alex & Lydia are Getting Married!');
+        expect(title).toBeInTheDocument();
+    });
 });
