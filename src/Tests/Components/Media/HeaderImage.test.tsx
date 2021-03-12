@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import HeaderImage from '../../../Components/Media/HeaderImage';
 
-describe('<HeadingImage/> component', () => {
+describe('<HeaderImage/> component', () => {
   test('Component should render', () => {
     render(<HeaderImage src="foo.png" alt="bar" />);
     const linkElement = screen.getByTestId("header-image-block");

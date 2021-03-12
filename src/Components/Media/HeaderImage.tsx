@@ -5,7 +5,7 @@ interface ImageSent {
     alt: string
 }
 
-function TextBlock( props:ImageSent ) {
+function HeaderImage( props:ImageSent ) {
   if( ! props.src ){
     return null;
   }
@@ -27,4 +27,4 @@ function TextBlock( props:ImageSent ) {
   );
 }
 
-export default TextBlock;
+export default HeaderImage;
