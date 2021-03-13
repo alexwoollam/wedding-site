@@ -1,22 +1,32 @@
-// @ts-nocheck
+//ts-nocheck
 import React, { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Track from './Track';
+import SelectedTracks from './SelectedTracks';
+import { Col, Form, Input, Button } from 'reactstrap';
+import { Submit } from '../Forms/KeepMeUpdated';
 
 interface theTracksInterface{
     tracks: object,
 }
 
+interface trackListInterface{
+    id: number, 
+    trackid: string,
+    trackname: string,
+    trackartist: string,
+    trackimage: string,
+}
+
 function SearchTracks() {
 
     const [theToken, setTheToken] = useState();
-    const [trackList, setTrackList] = useState([]);
+    const [trackList, setTrackList] = useState<trackListInterface[]>([]);
     const [theTracks, setTheTracks] = useState<theTracksInterface>({
         tracks: [],
     });
 
     const addTrack = ( id: string, title: string, artist: string, image: string ) => {
-        
         setTrackList([ ...trackList, { 
             id: trackList.length, 
             trackid: id,
@@ -24,6 +34,11 @@ function SearchTracks() {
             trackartist: artist,
             trackimage: image,
         } ] );
+    }
+
+    const removeTrack = ( id: number ) => {
+        const remove = id;
+        setTrackList(trackList.filter(({ id }) => id !== remove));
     }
 
     useEffect(() => {
@@ -50,6 +65,20 @@ function SearchTracks() {
         }
     })
 
+    const submitTracks = () => {
+        let the_Token: any = theToken;
+        var spotifyApi = new SpotifyWebApi();
+        spotifyApi.setAccessToken(the_Token);
+        let playlistId: string; 
+        playlistId = process.env.REACT_APP_SPOTIFYPLAYLIST;
+        let trackArray: string[] = [];
+        trackList.map((track: any) => (
+            trackArray.push('spotify:track:'+track.trackid)
+        ));
+        console.log( spotifyApi );
+        spotifyApi.addTracksToPlaylist( playlistId, trackArray );
+    }
+
     const searchForTrack = ( event:any ) => {
         var search:string = event.target.value;
         let the_Token: any = theToken;
@@ -58,7 +87,6 @@ function SearchTracks() {
         if( search.length > 1 ){
             spotifyApi.searchTracks(search).then(
                 function (data) {
-                    console.log( data );
                   setTheTracks( data );
                 },
                 function (err) {
@@ -71,35 +99,28 @@ function SearchTracks() {
         }
     }
 
+    let return_tracks_search;
 
     if(theTracks.tracks){
-        return (
-            <>
-            <form className="m-auto max-w-md my-10">
-                <input 
+        return_tracks_search = <Track data={ theTracks.tracks } addTrack={ addTrack } />
+    };
+    return (
+        <Col
+            className='m-auto'
+        >
+            <Button onClick={ submitTracks }>Lets rock!</Button>
+            <SelectedTracks data={ trackList } removeTrack={ removeTrack } isSelected={true} />
+            <Form className="m-auto max-w-md my-10">
+                <Input 
                 type="text" 
                 className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
                 placeholder="Song title"
                 onChange={ searchForTrack }
-                ></input>
-            </form>
-            <Track data={ theTracks.tracks } addTrack={ addTrack } />
-            </>
-        );
-    } else {
-        return (
-            <>
-            <form className="m-auto max-w-md my-10">
-                <input 
-                type="text" 
-                className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-                placeholder="Song title"
-                onChange={ searchForTrack }
-                ></input>
-            </form>
-            </>
-        );
-    }
+                ></Input>
+            </Form>
+            {return_tracks_search}
+        </Col>
+    );
     
 }
 

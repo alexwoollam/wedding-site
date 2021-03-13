@@ -1,4 +1,5 @@
 import React from 'react';
+import {Row, Col, Media} from 'reactstrap';
 
 interface ImageSent {
     src: string,
@@ -11,19 +12,22 @@ function HeaderImage( props:ImageSent ) {
   }
 
   return (
-    <div 
+    <Row 
         className="Header flex justify-center"
         data-testid="header-image-block"
     >
-        <img 
-          className="object-scale-down object-center w-150 h-50 m-5"
-          src={props.src}
+      <Col
+        className="col-sm-12 col-md-6 m-auto"
+      >
+      <Media center>
+        <Media 
+          object
+          data-src={props.src}
           alt={props.alt}
-          style={{
-            maxWidth: "350px"
-          }}
         />
-    </div>
+      </Media>
+      </Col>
+    </Row>
   );
 }
 
