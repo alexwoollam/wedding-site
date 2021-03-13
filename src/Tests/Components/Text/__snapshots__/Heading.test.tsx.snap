@@ -2,7 +2,7 @@
 
 exports[`<Heading/> component renders correctly 1`] = `
 <h1
-  className="text-grey-700 font-serif text-3xl text-center m-5"
+  className="text-grey-700 font-serif text-3xl text-center m-2"
   data-testid="text-block"
 >
   Heading text

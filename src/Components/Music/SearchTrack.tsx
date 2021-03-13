@@ -1,6 +1,7 @@
 //ts-nocheck
 import React, { useEffect, useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
+import SpotifyAuthApi from 'spotify-web-api-node';
 import Track from './Track';
 import SelectedTracks from './SelectedTracks';
 import { Col, Form, Input, Button } from 'reactstrap';
@@ -21,6 +22,7 @@ interface trackListInterface{
 function SearchTracks() {
 
     const [theToken, setTheToken] = useState();
+    const [spotifyCreds, setSpotifyCreds] = useState();
     const [trackList, setTrackList] = useState<trackListInterface[]>([]);
     const [theTracks, setTheTracks] = useState<theTracksInterface>({
         tracks: [],
@@ -42,7 +44,7 @@ function SearchTracks() {
     }
 
     useEffect(() => {
-        console.log(trackList);
+        //console.log(trackList);
     }, [trackList]);
 
     useEffect(() => {
@@ -66,17 +68,20 @@ function SearchTracks() {
     })
 
     const submitTracks = () => {
-        let the_Token: any = theToken;
-        var spotifyApi = new SpotifyWebApi();
-        spotifyApi.setAccessToken(the_Token);
-        let playlistId: string; 
-        playlistId = process.env.REACT_APP_SPOTIFYPLAYLIST;
+        const CLIENT_ID:string = process.env.REACT_APP_SPOTIFYCLI!;
+        const CLIENT_SEC:string = process.env.REACT_APP_SPOTIFYSEC!;
+        const get = new SpotifyAuthApi({
+            clientId: CLIENT_ID,
+            clientSecret: CLIENT_SEC,
+            redirectUri: 'http://localhost'
+        });
+        get.setAccessToken(theToken);
+        const playlistId:string = process.env.REACT_APP_SPOTIFYPLAYLIST!;
         let trackArray: string[] = [];
         trackList.map((track: any) => (
             trackArray.push('spotify:track:'+track.trackid)
         ));
-        console.log( spotifyApi );
-        spotifyApi.addTracksToPlaylist( playlistId, trackArray );
+        //get.addTracksToPlaylist( playlistId, trackArray );
     }
 
     const searchForTrack = ( event:any ) => {
