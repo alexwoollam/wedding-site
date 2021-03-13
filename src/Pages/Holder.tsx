@@ -4,6 +4,8 @@ import HeaderImage from '../Components/Media/HeaderImage';
 import TextBlock from '../Components/Text/TextBlock';
 import KeepMeUpdated from '../Components/Forms/KeepMeUpdated';
 import Image from '../Images/wedding-top.png';
+import { Container, Row, Col } from 'reactstrap';
+
 
 const text = ({
   intro: "Alex & Lydia are Getting Married!",
@@ -18,14 +20,19 @@ const headingImage = ({
 function Holder() {
 
   return (
-    <div className="App container mx-auto">
+    <Container>
       <HeaderImage src={ headingImage.src } alt={ headingImage.alt }/>
-      <div className="Intro">
-        <Heading text={text.intro}/>
-        <TextBlock text={text.subtitle}/>
-        <KeepMeUpdated/>
-      </div>
-    </div>
+      <Row className="Intro">
+        <Col md={12}
+          className="m-auto"
+        >
+          <Heading text={text.intro}/>
+          <TextBlock text={text.subtitle}/>
+          <KeepMeUpdated/>
+        </Col>
+      </Row>
+      
+    </Container>
   );
 }
 

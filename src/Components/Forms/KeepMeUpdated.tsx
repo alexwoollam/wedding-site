@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import GoogleSheets from '../../Controllers/Forms/GoogleSheets';
 import ReCAPTCHA from "react-google-recaptcha";
 import Info from '../Help/Info';
+import { Button, Form, Input, Col } from 'reactstrap';
 import Thanks from './Thanks';
 
 export function Submit( props:any ) {
     if( props.name && props.email ){
         return (
-            <button 
+            <Button 
                 type="submit" 
                 className="my-3 transform bg-indigo-600 hover:bg-indigo-300 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" 
                 aria-expanded="false"
@@ -15,7 +16,7 @@ export function Submit( props:any ) {
 
                 >
                 Submit
-            </button>
+            </Button>
         )
     }
     return null;
@@ -71,25 +72,28 @@ function KeepMeUpdated() {
 
     if( ! user.form ){
         return (
-            <form onSubmit={ handlePostForm } className="m-auto max-w-md my-10">
+            <Col md={6}
+                className="m-auto mt-3"
+            >
+                <Form onSubmit={ handlePostForm } className="m-auto max-w-md my-10">
                 
                 <Info text={ text.text } tooltip={ text.tooltip }/>
     
-                <input 
+                <Input 
                 id='name'
                 type="text" 
                 className="mb-3 p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
                 placeholder="Arya Stark"
                 onChange={ setTheName }
-                ></input>
+                ></Input>
     
-                <input
+                <Input
                 id='email'
                 type="email" 
                 className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
                 placeholder="arya_stark@winterfell.gov"
                 onChange={ setTheEmail }
-                ></input>
+                ></Input>
 
                 <ReCAPTCHA
                     sitekey={ RECAPTCHAKEY }
@@ -98,7 +102,8 @@ function KeepMeUpdated() {
     
                 <Submit name={user.name} email={user.email} />
 
-            </form>
+            </Form>
+            </Col>
         );
     } else {
         let username : string = user.name;

@@ -10,7 +10,7 @@ function Heading( props:TextSent ) {
   }
   return (
     <h1 
-      className="text-grey-700 font-serif text-3xl text-center m-5"
+      className="text-grey-700 font-serif text-3xl text-center m-2"
       data-testid="text-block"
     >
         { props.text }
