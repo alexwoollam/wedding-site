@@ -17,6 +17,7 @@ describe('<Heading/> component', () => {
     const linkElement = screen.queryByTestId('heading-block');
     expect(linkElement).not.toBeInTheDocument();
   });
+  
   it('renders correctly', () => {
     const tree = renderer
       .create(<Heading text="Heading text" />).toJSON();

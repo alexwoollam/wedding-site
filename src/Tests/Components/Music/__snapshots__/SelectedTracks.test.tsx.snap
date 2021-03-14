@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectedTrack/> component renders correctly 1`] = `
+<div
+  className="mb-3 container"
+>
+  <div
+    className="p-3 mt-2 rounded row"
+    style={
+      Object {
+        "border": "2px dashed lightgrey",
+      }
+    }
+  >
+    <div
+      className="col-md-1"
+    >
+      <img
+        alt="artwork for Song 2"
+        className="rounded"
+        src="image.png"
+      />
+    </div>
+    <div
+      className="col"
+    >
+      <h4>
+        Song 2
+      </h4>
+      <h5>
+        Blur
+      </h5>
+    </div>
+    <div
+      className="d-flex justify-content-center col-md-1"
+    >
+      <button
+        aria-label={null}
+        className="btn-danger btn btn-secondary"
+        data-testid="remove-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Remove
+      </button>
+    </div>
+  </div>
+</div>
+`;
