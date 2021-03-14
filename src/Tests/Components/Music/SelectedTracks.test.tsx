@@ -55,6 +55,13 @@ describe('<SelectedTrack/> component', () => {
         expect(linkElement).toBeInTheDocument();
     });
 
+    test('If we remove an element, it should call the removeTrack props', () => {
+        const mockRemove = jest.fn();
+        const comp = shallow(<SelectedTracks data={ MockTracks } removeTrack={mockRemove} />);
+        comp.find('[data-testid="remove-button"]').simulate('click');
+        expect(mockRemove.mock.calls.length).toBe(1);
+    });
+
     it('renders correctly', () => {
         const tree = renderer
         .create(<SelectedTracks data={ MockTracks } />).toJSON();
