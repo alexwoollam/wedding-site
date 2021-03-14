@@ -102,7 +102,6 @@ function SearchTracks() {
     let return_tracks_search;
 
     if(theTracks.tracks){
-        console.log(theTracks.tracks);
         return_tracks_search = <Track data={ theTracks.tracks } addTrack={ addTrack } />
     };
     return (

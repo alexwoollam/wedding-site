@@ -9,7 +9,7 @@ exports[`<HeaderImage/> component renders correctly 1`] = `
     className="col-sm-12 col-md-6 m-auto col"
   >
     <div
-      center={true}
+      center="true"
       className="media"
     >
       <img

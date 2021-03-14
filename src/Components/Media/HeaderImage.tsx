@@ -19,7 +19,7 @@ function HeaderImage( props:ImageSent ) {
       <Col
         className="col-sm-12 col-md-6 m-auto"
       >
-      <Media center>
+      <Media center="true">
         <Media 
           object
           data-src={props.src}
