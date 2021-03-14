@@ -68,20 +68,15 @@ function SearchTracks() {
     })
 
     const submitTracks = () => {
-        const CLIENT_ID:string = process.env.REACT_APP_SPOTIFYCLI!;
-        const CLIENT_SEC:string = process.env.REACT_APP_SPOTIFYSEC!;
-        const get = new SpotifyAuthApi({
-            clientId: CLIENT_ID,
-            clientSecret: CLIENT_SEC,
-            redirectUri: 'http://localhost'
-        });
-        get.setAccessToken(theToken);
-        const playlistId:string = process.env.REACT_APP_SPOTIFYPLAYLIST!;
+        
         let trackArray: string[] = [];
         trackList.map((track: any) => (
             trackArray.push('spotify:track:'+track.trackid)
         ));
-        //get.addTracksToPlaylist( playlistId, trackArray );
+        /**
+         * yeeah, we're going to have to dump these to a google sheet or something.
+         */
+
     }
 
     const searchForTrack = ( event:any ) => {
@@ -107,6 +102,7 @@ function SearchTracks() {
     let return_tracks_search;
 
     if(theTracks.tracks){
+        console.log(theTracks.tracks);
         return_tracks_search = <Track data={ theTracks.tracks } addTrack={ addTrack } />
     };
     return (
