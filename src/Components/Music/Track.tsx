@@ -12,13 +12,8 @@ interface PropsDefined {
 
 function Track( props: PropsDefined ){
 
-    
-
     const [playingTrack, setPlayingTrack] = useState<string>('null');
 
-    if( ! props ){ 
-        return null;
-    }
     if( ! props.data ){ 
         return null;
     }
@@ -42,11 +37,13 @@ function Track( props: PropsDefined ){
                                             {
                                             track.preview_url ? 
                                             (
-                                                <ReactAudioPlayer
-                                                className={'w-100'}
-                                                src={track.preview_url}
-                                                controls
-                                                />
+                                                <div data-testid="preview-button">
+                                                    <ReactAudioPlayer
+                                                    className={'w-100'}
+                                                    src={track.preview_url}
+                                                    controls
+                                                    />
+                                                </div>
                                             ):
                                             null
                                             }

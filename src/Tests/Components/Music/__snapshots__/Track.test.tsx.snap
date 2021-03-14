@@ -40,26 +40,30 @@ exports[`<Track/> component renders correctly 1`] = `
             Blur
           </h5>
           <br />
-          <audio
-            autoPlay={false}
-            className="react-audio-player w-100"
-            controls={true}
-            id=""
-            loop={false}
-            muted={false}
-            preload="metadata"
-            src="https://p.scdn.co/mp3-preview/183c0855e94b58dcb267e2b0721d4a3c99260acf?cid=1686551f71a7417da335f1cb88526648"
-            style={Object {}}
-            title="https://p.scdn.co/mp3-preview/183c0855e94b58dcb267e2b0721d4a3c99260acf?cid=1686551f71a7417da335f1cb88526648"
+          <div
+            data-testid="preview-button"
           >
-            <p>
-              Your browser does not support the 
-              <code>
-                audio
-              </code>
-               element.
-            </p>
-          </audio>
+            <audio
+              autoPlay={false}
+              className="react-audio-player w-100"
+              controls={true}
+              id=""
+              loop={false}
+              muted={false}
+              preload="metadata"
+              src="https://p.scdn.co/mp3-preview/183c0855e94b58dcb267e2b0721d4a3c99260acf?cid=1686551f71a7417da335f1cb88526648"
+              style={Object {}}
+              title="https://p.scdn.co/mp3-preview/183c0855e94b58dcb267e2b0721d4a3c99260acf?cid=1686551f71a7417da335f1cb88526648"
+            >
+              <p>
+                Your browser does not support the 
+                <code>
+                  audio
+                </code>
+                 element.
+              </p>
+            </audio>
+          </div>
         </div>
       </div>
     </div>
@@ -96,26 +100,6 @@ exports[`<Track/> component renders correctly 1`] = `
             Nirvana
           </h5>
           <br />
-          <audio
-            autoPlay={false}
-            className="react-audio-player w-100"
-            controls={true}
-            id=""
-            loop={false}
-            muted={false}
-            preload="metadata"
-            src="https://p.scdn.co/mp3-preview/183c0855e94b58dcb267e2b0721d4a3c99260acf?cid=1686551f71a7417da335f1cb88526648"
-            style={Object {}}
-            title="https://p.scdn.co/mp3-preview/183c0855e94b58dcb267e2b0721d4a3c99260acf?cid=1686551f71a7417da335f1cb88526648"
-          >
-            <p>
-              Your browser does not support the 
-              <code>
-                audio
-              </code>
-               element.
-            </p>
-          </audio>
         </div>
       </div>
     </div>
