@@ -1,0 +1,3 @@
+ignore:
+  - "./src/reportWebVitals.ts"  # ignore folders and all its contents
+  - "./src/react-app-env.d.ts"  # ignore folders and all its contents
