@@ -1,3 +1,4 @@
+import { exit } from 'node:process';
 import React, {useState} from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import {Container, Card, Row, Col, CardImg, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
@@ -18,6 +19,10 @@ function Track( props: PropsDefined ){
     if( ! props ){ 
         return null;
     }
+    if( ! props.data ){ 
+        return null;
+    }
+
     let items = Object.values(props.data);
     
     if( items[1] ){        

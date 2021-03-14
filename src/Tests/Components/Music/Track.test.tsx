@@ -1,9 +1,14 @@
 //ts-noscan
 import '@testing-library/jest-dom';
 import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-17-updated';
 import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import Track from '../../../Components/Music/Track';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Track/> component', () => {
 
@@ -43,6 +48,12 @@ describe('<Track/> component', () => {
                 },
             ]
         ];
+
+
+    test('Component should reuturn null if no props passed', () => {
+        const comp = shallow(<Track />);
+        expect(comp.type()).toEqual(null)
+    });
 
     test('Track title should be Song 2', () => {
         render(<Track data={ MockTracks } />);
