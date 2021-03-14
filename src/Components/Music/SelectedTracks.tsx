@@ -17,10 +17,6 @@ function SelectedTracks( props: PropsDefined ){
     let items = props.data;
 
     if( items ){
-        let selected;
-        if( props.isSelected ){
-            selected = 'selected bg-red-300'
-        }
         return (
             <Container className={ 'mb-3' }>
                 {items.map( (track, index)=>(
@@ -39,10 +35,7 @@ function SelectedTracks( props: PropsDefined ){
                 ))}
             </Container>
         );
-    } else {
-        return null;
     }
-    
 } 
 
 export default SelectedTracks;
