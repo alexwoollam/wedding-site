@@ -24,9 +24,6 @@ exports[`<Music /> tests. should renders correctly 1`] = `
       >
         Lets rock!
       </button>
-      <div
-        className="mb-3 container"
-      />
       <form
         className="m-auto max-w-md my-10"
       >

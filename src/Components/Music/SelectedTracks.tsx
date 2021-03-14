@@ -10,9 +10,10 @@ interface PropsDefined {
 
 function SelectedTracks( props: PropsDefined ){
 
-    if( ! props ){ 
+    if( ! props.data || props.data.length < 1 ){ 
         return null;
     }
+
     let items = props.data;
 
     if( items ){
@@ -23,7 +24,7 @@ function SelectedTracks( props: PropsDefined ){
         return (
             <Container className={ 'mb-3' }>
                 {items.map( (track, index)=>(
-                    <Row style={{border: '2px dashed lightgrey'}} className='p-3 mt-2 rounded'>
+                    <Row key={ index } style={{border: '2px dashed lightgrey'}} className='p-3 mt-2 rounded'>
                         <Col md={1}>
                             <img className={'rounded'} src={ track.trackimage } alt={"artwork for " + track.trackname } />
                         </Col>
@@ -32,7 +33,7 @@ function SelectedTracks( props: PropsDefined ){
                             <h5>{ track.trackartist }</h5>
                         </Col>
                         <Col md={1} className="d-flex justify-content-center">
-                            <Button className={'btn-danger'} onClick={ () => props.removeTrack(track.id) }>Remove</Button>
+                            <Button data-testid='remove-button' className={'btn-danger'} onClick={ () => props.removeTrack(track.id) }>Remove</Button>
                         </Col>
                     </Row>
                 ))}
