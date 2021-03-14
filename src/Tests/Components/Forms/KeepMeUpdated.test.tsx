@@ -33,5 +33,12 @@ describe('<KeepMeUpdated/> component', () => {
     const buttonElement = screen.queryByTestId('submit-button');
     expect(buttonElement).not.toBeInTheDocument();
   });
+
+  test('submit button should return', () => {
+    render(<Submit name='Alex' email='alexjhwoollam@gmail.com'/>);
+    const buttonElement = screen.queryByTestId('submit-button');
+    expect(buttonElement).toBeInTheDocument();
+  });
+
   
 });
