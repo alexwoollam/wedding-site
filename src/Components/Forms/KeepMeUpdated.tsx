@@ -13,7 +13,6 @@ export function Submit( props:any ) {
                 className="my-3 transform bg-indigo-600 hover:bg-indigo-300 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" 
                 aria-expanded="false"
                 data-testid="submit-button"
-
                 >
                 Submit
             </Button>
@@ -41,7 +40,7 @@ function KeepMeUpdated() {
     const SHEET_ID:string = process.env.REACT_APP_SHEET_ID!;
     const RECAPTCHAKEY:string = process.env.REACT_APP_RECAPTCHAKEY!;
     
-    const [user, setUser] = useState<KeepMeUpdatedInterface>({
+    const [user, setUser] = React.useState<KeepMeUpdatedInterface>({
         name: '',
         email: '',
         form: false,
@@ -62,8 +61,7 @@ function KeepMeUpdated() {
     }
 
     const setTheEmail = ( event:any ) => {
-        var set_email:string = event.target.value;
-        setUser({...user, email: set_email});
+        setUser({...user, email: event.target.value});
     }
 
     const setTheName = ( event:any ) => {
