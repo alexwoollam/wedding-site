@@ -13,9 +13,9 @@ function App() {
 
   const devmode = process.env.REACT_APP_DEV_MODE;
 
-  let directions;
-  let music;
-  let rsvp;
+  let directions: any = null;
+  let music: any = null;
+  let rsvp: any = null;
 
   /**
    * CI/CD: remove item from devmode to push to live site.
@@ -24,10 +24,6 @@ function App() {
     directions = <Route path="/directions"><h1>directions</h1></Route>;
     music = <Route path="/music"><Music/></Route>;
     rsvp = <Route path="/rsvp"><h1>rsvp</h1></Route>;
-  } else {
-    directions = null;
-    music = null;
-    rsvp = null;
   }
 
   return (
@@ -36,10 +32,7 @@ function App() {
         {directions}      
         {music}
         {rsvp}
-        <Route path="/">
-          <Holder/>
-        </Route>
-        <Route component={Holder} />
+        <Route path="/" component={Holder} />
       </Switch>
     </Router>
   );

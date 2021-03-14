@@ -37,7 +37,7 @@ function GoogleSheets( data:any, SPREADSHEET_ID:string, SHEET_ID:string ): boole
 
     };
     
-    if( appendSpreadsheet(data) ){
+    if( CLIENTEMAIL !== 'null' && CLIENTKEY !== 'null' && appendSpreadsheet(data) ){
         return true;    
     }
     return false;
