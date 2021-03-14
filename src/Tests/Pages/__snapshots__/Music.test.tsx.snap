@@ -19,6 +19,7 @@ exports[`<Music /> tests. should renders correctly 1`] = `
       <button
         aria-label={null}
         className="btn btn-secondary"
+        data-testid="submit-button"
         onClick={[Function]}
         type="button"
       >
@@ -29,6 +30,8 @@ exports[`<Music /> tests. should renders correctly 1`] = `
       >
         <input
           className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 form-control"
+          data-testid="search-input"
+          id="search-track"
           onChange={[Function]}
           placeholder="Song title"
           type="text"

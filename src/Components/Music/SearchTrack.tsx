@@ -108,11 +108,13 @@ function SearchTracks() {
         <Col
             className='m-auto'
         >
-            <Button onClick={ submitTracks }>Lets rock!</Button>
+            <Button data-testid='submit-button' onClick={ submitTracks }>Lets rock!</Button>
             <SelectedTracks data={ trackList } removeTrack={ removeTrack } isSelected={true} />
             <Form className="m-auto max-w-md my-10">
                 <Input 
-                type="text" 
+                type="text"
+                id="search-track"
+                data-testid='search-input'
                 className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
                 placeholder="Song title"
                 onChange={ searchForTrack }

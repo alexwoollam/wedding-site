@@ -21,6 +21,7 @@ exports[`<Track/> component renders correctly 1`] = `
         <button
           aria-label={null}
           className="btn btn-secondary"
+          data-testid="add-track"
           onClick={[Function]}
           type="button"
         >
@@ -81,6 +82,7 @@ exports[`<Track/> component renders correctly 1`] = `
         <button
           aria-label={null}
           className="btn btn-secondary"
+          data-testid="add-track"
           onClick={[Function]}
           type="button"
         >
