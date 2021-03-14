@@ -35,6 +35,8 @@ function SelectedTracks( props: PropsDefined ){
                 ))}
             </Container>
         );
+    } else {
+        return null;
     }
 } 
 
