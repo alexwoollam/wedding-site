@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Music /> tests. should renders correctly 1`] = `
+<div
+  className="App container mx-auto row"
+>
+  <div
+    className="Intro col"
+  >
+    <h1
+      className="text-grey-700 font-serif text-3xl text-center m-2"
+      data-testid="text-block"
+    >
+      What music would you dance too?
+    </h1>
+    <div
+      className="m-auto col"
+    >
+      <button
+        aria-label={null}
+        className="btn btn-secondary"
+        onClick={[Function]}
+        type="button"
+      >
+        Lets rock!
+      </button>
+      <div
+        className="mb-3 container"
+      />
+      <form
+        className="m-auto max-w-md my-10"
+      >
+        <input
+          className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 form-control"
+          onChange={[Function]}
+          placeholder="Song title"
+          type="text"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+`;
