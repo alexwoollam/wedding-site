@@ -10,13 +10,13 @@ interface PropsDefined {
 
 function SelectedTracks( props: PropsDefined ){
 
-    if( ! props.data || props.data.length < 1 ){ 
+    if( ! props.data ){ 
         return null;
     }
 
     let items = props.data;
 
-    if( items ){
+    if( items.length > 0 ){
         return (
             <Container className={ 'mb-3' }>
                 {items.map( (track, index)=>(
