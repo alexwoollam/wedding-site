@@ -1,5 +1,5 @@
 //ts-nocheck
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import SpotifyAuthApi from 'spotify-web-api-node';
 import Track from './Track';
@@ -19,42 +19,53 @@ interface trackListInterface{
     trackimage: string,
 }
 
-function SearchTracks() {
+class SearchTracks extends Component{
+    
+    constructor(props) {
+        super(props);
 
-    const [theToken, setTheToken] = useState();
-    const [spotifyCreds, setSpotifyCreds] = useState();
-    const [trackList, setTrackList] = useState<trackListInterface[]>([]);
-    const [theTracks, setTheTracks] = useState<theTracksInterface>({
-        tracks: [],
-    });
-
-    const addTrack = ( id: string, title: string, artist: string, image: string ) => {
-        setTrackList([ ...trackList, { 
-            id: trackList.length, 
-            trackid: id,
-            trackname: title,
-            trackartist: artist,
-            trackimage: image,
-        } ] );
+        this.state = {
+            theToken: [],
+            spotifyCreds: true,
+            trackList: [],
+            theTracks: {
+                tracks: []
+            },
+        };
     }
 
-    const removeTrack = ( id: number ) => {
-        const remove = id;
-        setTrackList(trackList.filter(({ id }) => id !== remove));
+    addTrack( id: string, title: string, artist: string, image: string ){
+        
+        let length;
+        if(this.state.trackList){
+            length = this.state.trackList.length; 
+        } else {
+            length = 0;
+        }
+
+        this.setState({
+            trackList: { 
+                id: length, 
+                trackid: id,
+                trackname: title,
+                trackartist: artist,
+                trackimage: image,
+            }
+        });
     }
 
-    useEffect(() => {
-        //console.log(trackList);
-    }, [trackList]);
+    removeTrack( id: number ){
+        
+    }
 
-    useEffect(() => {
-        if( ! theToken ){
+    componentDidMount(){
+        if( ! this.state.theToken ){
             const CLIENT_ID:string = process.env.REACT_APP_SPOTIFYCLI!;
             const CLIENT_SEC:string = process.env.REACT_APP_SPOTIFYSEC!;
 
             var token = btoa( CLIENT_ID + ':' + CLIENT_SEC );
 
-            const recived_token = fetch("https://accounts.spotify.com/api/token", {
+            fetch("https://accounts.spotify.com/api/token", {
             body: "grant_type=client_credentials",
             headers: {
                 'Authorization': 'Basic ' + token,
@@ -63,14 +74,18 @@ function SearchTracks() {
             method: "POST"
             })
             .then(response => response.json())
-            .then( data => setTheToken( data.access_token ) );
+            .then( data => 
+                this.setState({
+                    theToken: data.access_token
+                })
+            );
         }
-    })
+    };
 
-    const submitTracks = () => {
+    submitTracks() {
         
         let trackArray: string[] = [];
-        trackList.map((track: any) => (
+        this.state.trackList.map((track: any) => (
             trackArray.push('spotify:track:'+track.trackid)
         ));
         /**
@@ -79,50 +94,52 @@ function SearchTracks() {
 
     }
 
-    const searchForTrack = ( event:any ) => {
-        var search:string = event.target.value;
-        let the_Token: any = theToken;
-        var spotifyApi = new SpotifyWebApi();
-        spotifyApi.setAccessToken(the_Token);
-        if( search.length > 1 ){
-            spotifyApi.searchTracks(search).then(
-                function (data) {
-                  setTheTracks( data );
-                },
-                function (err) {
-                  console.error(err);
-                }
-              );
-        } else {
-            let data = Object.create(null);
-            setTheTracks(data);
-        }
+    searchForTrack( event:any ){
+        this.setState({
+            theTracks: this.doSearch(event.target.value),
+        })
+        
     }
 
-    let return_tracks_search;
+    doSearch( event:string ){
+        var search:string = event;
+        let the_Token: any = this.state.theToken;
+        var spotifyApi = new SpotifyWebApi();
+        spotifyApi.setAccessToken(the_Token);
+        spotifyApi.searchTracks(search).then(
+            function (data: object) {
+                return data;
+            },
+        );
+    }
 
-    if(theTracks.tracks){
-        return_tracks_search = <Track data={ theTracks.tracks } addTrack={ addTrack } />
+
+    render() {
+        const return_tracks_search = () => {
+            if(this.state.theTracks.tracks){
+                return( <Track data={ this.state.theTracks.tracks } addTrack={ this.addTrack } /> );
+            };
+        };
+        return (
+            <Col
+                className='m-auto'
+            >
+                <Button data-testid='submit-button' onClick={ this.submitTracks }>Lets rock!</Button>
+                <SelectedTracks data={ this.state.trackList } removeTrack={ this.removeTrack } isSelected={true} />
+                <Form className="m-auto max-w-md my-10">
+                    <Input 
+                    type="text"
+                    id="search-track"
+                    data-testid='search-input'
+                    className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+                    placeholder="Song title"
+                    onChange={ this.searchForTrack }
+                    ></Input>
+                </Form>
+                {return_tracks_search}
+            </Col>
+        );
     };
-    return (
-        <Col
-            className='m-auto'
-        >
-            <Button data-testid='submit-button' onClick={ submitTracks }>Lets rock!</Button>
-            <SelectedTracks data={ trackList } removeTrack={ removeTrack } isSelected={true} />
-            <Form className="m-auto max-w-md my-10">
-                <Input 
-                type="text"
-                id="search-track"
-                data-testid='search-input'
-                className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-                placeholder="Song title"
-                onChange={ searchForTrack }
-                ></Input>
-            </Form>
-            {return_tracks_search}
-        </Col>
-    );
     
 }
 
