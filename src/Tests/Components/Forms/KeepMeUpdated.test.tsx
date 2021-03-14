@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import Enzyme, {shallow, mount} from 'enzyme'
+import Enzyme, {shallowWithIntl, shallow, mount} from 'enzyme'
 import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-17-updated';
 import { render, screen } from '@testing-library/react';
@@ -28,6 +28,20 @@ describe('<KeepMeUpdated/> component', () => {
     expect(wrapper.find('submit-button')).toBeTruthy();
   });
 
+  test('adding user details should upate the state, not the button', () => {
+    let wrapper = shallow(<KeepMeUpdated/>);
+    wrapper.find('#name').value = "foo bar-bundy";
+    const buttonElement = screen.queryByTestId('submit-button');
+    expect(buttonElement).not.toBeInTheDocument();
+  });
+
+  test('adding user details should upate the state, not the button', () => {
+    let wrapper = shallow(<KeepMeUpdated/>);
+    wrapper.find('#email').value = "foo@bar-bundy.com";
+    const buttonElement = screen.queryByTestId('submit-button');
+    expect(buttonElement).not.toBeInTheDocument();
+  });
+
   test('submit button should not return if no props', () => {
     render(<Submit name='' email=''/>);
     const buttonElement = screen.queryByTestId('submit-button');
@@ -39,6 +53,5 @@ describe('<KeepMeUpdated/> component', () => {
     const buttonElement = screen.queryByTestId('submit-button');
     expect(buttonElement).toBeInTheDocument();
   });
-
   
 });
