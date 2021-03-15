@@ -19,14 +19,15 @@ function GoogleSheets( data:any, SPREADSHEET_ID:string, SHEET_ID:string ): boole
       return false;
     }
 
+    /* istanbul ignore next */
     const appendSpreadsheet = async (row:any) => {
         try {
           await doc.useServiceAccountAuth({
             client_email: CLIENTEMAIL,
             private_key: CLIENTKEY.replace(/\\n/g, '\n'),
           });
+          
           await doc.loadInfo();
-      
           const sheet = doc.sheetsById[ SHEET_ID ];
           await sheet.addRow(data);
           return true;
