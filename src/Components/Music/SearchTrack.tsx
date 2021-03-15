@@ -92,6 +92,7 @@ class SearchTracks extends Component{
         this.state.trackList.map((track: any) => (
             trackArray.push('spotify:track:'+track.trackid)
         ));
+        return trackArray;
         /**
          * yeeah, we're going to have to dump these to a google sheet or something.
          */

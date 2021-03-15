@@ -28,7 +28,7 @@ describe('<SearchTracks/> component', () => {
         );
     });
 
-    it('Submit button should submit tracks', () => {
+    it('Submit button should submit tracks, as array', () => {
         const wrapper = shallow(<SearchTracks/>);
         const instance = wrapper.instance();
         let content = [
@@ -42,6 +42,7 @@ describe('<SearchTracks/> component', () => {
         instance.forceUpdate();
         wrapper.find('[data-testid="submit-button"]').simulate('click');
         expect(handleClick).toHaveBeenCalled();
+        expect(handleClick).toHaveReturnedWith([]);
     })
 
     it('renders correctly', () => {
