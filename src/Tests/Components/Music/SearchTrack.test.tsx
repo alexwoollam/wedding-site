@@ -45,6 +45,23 @@ describe('<SearchTracks/> component', () => {
         expect(handleClick).toHaveReturnedWith([]);
     })
 
+    it('Lets add some tracks', () => {
+        const wrapper = shallow(<SearchTracks/>);
+        const instance = wrapper.instance();
+        instance.addTrack( '0', 'Song 2', 'Blur', 'img.jpg' );
+        expect(wrapper.state('trackList')).toEqual(
+            expect.arrayContaining([
+                expect.objectContaining({
+                    id: 0,
+                    trackid: '0',
+                    trackname: 'Song 2',
+                    trackartist: 'Blur',
+                    trackimage: 'img.jpg',
+                })
+            ])
+        );
+    })
+
     it('renders correctly', () => {
         const tree = renderer
         .create(<SearchTracks />).toJSON();
