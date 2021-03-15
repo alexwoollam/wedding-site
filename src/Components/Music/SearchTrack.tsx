@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, { Component } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
-import SpotifyAuthApi from 'spotify-web-api-node';
 import Track from './Track';
 import SelectedTracks from './SelectedTracks';
 import { Col, Form, Input, Button } from 'reactstrap';
@@ -53,8 +52,6 @@ class SearchTracks extends Component{
             trackartist: artist,
             trackimage: image,
         }
-        console.log(object);
-        console.log('^^object');
         var joined = this.state.trackList.concat(object);
         this.setState({ trackList: joined });
 

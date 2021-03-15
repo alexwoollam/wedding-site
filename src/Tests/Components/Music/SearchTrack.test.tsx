@@ -17,7 +17,16 @@ describe('<SearchTracks/> component', () => {
         expect(InfoBlockContent).toBeInTheDocument();
     });
 
-    
+    it('State should update on searching for tracks!', () => {
+        const wrapper = shallow(<SearchTracks/>);
+        const componentInstance = wrapper.instance();
+        componentInstance.searchForTrack({target:{value:'blue'}});
+        expect(wrapper.state('theTracks')).toEqual(
+            expect.objectContaining({
+                "tracks": []
+            })
+        );
+    });
 
     it('renders correctly', () => {
         const tree = renderer
