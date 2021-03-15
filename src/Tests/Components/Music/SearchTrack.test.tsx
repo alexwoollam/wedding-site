@@ -28,6 +28,22 @@ describe('<SearchTracks/> component', () => {
         );
     });
 
+    it('Submit button should submit tracks', () => {
+        const wrapper = shallow(<SearchTracks/>);
+        const instance = wrapper.instance();
+        let content = [
+            {trackid: 'abc'},
+            {trackid: 'def'}
+        ] 
+        wrapper.setState({ 
+            content
+        });
+        const handleClick = jest.spyOn(wrapper.instance(), 'submitTracks');
+        instance.forceUpdate();
+        wrapper.find('[data-testid="submit-button"]').simulate('click');
+        expect(handleClick).toHaveBeenCalled();
+    })
+
     it('renders correctly', () => {
         const tree = renderer
         .create(<SearchTracks />).toJSON();
