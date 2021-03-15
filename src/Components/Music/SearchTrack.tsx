@@ -39,11 +39,9 @@ class SearchTracks extends Component{
     }
 
     addTrack( id: string, title: string, artist: string, image: string ){
-        var the_length;
+        var the_length = 0;
         if(this.state.trackList){
             the_length = this.state.trackList.length; 
-        } else {
-            the_length = 0;
         }
 
         const object = {
@@ -88,7 +86,6 @@ class SearchTracks extends Component{
     submitTracks() {
         
         var trackArray = [];
-        console.log(this.state.trackList);
         this.state.trackList.map((track: any) => (
             trackArray.push('spotify:track:'+track.trackid)
         ));
