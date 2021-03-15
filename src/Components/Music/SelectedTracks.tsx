@@ -22,7 +22,7 @@ function SelectedTracks( props: PropsDefined ){
                 {items.map( (track, index)=>(
                     <Row key={ index } style={{border: '2px dashed lightgrey'}} className='p-3 mt-2 rounded'>
                         <Col md={1}>
-                            <img className={'rounded'} src={ track.trackimage } alt={"artwork for " + track.trackname } />
+                            <img className={'rounded'} src={ track?.trackimage } alt={"artwork for " + track.trackname } />
                         </Col>
                         <Col>
                             <h4>{ track.trackname }</h4>
