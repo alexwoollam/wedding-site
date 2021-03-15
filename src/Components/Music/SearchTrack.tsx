@@ -1,4 +1,4 @@
-//ts-nocheck
+// @ts-nocheck
 import React, { Component } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import SpotifyAuthApi from 'spotify-web-api-node';
@@ -32,54 +32,59 @@ class SearchTracks extends Component{
                 tracks: []
             },
         };
+
+        this.searchForTrack = this.searchForTrack.bind(this);
+        this.addTrack = this.addTrack.bind(this);
+        this.removeTrack = this.removeTrack.bind(this);
     }
 
     addTrack( id: string, title: string, artist: string, image: string ){
-        
-        let length;
+        var the_length;
         if(this.state.trackList){
-            length = this.state.trackList.length; 
+            the_length = this.state.trackList.length; 
         } else {
-            length = 0;
+            the_length = 0;
         }
 
-        this.setState({
-            trackList: { 
-                id: length, 
-                trackid: id,
-                trackname: title,
-                trackartist: artist,
-                trackimage: image,
-            }
-        });
+        const object = {
+            id: the_length, 
+            trackid: id,
+            trackname: title,
+            trackartist: artist,
+            trackimage: image,
+        }
+        console.log(object);
+        console.log('^^object');
+        var joined = this.state.trackList.concat(object);
+        this.setState({ trackList: joined });
+
     }
 
     removeTrack( id: number ){
-        
+        const list = this.state.trackList.filter(trackList => trackList.id !== id);
+        this.setState({ trackList: list });
     }
 
     componentDidMount(){
-        if( ! this.state.theToken ){
-            const CLIENT_ID:string = process.env.REACT_APP_SPOTIFYCLI!;
-            const CLIENT_SEC:string = process.env.REACT_APP_SPOTIFYSEC!;
+        const CLIENT_ID:string = process.env.REACT_APP_SPOTIFYCLI!;
+        const CLIENT_SEC:string = process.env.REACT_APP_SPOTIFYSEC!;
 
-            var token = btoa( CLIENT_ID + ':' + CLIENT_SEC );
+        var token = btoa( CLIENT_ID + ':' + CLIENT_SEC );
 
-            fetch("https://accounts.spotify.com/api/token", {
-            body: "grant_type=client_credentials",
-            headers: {
-                'Authorization': 'Basic ' + token,
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            },
-            method: "POST"
+        fetch("https://accounts.spotify.com/api/token", {
+        body: "grant_type=client_credentials",
+        headers: {
+            'Authorization': 'Basic ' + token,
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        method: "POST"
+        })
+        .then(response => response.json())
+        .then( data => 
+            this.setState({
+                theToken: data.access_token
             })
-            .then(response => response.json())
-            .then( data => 
-                this.setState({
-                    theToken: data.access_token
-                })
-            );
-        }
+        );
     };
 
     submitTracks() {
@@ -94,32 +99,22 @@ class SearchTracks extends Component{
 
     }
 
-    searchForTrack( event:any ){
-        this.setState({
-            theTracks: this.doSearch(event.target.value),
-        })
+    searchForTrack( search:any ){
+        var spotifyApi = new SpotifyWebApi();
+        spotifyApi.setAccessToken(this.state.theToken);
+        spotifyApi.searchTracks(search.target.value).then(
+            (data) => {        
+                this.setState({
+                    theTracks: data,
+                })
+            },
+        );
+        
+
         
     }
 
-    doSearch( event:string ){
-        var search:string = event;
-        let the_Token: any = this.state.theToken;
-        var spotifyApi = new SpotifyWebApi();
-        spotifyApi.setAccessToken(the_Token);
-        spotifyApi.searchTracks(search).then(
-            function (data: object) {
-                return data;
-            },
-        );
-    }
-
-
     render() {
-        const return_tracks_search = () => {
-            if(this.state.theTracks.tracks){
-                return( <Track data={ this.state.theTracks.tracks } addTrack={ this.addTrack } /> );
-            };
-        };
         return (
             <Col
                 className='m-auto'
@@ -136,7 +131,7 @@ class SearchTracks extends Component{
                     onChange={ this.searchForTrack }
                     ></Input>
                 </Form>
-                {return_tracks_search}
+                <Track data={ this.state.theTracks.tracks } addTrack={ this.addTrack } />
             </Col>
         );
     };
