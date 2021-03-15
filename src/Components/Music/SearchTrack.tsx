@@ -35,6 +35,7 @@ class SearchTracks extends Component{
         this.searchForTrack = this.searchForTrack.bind(this);
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
+        this.submitTracks = this.submitTracks.bind(this);
     }
 
     addTrack( id: string, title: string, artist: string, image: string ){
@@ -86,7 +87,8 @@ class SearchTracks extends Component{
 
     submitTracks() {
         
-        let trackArray: string[] = [];
+        var trackArray = [];
+        console.log(this.state.trackList);
         this.state.trackList.map((track: any) => (
             trackArray.push('spotify:track:'+track.trackid)
         ));
@@ -106,9 +108,6 @@ class SearchTracks extends Component{
                 })
             },
         );
-        
-
-        
     }
 
     render() {
