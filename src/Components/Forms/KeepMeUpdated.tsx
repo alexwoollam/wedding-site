@@ -53,21 +53,26 @@ function KeepMeUpdated() {
     };
       
     const handlePostForm = ( event:any ) => {
+        /* istanbul ignore next */
         event.preventDefault();
 
+        /* istanbul ignore next */
         if( GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID ) ){
             setUser({...user, form: true});
         };
     }
 
     const setTheEmail = ( event:any ) => {
+        /* istanbul ignore next */
         setUser({...user, email: event.target.value});
     }
 
     const setTheName = ( event:any ) => {
+        /* istanbul ignore next */
         setUser({...user, name: event.target.value});
     }
 
+    /* istanbul ignore else */
     if( ! user.form ){
         return (
             <Col md={6}
