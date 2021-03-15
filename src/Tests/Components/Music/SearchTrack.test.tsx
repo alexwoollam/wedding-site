@@ -45,6 +45,27 @@ describe('<SearchTracks/> component', () => {
         expect(handleClick).toHaveReturnedWith([]);
     })
 
+    it('test track removeal', () => {
+        const wrapper = shallow(<SearchTracks/>);
+        let content = [
+            {id: '0'},
+            {id: '1'},
+            {id: '2'}
+        ] 
+        wrapper.setState({ 
+            trackList: content
+        });
+        const instance = wrapper.instance();
+        instance.removeTrack( "1" );
+        expect(wrapper.state('trackList')).toEqual(
+            [
+                {id: "0"},
+                {id: "2"},
+            ]
+        );
+
+    })
+
     it('Lets add some tracks', () => {
         const wrapper = shallow(<SearchTracks/>);
         const instance = wrapper.instance();
