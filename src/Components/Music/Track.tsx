@@ -1,4 +1,3 @@
-import { exit } from 'node:process';
 import React, {useState} from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import {Container, Card, Row, Col, CardImg, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
@@ -11,8 +10,6 @@ interface PropsDefined {
 }
 
 function Track( props: PropsDefined ){
-
-    const [playingTrack, setPlayingTrack] = useState<string>('null');
 
     if( ! props.data ){ 
         return null;

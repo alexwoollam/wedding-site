@@ -4,19 +4,6 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import Track from './Track';
 import SelectedTracks from './SelectedTracks';
 import { Col, Form, Input, Button } from 'reactstrap';
-import { Submit } from '../Forms/KeepMeUpdated';
-
-interface theTracksInterface{
-    tracks: object,
-}
-
-interface trackListInterface{
-    id: number, 
-    trackid: string,
-    trackname: string,
-    trackartist: string,
-    trackimage: string,
-}
 
 class SearchTracks extends Component{
     
@@ -53,7 +40,6 @@ class SearchTracks extends Component{
         }
         var joined = this.state.trackList.concat(object);
         this.setState({ trackList: joined });
-
     }
 
     removeTrack( id: number ){
@@ -128,8 +114,7 @@ class SearchTracks extends Component{
                 <Track data={ this.state.theTracks.tracks } addTrack={ this.addTrack } />
             </Col>
         );
-    };
-    
+    };   
 }
 
 export default SearchTracks;

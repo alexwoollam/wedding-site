@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import GoogleSheets from '../../Controllers/Forms/GoogleSheets';
 import ReCAPTCHA from "react-google-recaptcha";
 import Info from '../Help/Info';
@@ -20,8 +20,6 @@ export function Submit( props:any ) {
     }
     return null;
 }
-
-
 
 const text = {
     text: 'Keep me updated',
