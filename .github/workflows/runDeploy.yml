@@ -10,14 +10,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
+    - name: Fix git
+      run: |
+        git config --global user.email "alexjhwoollam@gmail.com"
+        git config --global user.name "Alex Woollam"
+
     - name: Install modules
       run: npm install
 
     - name: Run the tests and skip coverage report
       run: npm test
 
-    - name: Fix git
-      run:  git config --global user.email "alexjhwoollam@gmail.com" && git config --global user.name "Alex Woollam"
+    - name: Install and Build 🔧
+      run: npm run build
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.0
