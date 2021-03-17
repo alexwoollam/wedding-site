@@ -13,11 +13,14 @@ jobs:
     - name: Install modules
       run: npm install
 
-    - name: Run the tests and generate coverage report
+    - name: Run the tests and skip coverage report
       run: npm test
 
     - name: Fix git
       run:  git config --global user.email "alexjhwoollam@gmail.com" && git config --global user.name "Alex Woollam"
 
-    - name: Deploy
-      run: npm run-script deploy
+    - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: deploy
+          folder: build
