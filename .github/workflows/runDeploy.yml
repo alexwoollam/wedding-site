@@ -1,0 +1,20 @@
+name: CD
+on:
+  push:
+    branches: release
+
+jobs:
+  build:
+    runs-on: Ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install modules
+      run: npm install
+
+    - name: Run the tests and generate coverage report
+      run: npm test
+
+    - name: Deploy
+      run: npm run-script deploy
