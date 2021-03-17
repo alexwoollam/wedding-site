@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AACA,cAAc,CACd,oBAAoB,CACpB,eAAe,CACf,mBAAmB,CAEnB,kBAAoB,iBAAoB","file":"main.b422a8e9.chunk.css","sourcesContent":["/*main stlyle shee*/\n@tailwind base;\n@tailwind components;\n@tailwind forms;\n@tailwind utilities;\n\n.grecaptcha-badge { visibility: hidden; }"]}
