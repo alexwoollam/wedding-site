@@ -20,7 +20,7 @@ jobs:
       run:  git config --global user.email "alexjhwoollam@gmail.com" && git config --global user.name "Alex Woollam"
 
     - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.0
-        with:
-          branch: deploy
-          folder: build
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+        branch: deploy
+        folder: build
