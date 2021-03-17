@@ -16,5 +16,8 @@ jobs:
     - name: Run the tests and generate coverage report
       run: npm test
 
+    - name: Fix git
+      run:  git config --global user.email "alexjhwoollam@gmail.com" && git config --global user.name "Alex Woollam"
+
     - name: Deploy
       run: npm run-script deploy
