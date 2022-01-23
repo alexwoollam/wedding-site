@@ -1,19 +1,18 @@
 import { ADD_RSVP } from "../Actions";
-import {AnyAction, Reducer} from "redux";
+import {Reducer} from "redux";
 
 interface RsvpState {
+    rsvp: Array<object>;
 }
 
 const initialState: RsvpState = {
-    rsvp: []
-};
+    rsvp: [
 
-const defaultState = {
-    rsvp: [],
+    ]
 };
 
 const rsvpReducer: Reducer = (
-    state=initialState, action
+    state= initialState, action
 ): RsvpState => {
     switch (action.type) {
         case ADD_RSVP:
@@ -22,7 +21,7 @@ const rsvpReducer: Reducer = (
             }
             return {
                 ...state,
-                rsvp: defaultState.rsvp.concat(newRsvp),
+                rsvp: initialState.rsvp.concat(newRsvp),
             };
     }
     return state
