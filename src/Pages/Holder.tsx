@@ -31,7 +31,6 @@ function Holder() {
           <KeepMeUpdated/>
         </Col>
       </Row>
-      
     </Container>
   );
 }

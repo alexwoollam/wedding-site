@@ -4,7 +4,6 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-
 import Holder from './Pages/Holder';
 import Music from './Pages/Music';
 
