@@ -7,7 +7,20 @@ interface RsvpState {
 
 const initialState: RsvpState = {
     rsvp: [
-
+        {
+            name: "",
+            email: "",
+            attending: false,
+            dietary: "",
+            songs: [
+                {
+                    title: "",
+                    artist: "",
+                    album: "",
+                    url: ""
+                }
+            ]
+        }
     ]
 };
 

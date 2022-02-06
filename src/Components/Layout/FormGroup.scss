@@ -1,0 +1,16 @@
+@import '../../variables';
+
+.form-group{
+  margin: 0 auto;
+  max-width: 80%;
+  margin-bottom: 50px;
+  & label{
+    font-weight: 700;
+  }
+}
+
+.sub-label{
+  font-size: 0.6em;
+  color: $dustypink;
+  font-weight: 700;
+}

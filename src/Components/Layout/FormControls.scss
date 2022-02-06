@@ -1,0 +1,23 @@
+@import '../../variables';
+.form-controls{
+  padding: 25px 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  & .btn-next{
+    align-self: flex-end;
+    background-color: $dustygreen;
+    color: white;
+  }
+  & .btn-prev{
+    align-self: flex-start;
+    background-color: $dustygreen;
+    color: white;
+  }
+  & .btn:disabled{
+    background-color: lightgrey;
+    color: grey;
+    opacity: 0;
+  }
+}

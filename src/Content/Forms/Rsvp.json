@@ -1,0 +1,55 @@
+{
+  "step_1": {
+    "title": "Who's coming?",
+    "subtitle": "Please enter your name and email address below.",
+    "name": {
+      "label": "Your name",
+      "other_lable": "Additional guest",
+      "placeholder": [
+        "Jon Snow",
+        "Lando Calrissian",
+        "Jean-Luc Picard",
+        "Jaime Lannister",
+        "Sansa Stark",
+        "Pavel Chekov",
+        "Hikaru Sulu",
+        "Luke Skywalker",
+        "Darth Vader",
+        "Samwise Gamgee"
+      ]
+    },
+    "email": {
+      "label": "Primary email",
+      "sub_label": "We'll use this to send you crap",
+      "placeholder": [
+        "jon_snow@the_wall.gov",
+        "lando_calrissian@aol.com",
+        "jean-luc.picard@nasa.space",
+        "jaime_lannister@lionmail.org",
+        "sansa_stark123@hotmail.co.wo",
+        "pavel_chekov@ussr.io",
+        "hikaru.sulu@enterprise.org",
+        "luke_skywalker@theforce.com",
+        "darthvader69@hotmail.co.uk",
+        "samwise_gamgee@shiremail.com"
+      ]
+    },
+    "add_plus_one_button": "Add",
+    "add_plus_one_button_label": "Add other guests",
+    "add_plus_one_button_sub_label": "Please include anyone else who you are RSVPing on behalf of",
+    "other_guests": {
+      "label": "Other guest's name"
+    },
+    "submit_button": "Continue"
+  },
+  "step_2": {
+    "title": "Dietry stuff",
+    "back_button": "Back",
+    "submit_button": "Continue"
+  },
+  "step_3": {
+    "title": "Accomodation sstuff",
+    "back_button": "Back",
+    "submit_button": "Submit"
+  }
+}

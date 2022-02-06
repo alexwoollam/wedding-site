@@ -15,3 +15,7 @@ export function DELETE_RSVP(){
 export function UPDATE_RSVP(){
     return { type: 'UPDATE_RSVP' };
 }
+
+export function ADD_TRACKS(){
+    return { type: 'ADD_TRACKS' };
+}

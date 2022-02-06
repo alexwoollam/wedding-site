@@ -1,0 +1,9 @@
+@import '../../variables';
+
+.btn-remove{
+  background-color: $dustypink;
+  border: 2px solid $dustypink--dark;
+  &:hover{
+    background-color: $dustypink--dark;
+  }
+}
