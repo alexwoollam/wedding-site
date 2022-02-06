@@ -7,20 +7,20 @@ import Heading from '../../../Components/Text/Heading';
 
 describe('<Heading/> component', () => {
   test('renders keep me updated form', () => {
-    render(<Heading text="Heading" />);
+    render(<Heading>Heading</Heading>);
     const linkElement = screen.getByText('Heading');
     expect(linkElement).toBeInTheDocument();
   });
 
   test('If no props are sent, do an early return.', () => {
-    render(<Heading/>);
+    render(<Heading></Heading>);
     const linkElement = screen.queryByTestId('heading-block');
     expect(linkElement).not.toBeInTheDocument();
   });
   
   it('renders correctly', () => {
     const tree = renderer
-      .create(<Heading text="Heading text" />).toJSON();
+        .create(<Heading>Heading text</Heading>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

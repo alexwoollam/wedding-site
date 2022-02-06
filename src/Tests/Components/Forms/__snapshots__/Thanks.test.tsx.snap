@@ -2,11 +2,18 @@
 
 exports[`<Thanks name="name" /> component renders correctly 1`] = `
 <div>
-  <h1
-    className="text-grey-700 font-serif text-3xl text-center m-2"
-    data-testid="text-block"
+  <div
+    className="heading"
   >
-    Thanks, undefined!!
-  </h1>
+    <h1
+      className="text-grey-700 font-serif text-3xl text-center heading-text"
+      data-testid="text-block"
+    >
+      Thanks, undefined!!
+    </h1>
+    <span
+      className="heading-subtext"
+    />
+  </div>
 </div>
 `;

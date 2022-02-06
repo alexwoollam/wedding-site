@@ -2,11 +2,11 @@
 
 exports[`<HeaderImage/> component renders correctly 1`] = `
 <div
-  className="Header flex justify-center row"
+  className="Header flex justify-center header-image-block row"
   data-testid="header-image-block"
 >
   <div
-    className="col-sm-12 col-md-6 m-auto col"
+    className="col-sm-12 col-md-6 m-auto  col"
   >
     <div
       center="true"
@@ -15,7 +15,7 @@ exports[`<HeaderImage/> component renders correctly 1`] = `
       <img
         alt="bar"
         className="media-object"
-        data-src="foo.png"
+        src="foo.png"
       />
     </div>
   </div>

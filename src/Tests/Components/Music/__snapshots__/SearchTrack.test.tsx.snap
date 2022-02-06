@@ -2,17 +2,8 @@
 
 exports[`<SearchTracks/> component renders correctly 1`] = `
 <div
-  className="m-auto col"
+  className="m-auto track-selector col"
 >
-  <button
-    aria-label={null}
-    className="btn btn-secondary"
-    data-testid="submit-button"
-    onClick={[Function]}
-    type="button"
-  >
-    Lets rock!
-  </button>
   <form
     className="m-auto max-w-md my-10"
   >
@@ -21,7 +12,7 @@ exports[`<SearchTracks/> component renders correctly 1`] = `
       data-testid="search-input"
       id="search-track"
       onChange={[Function]}
-      placeholder="Song title"
+      placeholder="Search Track, Artist or Album"
       type="text"
     />
   </form>

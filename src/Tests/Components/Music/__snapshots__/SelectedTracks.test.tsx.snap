@@ -36,7 +36,7 @@ exports[`<SelectedTrack/> component renders correctly 1`] = `
     >
       <button
         aria-label={null}
-        className="btn-danger btn btn-secondary"
+        className="btn-remove btn btn-secondary"
         data-testid="remove-button"
         onClick={[Function]}
         type="button"

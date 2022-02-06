@@ -11,16 +11,21 @@ exports[`<Track/> component renders correctly 1`] = `
       className="col-sm-12 col-md-4"
     >
       <div
-        className="box-border m-3 p-2 border-4 rounded card"
+        className="box-border m-3 p-2 border-4 rounded track-card card"
       >
         <img
           alt="artwork for Song 2"
-          className="card-img"
+          className="cover-preview card-img"
           src="https://i.scdn.co/image/ab67616d00001e02d99d0823b831a78b50379100"
+          style={
+            Object {
+              "backgroundColor": "#8bc34a",
+            }
+          }
         />
         <button
           aria-label={null}
-          className="btn btn-secondary"
+          className="m-3 track-card-button btn btn-secondary"
           data-testid="add-track"
           onClick={[Function]}
           type="button"
@@ -28,7 +33,7 @@ exports[`<Track/> component renders correctly 1`] = `
           Add track
         </button>
         <div
-          className="card-body"
+          className="track-card-body card-body"
         >
           <h4
             className="card-title"
@@ -40,8 +45,8 @@ exports[`<Track/> component renders correctly 1`] = `
           >
             Blur
           </h5>
-          <br />
           <div
+            className="track-card-preview"
             data-testid="preview-button"
           >
             <audio
@@ -72,16 +77,21 @@ exports[`<Track/> component renders correctly 1`] = `
       className="col-sm-12 col-md-4"
     >
       <div
-        className="box-border m-3 p-2 border-4 rounded card"
+        className="box-border m-3 p-2 border-4 rounded track-card card"
       >
         <img
           alt="artwork for Bleach"
-          className="card-img"
+          className="cover-preview card-img"
           src="https://i.scdn.co/image/ab67616d00001e02d99d0823b831a78b50379100"
+          style={
+            Object {
+              "backgroundColor": "#8bc34a",
+            }
+          }
         />
         <button
           aria-label={null}
-          className="btn btn-secondary"
+          className="m-3 track-card-button btn btn-secondary"
           data-testid="add-track"
           onClick={[Function]}
           type="button"
@@ -89,7 +99,7 @@ exports[`<Track/> component renders correctly 1`] = `
           Add track
         </button>
         <div
-          className="card-body"
+          className="track-card-body card-body"
         >
           <h4
             className="card-title"
@@ -101,7 +111,10 @@ exports[`<Track/> component renders correctly 1`] = `
           >
             Nirvana
           </h5>
-          <br />
+          <div
+            className="track-card-preview"
+            data-testid="preview-button"
+          />
         </div>
       </div>
     </div>

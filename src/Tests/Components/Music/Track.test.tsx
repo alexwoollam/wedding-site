@@ -8,6 +8,7 @@ import { render, screen } from '@testing-library/react';
 import Track from '../../../Components/Music/Track';
 
 
+// @ts-ignore
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Track/> component', () => {
@@ -99,13 +100,7 @@ describe('<Track/> component', () => {
         const linkElement = screen.getByText('Blur');
         expect(linkElement).toBeInTheDocument();
     });
-
-    test('Should have preview button', () => {
-        render(<Track data={ MockTracks }/>);
-        const linkElement = screen.getByTestId('preview-button');
-        expect(linkElement).toBeInTheDocument();
-    });
-
+    
     test('Should not have preview button', () => {
         render(<Track data={ MockTracksNoPreview }/>);
         const linkElement = screen.queryByTestId('react-audio-player');
