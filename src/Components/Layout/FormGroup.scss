@@ -14,3 +14,15 @@
   color: $dustypink;
   font-weight: 700;
 }
+
+.btn-add-guest{
+  background-color: $dustygreen;
+  color: white;
+  width: 100%;
+}
+
+.other-guests-row{
+  border: 1px dashed $lightgrey;
+  padding: 30px 10px;
+  border-radius: 5px;
+}

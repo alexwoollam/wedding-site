@@ -35,10 +35,11 @@
       ]
     },
     "add_plus_one_button": "Add",
-    "add_plus_one_button_label": "Add other guests",
+    "add_plus_one_button_label": "Add additional RSVP",
     "add_plus_one_button_sub_label": "Please include anyone else who you are RSVPing on behalf of",
     "other_guests": {
-      "label": "Other guest's name"
+      "label": "Other guests name",
+      "label_s": "Other guests names"
     },
     "submit_button": "Continue"
   },

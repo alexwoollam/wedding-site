@@ -100,7 +100,7 @@ describe('<Track/> component', () => {
         const linkElement = screen.getByText('Blur');
         expect(linkElement).toBeInTheDocument();
     });
-    
+
     test('Should not have preview button', () => {
         render(<Track data={ MockTracksNoPreview }/>);
         const linkElement = screen.queryByTestId('react-audio-player');

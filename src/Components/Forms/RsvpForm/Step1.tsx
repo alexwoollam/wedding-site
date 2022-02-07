@@ -3,6 +3,7 @@ import Heading from '../../Text/Heading';
 import TextBlock from "../../Text/TextBlock";
 import FormGroup from "../../Layout/FormGroup";
 import FormControls from "../../Layout/FormControls";
+import {Row, Col} from "reactstrap";
 
 const Step1 = props => {
     const {
@@ -49,35 +50,42 @@ const Step1 = props => {
                 <span className="sub-label">{content.email.sub_label}</span>
             </FormGroup>
             <FormGroup enabled={user.other_guests.length > 0}>
+                <label htmlFor="rsvp-other-guest-name">{ user.other_guests.length > 1 ? content.other_guests.label_s : content.other_guests.label }</label>
                 {
                     user.other_guests.map((guest, index) => {
                         return (
-                            <div className={'row'} key={index} style={{marginBottom: '20px'}}>
-                                <div className={"col-10"}>
-                                    <label htmlFor="rsvp-other-guest-name">{content.other_guests.label}</label>
+                            <Row className={"other-guests-row"} key={index} style={{marginBottom: '20px'}}>
+                                <Col xs={10}>
+
                                     <input
                                         type="text"
                                         className="form-control"
                                         id="rsvp-name"
                                         name='other_guests'
                                         value={ guest.name }
-                                        placeholder={content.name.placeholder[randomNumber]}
+                                        placeholder={content.name.placeholder[randomNumber + 1 + index]}
                                         onChange={ (event) => updateOtherGuest(event, index)}
                                     />
-                                </div>
-                                <div className={"col-2"}>
+                                </Col>
+                                <Col xs={2} style={{alignSelf: 'end'}}>
                                     <button className={'btn btn-remove'} onClick={(event) => removeOtherGuest(event, index)}>
                                         remove
                                     </button>
-                                </div>
-                            </div>
+                                </Col>
+                            </Row>
                         )
                     })
                 }
             </FormGroup>
             <FormGroup enabled={user.name.length > 3}>
-                <label htmlFor="rsvp-name">{content.add_plus_one_button_label}</label>
-                <button className={'btn btn-add-guest'} name='is_other_guests' onClick={ setUserGuestsTrue }>{content.add_plus_one_button}</button>
+                <Row>
+                    <Col>
+                        <label htmlFor="rsvp-name" style={{textAlign: 'right', width: '100%', height: '100%', lineHeight: '2.5'}}>{content.add_plus_one_button_label}</label>
+                    </Col>
+                    <Col xs={2}>
+                        <button className={'btn btn-add-guest'} name='is_other_guests' onClick={ setUserGuestsTrue }>{content.add_plus_one_button}</button>
+                    </Col>
+                </Row>
             </FormGroup>
 
             <FormControls>
