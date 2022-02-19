@@ -1,11 +1,11 @@
 import '@testing-library/jest-dom';
 import React from 'react';
-import Enzyme, {shallowWithIntl, shallow, mount} from 'enzyme'
-import renderer from 'react-test-renderer';
+import Enzyme, {shallow, mount} from 'enzyme'
 import Adapter from 'enzyme-adapter-react-17-updated';
 import { render, screen } from '@testing-library/react';
 import KeepMeUpdated, {Submit} from '../../../Components/Forms/KeepMeUpdated';
 
+// @ts-ignore
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<KeepMeUpdated/> component', () => {
@@ -35,7 +35,8 @@ describe('<KeepMeUpdated/> component', () => {
     expect(buttonElement).not.toBeInTheDocument();
   });
 
-  test('adding user details should upate the state, not the button', () => {
+  // eslint-disable-next-line jest/no-identical-title
+  test('adding user details should update the state, not the button', () => {
     let wrapper = shallow(<KeepMeUpdated/>);
     wrapper.find('#email').value = "foo@bar-bundy.com";
     const buttonElement = screen.queryByTestId('submit-button');

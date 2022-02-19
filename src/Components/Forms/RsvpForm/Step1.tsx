@@ -3,7 +3,7 @@ import Heading from '../../Text/Heading';
 import TextBlock from "../../Text/TextBlock";
 import FormGroup from "../../Layout/FormGroup";
 import FormControls from "../../Layout/FormControls";
-import {Row, Col} from "reactstrap";
+import {Input, Label, Row, Col, Tooltip, Button} from "reactstrap";
 
 const Step1 = props => {
     const {
@@ -11,13 +11,13 @@ const Step1 = props => {
         setPreviousStep,
         setNextStep,
         setUser,
+        setUserAvailability,
         user,
         randomNumber,
         setUserGuestsTrue,
         updateOtherGuest,
         removeOtherGuest
     } = props;
-
 
     return (
         <>
@@ -37,6 +37,31 @@ const Step1 = props => {
             </FormGroup>
 
             <FormGroup enabled={user.name.length > 3}>
+                <Label for="availabilitySelect">
+                    {content.name.availability}
+                </Label>
+                <Input
+                    id="availabilitySelect"
+                    name="availability"
+                    type="select"
+                    onChange={setUserAvailability}
+                >
+                    <option value="yes">{content.name.availability_options.yes}</option>
+                    <option value="no">{content.name.availability_options.no}</option>
+                    <option value="maybe">{content.name.availability_options.maybe}</option>
+                </Input>
+            </FormGroup>
+
+            <FormGroup enabled={user.availability === "no"}>
+                <Label for={"excuse"}>Please write a 500 word essay on why you are unable to attend.</Label>
+                <Input
+                    onChange={setUserAvailability}
+                    type="textarea"
+                    name="excuse"
+                />
+            </FormGroup>
+
+            <FormGroup enabled={user.name.length > 3 && user.availability !== "no"}>
                 <label htmlFor="rsvp-name">{content.email.label}</label>
                 <input
                     type="text"
@@ -49,14 +74,14 @@ const Step1 = props => {
                 />
                 <span className="sub-label">{content.email.sub_label}</span>
             </FormGroup>
-            <FormGroup enabled={user.other_guests.length > 0}>
+
+            <FormGroup enabled={user.other_guests.length > 0 }>
                 <label htmlFor="rsvp-other-guest-name">{ user.other_guests.length > 1 ? content.other_guests.label_s : content.other_guests.label }</label>
                 {
                     user.other_guests.map((guest, index) => {
                         return (
                             <Row className={"other-guests-row"} key={index} style={{marginBottom: '20px'}}>
                                 <Col xs={10}>
-
                                     <input
                                         type="text"
                                         className="form-control"
@@ -73,24 +98,42 @@ const Step1 = props => {
                                     </button>
                                 </Col>
                             </Row>
+
                         )
                     })
                 }
             </FormGroup>
-            <FormGroup enabled={user.name.length > 3}>
+            <FormGroup enabled={user.name.length > 3 && user.availability !== "no"}>
                 <Row>
                     <Col>
-                        <label htmlFor="rsvp-name" style={{textAlign: 'right', width: '100%', height: '100%', lineHeight: '2.5'}}>{content.add_plus_one_button_label}</label>
+                        <label id="additional" htmlFor="rsvp-name" style={{textAlign: 'right', width: '100%', height: '100%', lineHeight: '2.5'}}>{content.add_plus_one_button_label}</label>
+                        <Tooltip
+                            flip
+                            target="additional"
+                            toggle={function noRefCheck(){}}
+                        >{content.add_plus_one_button_sub_label}
+                        </Tooltip>
                     </Col>
                     <Col xs={2}>
-                        <button className={'btn btn-add-guest'} name='is_other_guests' onClick={ setUserGuestsTrue }>{content.add_plus_one_button}</button>
+                        <button id="additionalButton" className={'btn btn-add-guest'} name='is_other_guests' onClick={ setUserGuestsTrue }>{content.add_plus_one_button}</button>
+                        <Tooltip
+                            flip
+                            target="additionalButton"
+                            toggle={function noRefCheck(){}}
+                        >{content.add_plus_one_button_sub_label}
+                        </Tooltip>
                     </Col>
                 </Row>
             </FormGroup>
 
             <FormControls>
                 <button className={'btn btn-prev'} disabled={true} onClick={ setPreviousStep }>{content.back_button}</button>
-                <button className={'btn btn-next'} onClick={ setNextStep }>{content.submit_button}</button>
+                { user.availability !== "no" ?
+                    <button className={'btn btn-next'} disabled={false} onClick={ setNextStep }>{content.continue_button}</button> :
+                    <Button type="submit" className={'btn btn-next'}>
+                        {content.submit_button}
+                    </Button>
+                }
             </FormControls>
         </>
     );

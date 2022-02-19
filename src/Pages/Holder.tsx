@@ -1,6 +1,5 @@
 import React from 'react';
 import Heading from '../Components/Text/Heading';
-import HeaderImage from '../Components/Media/HeaderImage';
 import TextBlock from '../Components/Text/TextBlock';
 import KeepMeUpdated from '../Components/Forms/KeepMeUpdated';
 import { Container, Row, Col } from 'reactstrap';

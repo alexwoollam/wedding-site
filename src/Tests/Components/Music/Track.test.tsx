@@ -11,9 +11,9 @@ import Track from '../../../Components/Music/Track';
 // @ts-ignore
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<Track/> component', () => {
+describe('<Track src=""/> component', () => {
 
-    let MockTracks = new Object();
+    let MockTracks = {};
     MockTracks = [
             {'some string':'string'},
             [
@@ -50,7 +50,7 @@ describe('<Track/> component', () => {
             ]
         ];
 
-    let MockTracksNoPreview = new Object();
+    let MockTracksNoPreview = {};
     MockTracksNoPreview = [
             {'some string':'string'},
             [
@@ -73,14 +73,14 @@ describe('<Track/> component', () => {
         ];
 
 
-        let MockTracksEmpty = new Object();
+        let MockTracksEmpty = {};
         MockTracksEmpty = [
             {'some string':'string'},
         ];
 
 
     test('Component should reuturn null if no props passed', () => {
-        const comp = shallow(<Track />);
+        const comp = shallow(<Track  data={MockTracksEmpty}/>);
         expect(comp.type()).toEqual(null)
     });
 

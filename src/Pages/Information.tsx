@@ -21,15 +21,6 @@ const Information = () => {
     );
 }
 
-
-function mapStateToProps() {
-    //get_user_enrolments: () => dispatch(FetchUserEnrolments({ type: "LOAD_USER_ENROLMENTS" })),
-}
-
-function mapDispatchToProps() {
-    //user_enrolments_state: state.enroled_challenges,
-}
-
 const connected = connect(
     null,
     null,

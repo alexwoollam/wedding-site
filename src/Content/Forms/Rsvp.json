@@ -1,10 +1,16 @@
 {
   "step_1": {
-    "title": "Who's coming?",
+    "title": "Who's RSVPing?",
     "subtitle": "Please enter your name and email address below.",
     "name": {
       "label": "Your name",
-      "other_lable": "Additional guest",
+      "availability": "Are you available?",
+      "availability_options": {
+        "yes": "yers",
+        "no": "nope",
+        "maybe": "maybe"
+      },
+      "other_label": "Additional guest",
       "placeholder": [
         "Jon Snow",
         "Lando Calrissian",
@@ -39,17 +45,34 @@
     "add_plus_one_button_sub_label": "Please include anyone else who you are RSVPing on behalf of",
     "other_guests": {
       "label": "Other guests name",
-      "label_s": "Other guests names"
+      "label_s": "Other guests names",
+      "availability": "Are they available to come?",
+      "availability_yes":  "Yes",
+      "availability_no":  "No"
     },
-    "submit_button": "Continue"
+    "continue_button": "Continue",
+    "submit_button": "Submit"
   },
   "step_2": {
-    "title": "Dietry stuff",
+    "title": "Dietary Requirements",
+    "dietary": {
+      "label": "Do you (or anyone you are replying on the behalf of) have a dietary need or allergy we need to know about?",
+      "yes": "Yes",
+      "no": "No",
+      "yes_sub_label": "What are the details that the caterers need to know",
+      "veg": "For mains we are having a dish with local beef, if that's not your thing and you'd rather go for the vegetarian option instead then let us know below",
+      "veg_yes": "Yes for vegetarian",
+      "veg_no": "beef please!"
+    },
     "back_button": "Back",
     "submit_button": "Continue"
   },
   "step_3": {
-    "title": "Accomodation sstuff",
+    "title": "Thanks",
+    "accommodation_bumph_one": "your RSVP has now been submitted! We look forward to seeing you, wile we have you attention please note - accommodation is limited so we'd encourage you to get booking ASAP if you’re planning to stay. The wedding party will be based at the venue for the weekend and there are some (limited) options for those who’d like to stay too. The venue is 20 minutes away from Salisbury but is very much out in the sticks so any taxis would need to be pre-booked.",
+    "accommodation_bumph_two": "If you are hoping to take advantage of the open bar, you’re welcome to park at the venue and pick your car the next day and maybe even meet us at the onsite farm shop for brunch! We’ll be setting everything up on the Friday but plan to have a relaxed evening either at the venue or the local pub (details TBC). If you happen to be local the night before we’d love to see you!",
+    "accommodation_bumph_link_text": "Click here for additional information about accommodation options so you can get booking!",
+    "accommodation_bumph_link": "/accommodation",
     "back_button": "Back",
     "submit_button": "Submit"
   }

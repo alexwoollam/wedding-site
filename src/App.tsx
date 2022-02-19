@@ -5,7 +5,6 @@ import {
   Route
 } from "react-router-dom";
 import Menu from './Components/Menu';
-import Holder from './Pages/Holder';
 import Music from './Pages/Music';
 import {RSVP} from './Pages/RSVP';
 import {Accommodation} from './Pages/Accommodation';
@@ -51,7 +50,7 @@ function App() {
         {weddingParty}
         {contact}
         {music}
-        <Route path="/" component={Holder} />
+        <Route path="/"><Container><RSVP/></Container></Route>
       </Switch>
     </Router>
   );

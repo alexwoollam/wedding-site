@@ -1,4 +1,3 @@
-import react from 'react';
 import { useHistory } from "react-router-dom";
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import HeaderImage from '../Media/HeaderImage';
@@ -53,6 +52,7 @@ const Menu = ( props: Props ) => {
                                 </NavItem>
                             );
                         }
+                        return null;
                     })
                 }
             </Nav>

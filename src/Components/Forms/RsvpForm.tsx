@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import GoogleSheets from '../../Controllers/Forms/GoogleSheets';
 import ReCAPTCHA from "react-google-recaptcha";
 import { Button, Form, Col } from 'reactstrap';
@@ -27,6 +27,7 @@ export function Submit( props:any ) {
 interface RsvpInterface {
     name: string,
     email: string,
+    availability: string,
     is_other_guests: boolean|null,
     other_guests: Array<OtherGuestInterface>,
     form: boolean,
@@ -39,7 +40,7 @@ interface OtherGuestInterface {
 function RsvpForm() {
 
     const [step, setStep] = useState(1);
-    const [randomNumber, setRandomNumber] = useState( Math.floor(Math.random() * 10));
+    const [randomNumber] = useState( Math.floor(Math.random() * 10));
 
     const SPREADSHEET_ID:string = process.env.REACT_APP_SPREADSHEET_ID!;
     const SHEET_ID:string = process.env.REACT_APP_SHEET_ID!;
@@ -48,6 +49,7 @@ function RsvpForm() {
     const [user, setUser] = useState<RsvpInterface>({
         name: '',
         email: '',
+        availability: '',
         is_other_guests: false,
         other_guests: [],
         form: false,
@@ -65,7 +67,7 @@ function RsvpForm() {
         /* istanbul ignore next */
         if( GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID ) ){
             setUser({...user, form: true});
-        };
+        }
     }
 
     const handlePreviousStep = ( event:any ) => {
@@ -81,12 +83,16 @@ function RsvpForm() {
     const handleNextStep = ( event:any ) => {
         /* istanbul ignore next */
         event.preventDefault();
-
         /* istanbul ignore next */
         setStep(step + 1);
     }
 
     const handleSetUser = ( event:any ) => {
+        /* istanbul ignore next */
+        setUser({...user, [event.target.name]: event.target.value});
+    }
+
+    const setUserAvailability = ( event:any ) => {
         /* istanbul ignore next */
         setUser({...user, [event.target.name]: event.target.value});
     }
@@ -98,7 +104,6 @@ function RsvpForm() {
     }
 
     const updateOtherGuest = (event: any, index) => {
-
         let others = user.other_guests;
         let other = {...others[index]};
         other.name = event.target.value;
@@ -116,14 +121,19 @@ function RsvpForm() {
         return (
             <Col className="m-auto mt-3">
                 <Form onSubmit={ handlePostForm } className="m-auto">
+                    <ReCAPTCHA
+                        sitekey={ RECAPTCHAKEY }
+                        size="invisible"
+                    />
                     <FormLayout>
                         {
                             step === 1 ?
                                 <Step1
                                     setNextStep={ handleNextStep }
                                     setPreviousStep={ handlePreviousStep }
-                                    content={ Content.step_1}
+                                    content={ Content.step_1 }
                                     setUser={ handleSetUser }
+                                    setUserAvailability={ setUserAvailability }
                                     user={ user }
                                     randomNumber={randomNumber}
                                     setUserGuestsTrue={setOtherGuest}
@@ -135,7 +145,7 @@ function RsvpForm() {
                                     <Step2
                                         setNextStep={ handleNextStep }
                                         setPreviousStep={ handlePreviousStep }
-                                        content={ Content.step_2}
+                                        content={ Content.step_2 }
                                     />
                                     :
                                     step === 3 ?
@@ -143,18 +153,12 @@ function RsvpForm() {
                                             setNextStep={ handleNextStep }
                                             setPreviousStep={ handlePreviousStep }
                                             content={ Content.step_3}
+                                            user={ user }
                                         />
                                         :
                                         null
                         }
                     </FormLayout>
-
-                    <ReCAPTCHA
-                        sitekey={ RECAPTCHAKEY }
-                        size="invisible"
-                    />
-
-                    <Submit name={user.name} email={user.email} />
                 </Form>
             </Col>
         );
