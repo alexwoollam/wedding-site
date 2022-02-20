@@ -20,13 +20,13 @@ const Menu = ( props: Props ) => {
     const { devmode } = props;
 
     const menuItems = {
-        'rsvp': {title: 'RSVP', link: '/rsvp', visible: {devmode}},
-        'accommodation': {title: 'Accommodation', link: '/accommodation', visible: {devmode}},
-        'information': {title: 'Information', link: '/information', visible: {devmode}},
-        'gifts': {title: 'Gifts', link: '/gifts', visible: {devmode}},
+        'rsvp': {title: 'RSVP', link: '/rsvp', visible: true},
+        'accommodation': {title: 'Accommodation', link: '/accommodation', visible: true},
+        'information': {title: 'Information', link: '/information', visible: true},
+        'gifts': {title: 'Gifts', link: '/gifts', visible: true},
         'weddingParty': {title: 'Wedding Party', link: '/wedding-party', visible: {devmode}},
         'contact': {title: 'Contact', link: '/contact', visible: {devmode}},
-        'music': {title: 'Music', link: '/music', visible: {devmode}}
+        'music': {title: 'Music', link: '/music', visible: true}
     };
 
     return (
@@ -39,7 +39,7 @@ const Menu = ( props: Props ) => {
                 {
                     Object.keys(menuItems).map( ( key ) => {
                         const item = menuItems[key];
-                        if ( item.visible.devmode ) {
+                        if ( item.visible === "true" || item.visible === true ) {
                             return (
                                 <NavItem
                                     key={key}
