@@ -19,7 +19,7 @@ exports[`<Track src=""/> component renders correctly 1`] = `
           src="https://i.scdn.co/image/ab67616d00001e02d99d0823b831a78b50379100"
           style={
             Object {
-              "backgroundColor": "#ffc107",
+              "backgroundColor": "#00bcd4",
             }
           }
         />
@@ -85,129 +85,7 @@ exports[`<Track src=""/> component renders correctly 1`] = `
           src="https://i.scdn.co/image/ab67616d00001e02d99d0823b831a78b50379100"
           style={
             Object {
-              "backgroundColor": "#ffc107",
-            }
-          }
-        />
-        <button
-          aria-label={null}
-          className="m-3 track-card-button btn btn-secondary"
-          data-testid="add-track"
-          onClick={[Function]}
-          type="button"
-        >
-          Add track
-        </button>
-        <div
-          className="track-card-body card-body"
-        >
-          <h4
-            className="card-title"
-          >
-            Bleach
-          </h4>
-          <h5
-            className="card-subtitle"
-          >
-            Nirvana
-          </h5>
-          <div
-            className="track-card-preview"
-            data-testid="preview-button"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<Track/> component renders correctly 1`] = `
-<div
-  className="container mx-auto container"
->
-  <div
-    className="row"
-  >
-    <div
-      className="col-sm-12 col-md-4"
-    >
-      <div
-        className="box-border m-3 p-2 border-4 rounded track-card card"
-      >
-        <img
-          alt="artwork for Song 2"
-          className="cover-preview card-img"
-          src="https://i.scdn.co/image/ab67616d00001e02d99d0823b831a78b50379100"
-          style={
-            Object {
-              "backgroundColor": "#f44336",
-            }
-          }
-        />
-        <button
-          aria-label={null}
-          className="m-3 track-card-button btn btn-secondary"
-          data-testid="add-track"
-          onClick={[Function]}
-          type="button"
-        >
-          Add track
-        </button>
-        <div
-          className="track-card-body card-body"
-        >
-          <h4
-            className="card-title"
-          >
-            Song 2
-          </h4>
-          <h5
-            className="card-subtitle"
-          >
-            Blur
-          </h5>
-          <div
-            className="track-card-preview"
-            data-testid="preview-button"
-          >
-            <audio
-              autoPlay={false}
-              className="react-audio-player w-100"
-              controls={true}
-              id=""
-              loop={false}
-              muted={false}
-              preload="metadata"
-              src="https://p.scdn.co/mp3-preview/183c0855e94b58dcb267e2b0721d4a3c99260acf?cid=1686551f71a7417da335f1cb88526648"
-              style={Object {}}
-              title="https://p.scdn.co/mp3-preview/183c0855e94b58dcb267e2b0721d4a3c99260acf?cid=1686551f71a7417da335f1cb88526648"
-            >
-              <p>
-                Your browser does not support the 
-                <code>
-                  audio
-                </code>
-                 element.
-              </p>
-            </audio>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      className="col-sm-12 col-md-4"
-    >
-      <div
-        className="box-border m-3 p-2 border-4 rounded track-card card"
-      >
-        <img
-          alt="artwork for Bleach"
-          className="cover-preview card-img"
-          src="https://i.scdn.co/image/ab67616d00001e02d99d0823b831a78b50379100"
-          style={
-            Object {
-              "backgroundColor": "#f44336",
+              "backgroundColor": "#00bcd4",
             }
           }
         />
