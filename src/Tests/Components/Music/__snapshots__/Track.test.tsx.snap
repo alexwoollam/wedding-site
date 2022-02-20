@@ -19,7 +19,7 @@ exports[`<Track src=""/> component renders correctly 1`] = `
           src="https://i.scdn.co/image/ab67616d00001e02d99d0823b831a78b50379100"
           style={
             Object {
-              "backgroundColor": "#00bcd4",
+              "backgroundColor": "#e91e63",
             }
           }
         />
@@ -85,7 +85,7 @@ exports[`<Track src=""/> component renders correctly 1`] = `
           src="https://i.scdn.co/image/ab67616d00001e02d99d0823b831a78b50379100"
           style={
             Object {
-              "backgroundColor": "#00bcd4",
+              "backgroundColor": "#e91e63",
             }
           }
         />
