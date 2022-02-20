@@ -14,6 +14,8 @@ const PASSWORD:string = process.env.REACT_APP_PASSWORD!;
 const ProtectedStyle = {
 }
 
+
+
 ReactDOM.render(
   <React.StrictMode>
       <Protect styles={{ProtectedStyle}} boxTitle="Please use the password printed on your invite" blur={true} sha512={PASSWORD}>
