@@ -11,8 +11,8 @@ const Gifts = () => {
         <Page>
             <Row>
                 <Col>
-                    <Heading subtitle={Content.subtitle}>{Content.title}</Heading>
-                    <TextBlock>{Content.subtitle}</TextBlock>
+                    <Heading main subtitle={Content.subtitle}>{Content.title}</Heading>
+                    <TextBlock>{Content.content.intro}</TextBlock>
                 </Col>
             </Row>
         </Page>

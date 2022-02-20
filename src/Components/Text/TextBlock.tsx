@@ -1,4 +1,5 @@
 import React from 'react';
+import './TextBlock.scss';
 
 function TextBlock( props ) {
   const { children } = props;

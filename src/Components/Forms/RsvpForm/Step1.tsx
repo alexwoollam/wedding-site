@@ -3,19 +3,19 @@ import Heading from '../../Text/Heading';
 import TextBlock from "../../Text/TextBlock";
 import FormGroup from "../../Layout/FormGroup";
 import FormControls from "../../Layout/FormControls";
-import {Input, Label, Row, Col, Tooltip, Button} from "reactstrap";
+import MyButton from "../../Button";
+import {Input, Label, Row, Col, Button,Container} from "reactstrap";
 
 const Step1 = props => {
     const {
         content,
         setPreviousStep,
         setNextStep,
-        setUser,
-        setUserAvailability,
         user,
         randomNumber,
         setUserGuestsTrue,
-        updateOtherGuest,
+        updateUser,
+        updateOtherGuestDetails,
         removeOtherGuest
     } = props;
 
@@ -32,7 +32,7 @@ const Step1 = props => {
                     name='name'
                     value={ user.name }
                     placeholder={content.name.placeholder[randomNumber]}
-                    onChange={setUser}
+                    onChange={updateUser}
                 />
             </FormGroup>
 
@@ -44,18 +44,17 @@ const Step1 = props => {
                     id="availabilitySelect"
                     name="availability"
                     type="select"
-                    onChange={setUserAvailability}
+                    onChange={updateUser}
                 >
                     <option value="yes">{content.name.availability_options.yes}</option>
                     <option value="no">{content.name.availability_options.no}</option>
-                    <option value="maybe">{content.name.availability_options.maybe}</option>
                 </Input>
             </FormGroup>
 
             <FormGroup enabled={user.availability === "no"}>
                 <Label for={"excuse"}>Please write a 500 word essay on why you are unable to attend.</Label>
                 <Input
-                    onChange={setUserAvailability}
+                    onChange={updateUser}
                     type="textarea"
                     name="excuse"
                 />
@@ -70,7 +69,7 @@ const Step1 = props => {
                     name='email'
                     value={ user.email }
                     placeholder={content.email.placeholder[randomNumber]}
-                    onChange={setUser}
+                    onChange={updateUser}
                 />
                 <span className="sub-label">{content.email.sub_label}</span>
             </FormGroup>
@@ -80,25 +79,56 @@ const Step1 = props => {
                 {
                     user.other_guests.map((guest, index) => {
                         return (
-                            <Row className={"other-guests-row"} key={index} style={{marginBottom: '20px'}}>
-                                <Col xs={10}>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="rsvp-name"
-                                        name='other_guests'
-                                        value={ guest.name }
-                                        placeholder={content.name.placeholder[randomNumber + 1 + index]}
-                                        onChange={ (event) => updateOtherGuest(event, index)}
-                                    />
-                                </Col>
-                                <Col xs={2} style={{alignSelf: 'end'}}>
-                                    <button className={'btn btn-remove'} onClick={(event) => removeOtherGuest(event, index)}>
-                                        remove
-                                    </button>
-                                </Col>
-                            </Row>
-
+                            <Container className={"other-guests-container"} key={index}>
+                                <Row className={"other-guests-row"}>
+                                    <Col xs={10}>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="rsvp-name"
+                                            name='name'
+                                            defaultValue={guest.name}
+                                            placeholder={content.name.placeholder[randomNumber + 1 + index]}
+                                            onChange={ (event) => updateOtherGuestDetails(event, index) }
+                                        />
+                                    </Col>
+                                    <Col xs={2} style={{alignSelf: 'end'}}>
+                                        <MyButton remove onClick={(event) => removeOtherGuest(event, index)}>
+                                            remove
+                                        </MyButton>
+                                    </Col>
+                                </Row>
+                                <Row className={"other-guests-row"}>
+                                    <Col xs={12}>
+                                        <Label for="availabilitySelect">
+                                            is {guest.name} available?
+                                        </Label>
+                                        <Input
+                                            id="availabilitySelect"
+                                            name="availability"
+                                            defaultValue={guest.availability}
+                                            type="select"
+                                            onChange={(event) => updateOtherGuestDetails(event, index)}
+                                        >
+                                            <option value="yes">{content.name.availability_options.yes}</option>
+                                            <option value="no">{content.name.availability_options.no}</option>
+                                        </Input>
+                                    </Col>
+                                </Row>
+                                <Row className={"other-guests-row"} style={{marginBottom: '20px'}}>
+                                    <Col xs={12}>
+                                        <input
+                                            type="email"
+                                            className="form-control"
+                                            id="rsvp-email"
+                                            name='email'
+                                            defaultValue={guest.email}
+                                            placeholder={"This is optional"}
+                                            onChange={(event) => updateOtherGuestDetails(event, index)}
+                                        />
+                                    </Col>
+                                </Row>
+                            </Container>
                         )
                     })
                 }
@@ -107,32 +137,19 @@ const Step1 = props => {
                 <Row>
                     <Col>
                         <label id="additional" htmlFor="rsvp-name" style={{textAlign: 'right', width: '100%', height: '100%', lineHeight: '2.5'}}>{content.add_plus_one_button_label}</label>
-                        <Tooltip
-                            flip
-                            target="additional"
-                            toggle={function noRefCheck(){}}
-                        >{content.add_plus_one_button_sub_label}
-                        </Tooltip>
                     </Col>
                     <Col xs={2}>
                         <button id="additionalButton" className={'btn btn-add-guest'} name='is_other_guests' onClick={ setUserGuestsTrue }>{content.add_plus_one_button}</button>
-                        <Tooltip
-                            flip
-                            target="additionalButton"
-                            toggle={function noRefCheck(){}}
-                        >{content.add_plus_one_button_sub_label}
-                        </Tooltip>
                     </Col>
                 </Row>
             </FormGroup>
-
             <FormControls>
-                <button className={'btn btn-prev'} disabled={true} onClick={ setPreviousStep }>{content.back_button}</button>
+                <MyButton prev is_disabled={true} onClick={ setPreviousStep }>{content.back_button}</MyButton>
                 { user.availability !== "no" ?
-                    <button className={'btn btn-next'} disabled={false} onClick={ setNextStep }>{content.continue_button}</button> :
+                    <MyButton next right is_disabled={false} onClick={ setNextStep }>{content.continue_button}</MyButton> :
                     <Button type="submit" className={'btn btn-next'}>
                         {content.submit_button}
-                    </Button>
+                    </Button >
                 }
             </FormControls>
         </>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GoogleSheets from '../../Controllers/Forms/GoogleSheets';
 import ReCAPTCHA from "react-google-recaptcha";
-import { Button, Form, Col } from 'reactstrap';
+import { Form, Col } from 'reactstrap';
 import Content from '../../Content/Forms/Rsvp.json';
 import Step1 from './RsvpForm/Step1';
 import Step2 from './RsvpForm/Step2';
@@ -9,33 +9,20 @@ import Step3 from './RsvpForm/Step3';
 import Thanks from './Thanks';
 import {Form as FormLayout} from '../Layout/Form';
 
-export function Submit( props:any ) {
-    if( props.name && props.email ){
-        return (
-
-            <Button
-                type="submit"
-                className="my-3 transform bg-indigo-600 hover:bg-indigo-300 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                aria-expanded="false"
-                data-testid="submit-button"
-            > submit</Button>
-        )
-    }
-    return null;
-}
-
 interface RsvpInterface {
     name: string,
     email: string,
     availability: string,
+    allergy: string,
+    allergy_details: string,
+    vegetarian: string,
+    excuse: string,
     is_other_guests: boolean|null,
     other_guests: Array<OtherGuestInterface>,
     form: boolean,
 }
 
-interface OtherGuestInterface {
-    name: any,
-}
+interface OtherGuestInterface {}
 
 function RsvpForm() {
 
@@ -49,7 +36,11 @@ function RsvpForm() {
     const [user, setUser] = useState<RsvpInterface>({
         name: '',
         email: '',
-        availability: '',
+        availability: 'yes',
+        allergy: 'no',
+        allergy_details: '',
+        vegetarian: 'beef',
+        excuse: '',
         is_other_guests: false,
         other_guests: [],
         form: false,
@@ -57,16 +48,38 @@ function RsvpForm() {
 
     const user_data = {
         Name: user.name,
-        Email: user.email,
+        Email: user.email === '' ? 'Not Provided' : user.email,
+        Availability: user.availability,
+        Excuse: user.excuse === '' ? 'n/a' : user.excuse,
+        Has_Additional: user.other_guests.length > 0 ? 'Yes' : 'No',
+        Allergies: user.allergy,
+        Allergy_Details: user.allergy_details === '' ? 'n/a' : user.allergy_details,
+        Food_Pref: user.vegetarian,
     };
 
     const handlePostForm = ( event:any ) => {
+
         /* istanbul ignore next */
         event.preventDefault();
-
         /* istanbul ignore next */
         if( GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID ) ){
             setUser({...user, form: true});
+        }
+
+        if( user.other_guests.length > 0 ){
+            user.other_guests.map( (guest:any) => {
+                const guest_data = {
+                    Name: guest.name,
+                    Email: guest.email === '' ? 'Not Provided' : guest.email,
+                    Availability: guest.availability,
+                    Excuse: 'n/a',
+                    Has_Additional: 'Guest of ' + user.name,
+                    Allergies: guest.allergy,
+                    Allergy_Details: guest.allergy_details === '' ? 'n/a' : guest.allergy_details,
+                    Food_Pref: guest.vegetarian
+                };
+                return GoogleSheets(guest_data, SPREADSHEET_ID, SHEET_ID );
+            });
         }
     }
 
@@ -87,27 +100,39 @@ function RsvpForm() {
         setStep(step + 1);
     }
 
-    const handleSetUser = ( event:any ) => {
+    const updateUser = ( event:any ) => {
         /* istanbul ignore next */
         setUser({...user, [event.target.name]: event.target.value});
     }
 
-    const setUserAvailability = ( event:any ) => {
-        /* istanbul ignore next */
-        setUser({...user, [event.target.name]: event.target.value});
-    }
-
-    const setOtherGuest = (event: any) => {
+    const addOtherGuest = ( event: any, index ) => {
         event.preventDefault();
-        let target = {name: event.target.value};
-        setUser({...user, other_guests: [...user.other_guests, target]});
+        /* istanbul ignore next */
+        let others = user.other_guests;
+        setUser({...user, other_guests: [...others, {
+                name: '',
+                email: '',
+                availability: 'yes',
+                allergy: 'no',
+                allergy_details: '',
+                vegetarian: 'beef',
+                excuse: '',
+            }]});
     }
 
-    const updateOtherGuest = (event: any, index) => {
+    const setOtherGuestDetails = (event: any, index) => {
+        event.preventDefault();
         let others = user.other_guests;
-        let other = {...others[index]};
-        other.name = event.target.value;
+        if( others[index] ){
+            others[index][event.target.name] = event.target.value;
+            setUser({...user, other_guests: [...others]});
+        }
+
+        let other = {
+            [event.target.name]: event.target.value,
+            ...others[index]};
         setUser({...user, other_guests: [...others.slice(0, index), other, ...others.slice(index + 1)]});
+        console.log(user.other_guests);
     }
 
     const removeOtherGuest = (event: any, index) => {
@@ -132,12 +157,11 @@ function RsvpForm() {
                                     setNextStep={ handleNextStep }
                                     setPreviousStep={ handlePreviousStep }
                                     content={ Content.step_1 }
-                                    setUser={ handleSetUser }
-                                    setUserAvailability={ setUserAvailability }
+                                    updateUser={ updateUser }
                                     user={ user }
                                     randomNumber={randomNumber}
-                                    setUserGuestsTrue={setOtherGuest}
-                                    updateOtherGuest={updateOtherGuest}
+                                    setUserGuestsTrue={addOtherGuest}
+                                    updateOtherGuestDetails={setOtherGuestDetails}
                                     removeOtherGuest={removeOtherGuest}
                                 />
                                 :
@@ -145,6 +169,9 @@ function RsvpForm() {
                                     <Step2
                                         setNextStep={ handleNextStep }
                                         setPreviousStep={ handlePreviousStep }
+                                        updateUser={updateUser}
+                                        updateOtherGuestDetails={setOtherGuestDetails}
+                                        user={ user }
                                         content={ Content.step_2 }
                                     />
                                     :
@@ -165,9 +192,9 @@ function RsvpForm() {
     } else {
         let username : string = user.name;
         return (
-            <>
+            <Col className="m-auto mt-3">
                 <Thanks name={username} />
-            </>
+            </Col>
         )
     }
 }

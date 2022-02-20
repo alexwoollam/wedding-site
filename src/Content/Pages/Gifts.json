@@ -1,4 +1,7 @@
 {
   "title": "Gift list",
-  "subtitle": "Hopefully there is something for everybody."
+  "subtitle": "Hopefully there is something for everybody.",
+  "content": {
+    "intro": "We're still working on this, check back soon."
+  }
 }

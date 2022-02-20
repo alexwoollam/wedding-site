@@ -11,7 +11,7 @@ const RSVP = () => {
         <Page>
             <Row>
                 <Col>
-                    <Heading subtitle={Content.subtitle}>{Content.title}</Heading>
+                    <Heading main subtitle={Content.subtitle}>{Content.title}</Heading>
                 </Col>
             </Row>
             <Row>

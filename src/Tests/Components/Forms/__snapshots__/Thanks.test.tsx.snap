@@ -5,15 +5,12 @@ exports[`<Thanks name="name" /> component renders correctly 1`] = `
   <div
     className="heading"
   >
-    <h1
+    <h2
       className="text-grey-700 font-serif text-3xl text-center heading-text"
       data-testid="text-block"
     >
       Thanks, undefined!!
-    </h1>
-    <span
-      className="heading-subtext"
-    />
+    </h2>
   </div>
 </div>
 `;

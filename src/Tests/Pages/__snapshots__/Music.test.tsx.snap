@@ -3,55 +3,59 @@
 exports[`<Music /> tests. should renders correctly 1`] = `
 <div>
   <div
-    className="row"
+    className="section"
   >
     <div
-      className="col"
+      className="row"
     >
       <div
-        className="heading"
+        className="col"
       >
-        <h1
-          className="text-grey-700 font-serif text-3xl text-center heading-text"
+        <div
+          className="heading"
+        >
+          <h1
+            className="text-grey-700 font-serif text-3xl text-center heading-text--main"
+            data-testid="text-block"
+          >
+            Music
+          </h1>
+          <span
+            className="heading-subtext"
+          >
+            What gets you dancing ( or awkwardly swaying )
+          </span>
+        </div>
+        <p
+          className="text-block text-gray-600 font-sans text-base text-center"
           data-testid="text-block"
         >
-          Music
-        </h1>
-        <span
-          className="heading-subtext"
-        >
-          What gets you dancing ( or awkwardly swaying )
-        </span>
+          we're currently curating a playlist for the evenings proceedings, please add your suggestions.
+        </p>
       </div>
-      <p
-        className="text-block text-gray-600 font-sans text-base text-center"
-        data-testid="text-block"
-      >
-        we're currently curating a playlist for the evenings proceedings, please add your suggestions.
-      </p>
     </div>
-  </div>
-  <div
-    className="row"
-  >
     <div
-      className="col"
+      className="row"
     >
       <div
-        className="m-auto track-selector col"
+        className="col"
       >
-        <form
-          className="m-auto max-w-md my-10"
+        <div
+          className="m-auto track-selector col"
         >
-          <input
-            className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 form-control"
-            data-testid="search-input"
-            id="search-track"
-            onChange={[Function]}
-            placeholder="Search Track, Artist or Album"
-            type="text"
-          />
-        </form>
+          <form
+            className="m-auto max-w-md my-10"
+          >
+            <input
+              className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 form-control"
+              data-testid="search-input"
+              id="search-track"
+              onChange={[Function]}
+              placeholder="Search Track, Artist or Album"
+              type="text"
+            />
+          </form>
+        </div>
       </div>
     </div>
   </div>

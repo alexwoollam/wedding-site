@@ -30,14 +30,15 @@ function App() {
    * CI/CD: remove item from devmode to push to live site.
    */
   if ( devmode === 'true' ) {
-    rsvp = <Route path="/rsvp"><Container><RSVP/></Container></Route>;
-    accommodation = <Route path="/accommodation"><Container><Accommodation/></Container></Route>;
-    information = <Route path="/information"><Container><Information/></Container></Route>;
-    gifts = <Route path="/gifts"><Container><Gifts/></Container></Route>;
-    weddingParty = <Route path="/wedding-party"><Container><WeddingParty/></Container></Route>;
     contact = <Route path="/contact"><Container><Contact/></Container></Route>;
-    music = <Route path="/music"><Container><Music/></Container></Route>;
+    weddingParty = <Route path="/wedding-party"><Container><WeddingParty/></Container></Route>;
   }
+
+  rsvp = <Route path="/rsvp"><Container><RSVP/></Container></Route>;
+  accommodation = <Route path="/accommodation"><Container><Accommodation/></Container></Route>;
+  information = <Route path="/information"><Container><Information/></Container></Route>;
+  gifts = <Route path="/gifts"><Container><Gifts/></Container></Route>;
+  music = <Route path="/music"><Container><Music/></Container></Route>;
 
   return (
     <Router>
