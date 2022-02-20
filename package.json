@@ -51,7 +51,8 @@
     "test": "react-scripts test --verbose=false",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -b deploy"
+    "deploy": "gh-pages -d build -b deploy",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
