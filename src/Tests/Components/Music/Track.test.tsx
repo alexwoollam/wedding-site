@@ -3,7 +3,6 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-17-updated';
-import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import Track from '../../../Components/Music/Track';
 
@@ -107,9 +106,4 @@ describe('<Track src=""/> component', () => {
         expect(linkElement).not.toBeInTheDocument();
     });
 
-    it('renders correctly', () => {
-        const tree = renderer
-        .create(<Track data={ MockTracks } />).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
 });
