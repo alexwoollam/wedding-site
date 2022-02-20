@@ -1,21 +1,28 @@
 import React from 'react';
 import Heading from '../Components/Text/Heading';
-import SearchTrack from '../Components/Music/SearchTrack';
+import {SearchTracks} from '../Components/Music/SearchTrack';
 import { Row, Col } from 'reactstrap';
-
-const text = ({
-  intro: "What music would you dance too?",
-});
+import Content from "../Content/Pages/Music.json";
+import TextBlock from "../Components/Text/TextBlock";
+import Page from "../Components/Layout/Page";
 
 function Music() {
-
   return (
-    <Row className="App container mx-auto">
-      <Col className="Intro">
-        <Heading text={text.intro}/>
-        <SearchTrack/>
-      </Col>
-    </Row>
+      <Page>
+          <div className={"section"}>
+              <Row>
+                  <Col>
+                      <Heading main subtitle={Content.subtitle}>{Content.title}</Heading>
+                      <TextBlock>{Content.intro}</TextBlock>
+                  </Col>
+              </Row>
+              <Row>
+                  <Col>
+                      <SearchTracks/>
+                  </Col>
+              </Row>
+          </div>
+      </Page>
   );
 }
 

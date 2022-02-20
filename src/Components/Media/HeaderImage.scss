@@ -1,0 +1,16 @@
+.menu{
+  & .row{
+    max-height: 130px;
+    overflow: hidden;
+    & .col{
+      & .media{
+        & img {
+          width: auto;
+          max-height: 130px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+}

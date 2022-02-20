@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Row, Col, Button} from 'reactstrap';
+import './SelectedTracks.scss';
 
 interface PropsDefined {
     data: any,
@@ -29,7 +30,7 @@ function SelectedTracks( props: PropsDefined ){
                             <h5>{ track.trackartist }</h5>
                         </Col>
                         <Col md={1} className="d-flex justify-content-center">
-                            <Button data-testid='remove-button' className={'btn-danger'} onClick={ () => props.removeTrack(track.id) }>Remove</Button>
+                            <Button data-testid='remove-button' className={'btn-remove'} onClick={ () => props.removeTrack(track.id) }>Remove</Button>
                         </Col>
                     </Row>
                 ))}

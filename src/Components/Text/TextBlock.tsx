@@ -1,21 +1,20 @@
 import React from 'react';
+import './TextBlock.scss';
 
-interface TextSent {
-    text: string;
-}
-
-function TextBlock( props:TextSent ) {
-  if( ! props.text ){
+function TextBlock( props ) {
+  const { children } = props;
+  if(children){
+    return (
+        <p
+            className="text-block text-gray-600 font-sans text-base text-center"
+            data-testid="text-block"
+        >
+          { children }
+        </p>
+    );
+  } else {
     return null;
   }
-  return (
-    <p 
-    className="text-block text-gray-600 font-sans text-base text-center" 
-    data-testid="text-block"
-    >
-        { props.text }
-    </p>
-  );
 }
 
 export default TextBlock;

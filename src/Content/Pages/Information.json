@@ -1,0 +1,48 @@
+{
+  "title": "General information about the day",
+  "subtitle": "",
+  "sections": {
+    "weekend": {
+      "title": "Weekend Celebrations",
+      "content": {
+        "paragraphs": [
+          "We’ll be at the venue over the weekend and if you’re staying locally we’d love to see you on the Friday evening and/or Sunday morning too!",
+          "We still need to firm up plans but these will be more casual get togethers (e.g. meeting at the local pub/farm shop or gathering at the venue and ordering in).",
+          "Watch this space for more info nearer the time!"
+          ]
+      }
+    },
+    "day": {
+      "title": "Itinerary for the Day",
+      "content": {
+        "list": [
+          "Arrive at 2.00pm",
+          "We say our vows in the Arboretum at 2.30pm",
+          "Drinks and grazing table in the walled Garden",
+          "Wedding breakfast in the carriage room",
+          "Dancing to \"The Deloreans\" in the Archway",
+          "Amplified music ends at 11pm",
+          "After party in the Harness Room/by the camp fire"
+        ]
+      }
+    },
+    "considerations": {
+      "title": "Things to consider",
+      "content": {
+        "paragraphs": [
+          "If the weather is nice we’re going to tie the knot outside in the beautiful Kingsettle Stud arboretum, consider bringing suncream, umbrellas and sunglasses. Don’t worry if it’s raining though – there is a plan B! ",
+          "Dinner and dancing will be in the stables, archway and carriage room at Kingsettle Stud. Although these are all under cover some parts are open to the elements so could be breezy if the weather isn’t ideal – bring wraps, jumpers and cardis just in case!",
+          "There is no specific dress code but we’d love you to dress up in your favourite glad rags! The venue is on a farm with a wild flower meadow, walled garden and hedge maze we’d love for you to be able to explore but please be aware of uneven ground and pot holes. You might want to think carefully before wearing the heels. The bridal party are all going for flats!"
+        ]
+      }
+    },
+    "children": {
+      "title": "Children",
+      "content": {
+        "paragraphs": [
+          "Some content here."
+        ]
+      }
+    }
+  }
+}

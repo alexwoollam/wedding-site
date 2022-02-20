@@ -3,16 +3,16 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-17-updated';
-import renderer from 'react-test-renderer';
 import { render, screen } from '@testing-library/react';
 import Track from '../../../Components/Music/Track';
 
 
+// @ts-ignore
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('<Track/> component', () => {
+describe('<Track src=""/> component', () => {
 
-    let MockTracks = new Object();
+    let MockTracks = {};
     MockTracks = [
             {'some string':'string'},
             [
@@ -49,7 +49,7 @@ describe('<Track/> component', () => {
             ]
         ];
 
-    let MockTracksNoPreview = new Object();
+    let MockTracksNoPreview = {};
     MockTracksNoPreview = [
             {'some string':'string'},
             [
@@ -72,14 +72,14 @@ describe('<Track/> component', () => {
         ];
 
 
-        let MockTracksEmpty = new Object();
+        let MockTracksEmpty = {};
         MockTracksEmpty = [
             {'some string':'string'},
         ];
 
 
     test('Component should reuturn null if no props passed', () => {
-        const comp = shallow(<Track />);
+        const comp = shallow(<Track  data={MockTracksEmpty}/>);
         expect(comp.type()).toEqual(null)
     });
 
@@ -100,21 +100,10 @@ describe('<Track/> component', () => {
         expect(linkElement).toBeInTheDocument();
     });
 
-    test('Should have preview button', () => {
-        render(<Track data={ MockTracks }/>);
-        const linkElement = screen.getByTestId('preview-button');
-        expect(linkElement).toBeInTheDocument();
-    });
-
     test('Should not have preview button', () => {
         render(<Track data={ MockTracksNoPreview }/>);
         const linkElement = screen.queryByTestId('react-audio-player');
         expect(linkElement).not.toBeInTheDocument();
     });
 
-    it('renders correctly', () => {
-        const tree = renderer
-        .create(<Track data={ MockTracks } />).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
 });

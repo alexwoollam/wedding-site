@@ -1,0 +1,27 @@
+@import '../../variables';
+
+.form-group{
+  margin: 0 auto;
+  max-width: 80%;
+  margin-bottom: 50px;
+  & label{
+    font-weight: 700;
+  }
+}
+
+.sub-label{
+  font-size: 0.6em;
+  color: $dustypink;
+  font-weight: 700;
+}
+
+.other-guests-container{
+  border: 1px dashed $lightgrey;
+  padding: 30px 10px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.other-guests-row{
+  margin-bottom: 20px;
+}

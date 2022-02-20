@@ -9,7 +9,7 @@ function Thanks( props:any ) {
     
     return (
         <div>
-            <Heading text={text.thanks} />
+            <Heading>{text.thanks}</Heading>
         </div>
     );
     

@@ -8,11 +8,12 @@ import { render, screen } from '@testing-library/react';
 import SelectedTracks from '../../../Components/Music/SelectedTracks';
 
 
+// @ts-ignore
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<SelectedTrack/> component', () => {
 
-    let MockTracks = new Object();
+    let MockTracks = {};
     MockTracks = [
             {
                 'id': 0,
@@ -23,12 +24,12 @@ describe('<SelectedTrack/> component', () => {
             },
         ];
 
-        let MockTracksEmpty = new Object();
+        let MockTracksEmpty = {};
         MockTracksEmpty = [];
 
 
     test('Component should reuturn null if no props passed', () => {
-        const comp = shallow(<SelectedTracks />);
+        const comp = shallow(<SelectedTracks  data={ MockTracksEmpty }/>);
         expect(comp.type()).toEqual(null)
     });
 

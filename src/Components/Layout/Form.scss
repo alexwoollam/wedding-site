@@ -1,0 +1,10 @@
+@import '../../variables';
+.form{
+  border: 1px solid $lightgrey;
+  margin: 0 auto;
+  box-shadow: 10px 10px 40px rgba(black, .15);
+  border-radius: 5px 5px 5px 5px;
+  overflow: hidden;
+  max-width: 80%;
+  margin-bottom: 90px;
+}

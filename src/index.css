@@ -5,3 +5,20 @@
 @tailwind utilities;
 
 .grecaptcha-badge { visibility: hidden; }
+
+ul > li::marker{
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+
+.section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Track from './Track';
 import SelectedTracks from './SelectedTracks';
+import './SearchTrack.scss';
 import { Col, Form, Input, Button } from 'reactstrap';
+import {connect} from "react-redux";
 
 class SearchTracks extends Component{
-    
+
     constructor(props) {
         super(props);
 
@@ -97,17 +99,17 @@ class SearchTracks extends Component{
     render() {
         return (
             <Col
-                className='m-auto'
+                className='m-auto track-selector'
             >
-                <Button data-testid='submit-button' onClick={ this.submitTracks }>Lets rock!</Button>
                 <SelectedTracks data={ this.state.trackList } removeTrack={ this.removeTrack } isSelected={true} />
+                { this.state.trackList.length > 0 ? <Button className={'m-3 btn-submit'} data-testid='submit-button' onClick={ this.submitTracks }>&#128378; Lets rock! &#128131;</Button> : null }
                 <Form className="m-auto max-w-md my-10">
                     <Input 
                     type="text"
                     id="search-track"
                     data-testid='search-input'
                     className="p-3 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
-                    placeholder="Song title"
+                    placeholder="Search Track, Artist or Album"
                     onChange={ this.searchForTrack }
                     ></Input>
                 </Form>
@@ -117,4 +119,9 @@ class SearchTracks extends Component{
     };   
 }
 
-export default SearchTracks;
+const connected = connect(
+    null,
+    null,
+)(SearchTracks);
+
+export { connected as SearchTracks };

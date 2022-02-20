@@ -1,5 +1,6 @@
 import React from 'react';
 import {Row, Col, Media} from 'reactstrap';
+import './HeaderImage.scss';
 
 interface ImageSent {
     src: string,
@@ -13,19 +14,19 @@ function HeaderImage( props:ImageSent ) {
 
   return (
     <Row 
-        className="Header flex justify-center"
+        className="Header flex justify-center header-image-block"
         data-testid="header-image-block"
     >
       <Col
-        className="col-sm-12 col-md-6 m-auto"
+        className="col-sm-12 col-md-6 m-auto "
       >
-      <Media center="true">
-        <Media 
-          object
-          data-src={props.src}
-          alt={props.alt}
-        />
-      </Media>
+        <Media center="true">
+          <Media
+            object
+            src={props.src}
+            alt={props.alt}
+          />
+        </Media>
       </Col>
     </Row>
   );

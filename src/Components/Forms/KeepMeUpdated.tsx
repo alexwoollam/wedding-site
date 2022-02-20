@@ -49,11 +49,11 @@ function KeepMeUpdated() {
         Email: user.email,
 
     };
-      
+
     const handlePostForm = ( event:any ) => {
         /* istanbul ignore next */
         event.preventDefault();
-
+        
         /* istanbul ignore next */
         if( GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID ) ){
             setUser({...user, form: true});

@@ -1,0 +1,35 @@
+@import '../../variables';
+.btn{
+  &-next{
+    align-self: flex-end;
+    background-color: $dustygreen;
+    color: white;
+  }
+  &-prev{
+    align-self: flex-start;
+    background-color: $dustygreen;
+    color: white;
+  }
+  &-add-guest{
+    background-color: $dustygreen;
+    color: white;
+    width: 100%;
+  }
+  &-external{
+    align-self: flex-start;
+    background-color: $dustygreen;
+    color: white;
+  }
+  &-disabled{
+    background-color: lightgrey;
+    color: grey;
+    opacity: 0;
+  }
+  &-remove{
+    background-color: $dustypink;
+    color: white;
+  }
+  &-right{
+    align-self: flex-end;
+  }
+}

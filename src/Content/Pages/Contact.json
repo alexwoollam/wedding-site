@@ -1,0 +1,10 @@
+{
+  "title": "Contact",
+  "subtitle": "Please feel free to contact us if we have missed anything.",
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send"
+  }
+}

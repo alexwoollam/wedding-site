@@ -1,0 +1,14 @@
+@import '../../variables.scss';
+.menu{
+  background-color: white;
+  color: $dustypink;
+  & .nav{
+    & .nav-link{
+      color: $dustypink;
+      &:hover{
+        cursor: pointer;
+        color: $dustypink--dark;
+      }
+    }
+  }
+}
