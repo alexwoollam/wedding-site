@@ -3,7 +3,7 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 import HeaderImage from '../Media/HeaderImage';
 import './index.scss';
 
-import Image from '../../Images/wedding-top.png';
+import Image from '../../Images/webtop.png';
 
 interface Props {
     devmode: string | undefined;

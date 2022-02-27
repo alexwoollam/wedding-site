@@ -7,6 +7,7 @@ import {
 
 import Menu from './Components/Menu';
 import Music from './Pages/Music';
+import {Home} from './Pages/Home';
 import {RSVP} from './Pages/RSVP';
 import {Accommodation} from './Pages/Accommodation';
 import {Information} from './Pages/Information';
@@ -19,6 +20,7 @@ function App() {
 
   const devmode: string | undefined = process.env.REACT_APP_DEV_MODE;
 
+  let home: any = null;
   let music: any = null;
   let rsvp: any = null;
   let accommodation: any = null;
@@ -35,6 +37,7 @@ function App() {
     weddingParty = <Route path="/wedding-party"><Container><WeddingParty/></Container></Route>;
   }
 
+  home = <Route path="/"><Container><Home/></Container></Route>;
   rsvp = <Route path="/rsvp"><Container><RSVP/></Container></Route>;
   accommodation = <Route path="/accommodation"><Container><Accommodation/></Container></Route>;
   information = <Route path="/information"><Container><Information/></Container></Route>;
@@ -52,7 +55,7 @@ function App() {
         {weddingParty}
         {contact}
         {music}
-        <Route path="/"><Container><RSVP/></Container></Route>
+        {home}
       </Switch>
     </Router>
   );
