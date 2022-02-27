@@ -9,6 +9,11 @@ interface ImageSent {
 }
 
 function Image( props:ImageSent ) {
+
+    const image = () => {
+        return photon( 'http://lydiaandalex.com' + props.src ) + '?w=600&crop=0px,160px,570px,570px&strip=all';
+    }
+
     if( ! props.src ){
         return null;
     }
@@ -24,7 +29,7 @@ function Image( props:ImageSent ) {
                 <Media center="true">
                     <Media
                         object
-                        src={photon( 'http://lydiaandalex.com' + props.src)}
+                        src={image()}
                         alt={props.alt}
                     />
                 </Media>
