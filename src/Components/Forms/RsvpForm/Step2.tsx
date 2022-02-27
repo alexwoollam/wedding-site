@@ -44,6 +44,21 @@ const Step2 = props => {
             <TextBlock>{content.subtitle}</TextBlock>
             <FormGroup enabled>
                 <Row>
+                    <label htmlFor="dietry">{content.dietary.veg}</label>
+                    <Input
+                        id="vegitarianSelect"
+                        name="vegetarian"
+                        type="select"
+                        onChange={updateUser}
+                    >
+                        <option value="beef">Beef</option>
+                        <option value="vegi">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                    </Input>
+                </Row>
+            </FormGroup>
+            <FormGroup enabled>
+                <Row>
                     <label htmlFor="dietry">{firstName()}, {content.dietary.label}</label>
                 </Row>
                 <Row>
@@ -69,21 +84,6 @@ const Step2 = props => {
                     ></Input>
                 </Row>
             </FormGroup>
-            <FormGroup enabled>
-                <Row>
-                    <label htmlFor="dietry">{content.dietary.veg}</label>
-                    <Input
-                        id="vegitarianSelect"
-                        name="vegetarian"
-                        type="select"
-                        onChange={updateUser}
-                    >
-                        <option value="beef">Beef</option>
-                        <option value="vegi">Vegetarian</option>
-                        <option value="vegan">Vegan</option>
-                    </Input>
-                </Row>
-            </FormGroup>
 
             { user.other_guests.map((guest, index) => {
                 console.log(guest);
@@ -92,48 +92,48 @@ const Step2 = props => {
                 }
                 return (
                     <Container className={"other-guests-container"} key={index}>
-                    <FormGroup enabled>
+                        <FormGroup enabled >
                             <Row>
-                                <label htmlFor="dietry">Does {guestName(guest.name)}, {content.dietary.additional_label}</label>
-                            </Row>
-                            <Row>
+                                <label htmlFor="dietry">Whats would {guestName(guest.name)} prefer?</label>
                                 <Input
-                                    id="availabilitySelect"
-                                    name="allergy"
+                                    id="vegitarianSelect"
+                                    name="vegetarian"
                                     type="select"
                                     onChange={(event) => updateOtherGuestDetails(event, index)}
                                 >
-                                    <option value="no">{content.dietary.no}</option>
-                                    <option value="yes">{content.dietary.yes}</option>
+                                    <option value="beef">Beef</option>
+                                    <option value="vegi">Vegetarian</option>
+                                    <option value="vegan">Vegan</option>
                                 </Input>
                             </Row>
                         </FormGroup>
-                    <FormGroup enabled={guest.allergy === 'yes'}>
-                        <Row>
-                            <label htmlFor="dietry_sub_yes">{content.dietary.yes_sub_label}</label>
-                            <Input
-                                id="dietry_sub_yes"
-                                name="allergy_details"
-                                type="textarea"
-                                onChange={(event) => updateOtherGuestDetails(event, index)}
-                            ></Input>
-                        </Row>
-                    </FormGroup>
-                    <FormGroup enabled >
-                        <Row>
-                            <label htmlFor="dietry">Whats would {guestName(guest.name)} prefer?</label>
-                            <Input
-                                id="vegitarianSelect"
-                                name="vegetarian"
-                                type="select"
-                                onChange={(event) => updateOtherGuestDetails(event, index)}
-                            >
-                                <option value="beef">Beef</option>
-                                <option value="vegi">Vegetarian</option>
-                                <option value="vegan">Vegan</option>
-                            </Input>
-                        </Row>
-                    </FormGroup>
+                        <FormGroup enabled>
+                                <Row>
+                                    <label htmlFor="dietry">Does {guestName(guest.name)}, {content.dietary.additional_label}</label>
+                                </Row>
+                                <Row>
+                                    <Input
+                                        id="availabilitySelect"
+                                        name="allergy"
+                                        type="select"
+                                        onChange={(event) => updateOtherGuestDetails(event, index)}
+                                    >
+                                        <option value="no">{content.dietary.no}</option>
+                                        <option value="yes">{content.dietary.yes}</option>
+                                    </Input>
+                                </Row>
+                            </FormGroup>
+                        <FormGroup enabled={guest.allergy === 'yes'}>
+                            <Row>
+                                <label htmlFor="dietry_sub_yes">{content.dietary.yes_sub_label}</label>
+                                <Input
+                                    id="dietry_sub_yes"
+                                    name="allergy_details"
+                                    type="textarea"
+                                    onChange={(event) => updateOtherGuestDetails(event, index)}
+                                ></Input>
+                            </Row>
+                        </FormGroup>
                     </Container>
                 )
             })}
