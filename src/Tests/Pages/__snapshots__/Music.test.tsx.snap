@@ -12,6 +12,32 @@ exports[`<Music /> tests. should renders correctly 1`] = `
         className="col"
       >
         <div
+          className="flex justify-center w-100 h-3 row"
+        >
+          <div
+            className="col-sm-12 col-md-6 m-auto col"
+          >
+            <div
+              center="true"
+              className="media"
+            >
+              <img
+                alt="Bug"
+                className="media-object"
+                src="bug_3.png"
+                style={
+                  Object {
+                    "height": "100%",
+                    "maxWidth": "30px",
+                    "objectFit": "cover",
+                    "transform": "translateX(230px)",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+        <div
           className="heading"
         >
           <h1
@@ -35,10 +61,10 @@ exports[`<Music /> tests. should renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="row"
+      className="w-100 row"
     >
       <div
-        className="col"
+        className="col-12 col"
       >
         <div
           className="m-auto track-selector col"

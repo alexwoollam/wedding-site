@@ -2,6 +2,7 @@
 
 .track-selector{
   & .btn-submit{
-    background-color: $dustygreen;
+    border: 2px solid $dustygreen;
+    color: $dustygreen;
   }
 }

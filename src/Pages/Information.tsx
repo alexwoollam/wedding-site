@@ -6,6 +6,7 @@ import Heading from "../Components/Text/Heading";
 import Content from "../Content/Pages/Information.json";
 import TextBlock from "../Components/Text/TextBlock";
 import ListItem from "../Components/Text/ListItem";
+import Bugs from "../Components/Bugs";
 
 const Information = () => {
 
@@ -18,6 +19,7 @@ const Information = () => {
         <Page>
             <Row>
                 <Col>
+                    <Bugs/>
                     <Heading main subtitle={Content.subtitle}>{Content.title}</Heading>
                     {
                         pageSections.map((section, key) => {
@@ -26,6 +28,7 @@ const Information = () => {
                             return (
                                 <div className={"section"} key={key}>
                                     <Heading>{content.title}</Heading>
+                                    <Bugs/>
                                     { content.content.paragraphs && content.content.paragraphs.map((paragraph, key) => {
                                         return (
                                             <TextBlock key={key}>{paragraph}</TextBlock>

@@ -1,24 +1,26 @@
 @import '../../variables';
 .btn{
+  border-radius: 0px;
+  background-color: rgba(0,0,0,0) ;
   &-next{
     align-self: flex-end;
-    background-color: $dustygreen;
-    color: white;
+    border: 2px solid $dustygreen;
+    color: $dustygreen;
   }
   &-prev{
     align-self: flex-start;
-    background-color: $dustygreen;
-    color: white;
+    border: 2px solid $dustygreen;
+    color: $dustygreen;
   }
   &-add-guest{
-    background-color: $dustygreen;
-    color: white;
+    border: 2px solid $dustygreen;
+    color: $dustygreen;
     width: 100%;
   }
   &-external{
     align-self: flex-start;
-    background-color: $dustygreen;
-    color: white;
+    border: 2px solid $dustygreen;
+    color: $dustygreen;
   }
   &-disabled{
     background-color: lightgrey;
@@ -26,8 +28,8 @@
     opacity: 0;
   }
   &-remove{
-    background-color: $dustypink;
-    color: white;
+    border: 2px solid $dustypink;
+    color: $dustypink;
   }
   &-right{
     align-self: flex-end;

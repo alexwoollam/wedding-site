@@ -3,13 +3,12 @@ import Heading from '../../Text/Heading';
 import TextBlock from "../../Text/TextBlock";
 import FormGroup from "../../Layout/FormGroup";
 import FormControls from "../../Layout/FormControls";
-import { Container, Row, Input} from "reactstrap";
+import {Container, Row, Input, Button} from "reactstrap";
 
 const Step2 = props => {
     const {
         content,
         setPreviousStep,
-        setNextStep,
         user,
         updateUser,
         updateOtherGuestDetails
@@ -51,7 +50,7 @@ const Step2 = props => {
                         type="select"
                         onChange={updateUser}
                     >
-                        <option value="beef">Beef</option>
+                        <option value="beef">Local Beef</option>
                         <option value="vegi">Vegetarian</option>
                         <option value="vegan">Vegan</option>
                     </Input>
@@ -101,7 +100,7 @@ const Step2 = props => {
                                     type="select"
                                     onChange={(event) => updateOtherGuestDetails(event, index)}
                                 >
-                                    <option value="beef">Beef</option>
+                                    <option value="beef">Local Beef</option>
                                     <option value="vegi">Vegetarian</option>
                                     <option value="vegan">Vegan</option>
                                 </Input>
@@ -140,7 +139,9 @@ const Step2 = props => {
 
             <FormControls>
                 <button className={'btn btn-prev'} onClick={ setPreviousStep }>{content.back_button}</button>
-                <button className={'btn btn-next'} onClick={ setNextStep }>{content.submit_button}</button>
+                <Button type="submit" className={'btn btn-next'}>
+                    {content.submit_button}
+                </Button >
             </FormControls>
         </Container>
     );

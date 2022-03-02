@@ -42,8 +42,6 @@ const randomBackground: backgroundColor = {
     backgroundColor: randomColor[Math.floor(Math.random() * 20)],
 }
 
-
-
 function Track( props: PropsDefined ){
 
     if( ! props.data ){ 
@@ -71,14 +69,13 @@ function Track( props: PropsDefined ){
                                     (
                                         <div className={'track-card-preview'} data-testid="preview-button">
                                             <ReactAudioPlayer
-                                            className={'w-100'}
-                                            src={track.preview_url}
-                                            controls
+                                                className={'w-100'}
+                                                src={track.preview_url}
+                                                controls
                                             />
                                         </div>
                                     ):
-                                        <div className={'track-card-preview'} data-testid="preview-button">
-                                        </div>
+                                        <div className={'track-card-preview'} data-testid="preview-button"></div>
                                     }
                                 </CardBody>
                             </Card>

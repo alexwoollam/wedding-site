@@ -1,3 +1,4 @@
+@import url('http://fonts.cdnfonts.com/css/optimus-princeps');
 @import url('http://fonts.cdnfonts.com/css/acoustica-south');
 
 /*main stlyle shee*/
@@ -17,6 +18,16 @@ ul {
     padding-inline-start: 0px;
 }
 
+* {
+    font-family: 'OptimusPrincepsSemiBold', sans-serif;
+    font-size: 1.07rem;
+    font-smooth: antialiased;
+    -webkit-font-smoothing: antialiased;
+}
+
+.btn-secondary:hover{
+    background-color: rgba(0,0,0,0);
+}
 
 .section{
     display: flex;

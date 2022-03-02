@@ -6,8 +6,8 @@ import Content from '../../Content/Forms/Rsvp.json';
 import Step1 from './RsvpForm/Step1';
 import Step2 from './RsvpForm/Step2';
 import Step3 from './RsvpForm/Step3';
-import Thanks from './Thanks';
 import {Form as FormLayout} from '../Layout/Form';
+import {useHistory} from "react-router-dom";
 
 interface RsvpInterface {
     name: string,
@@ -57,6 +57,8 @@ function RsvpForm() {
         Food_Pref: user.vegetarian,
     };
 
+    const history = useHistory();
+
     const handlePostForm = ( event:any ) => {
 
         /* istanbul ignore next */
@@ -98,6 +100,10 @@ function RsvpForm() {
         event.preventDefault();
         /* istanbul ignore next */
         setStep(step + 1);
+    }
+
+    const gotoMusic = ( event:any ) => {
+        history.push('/music');
     }
 
     const updateUser = ( event:any ) => {
@@ -174,26 +180,28 @@ function RsvpForm() {
                                         user={ user }
                                         content={ Content.step_2 }
                                     />
-                                    :
-                                    step === 3 ?
-                                        <Step3
-                                            setNextStep={ handleNextStep }
-                                            setPreviousStep={ handlePreviousStep }
-                                            content={ Content.step_3}
-                                            user={ user }
-                                        />
-                                        :
-                                        null
+                                    : null
                         }
                     </FormLayout>
                 </Form>
             </Col>
         );
     } else {
-        let username : string = user.name;
         return (
             <Col className="m-auto mt-3">
-                <Thanks name={username} />
+                <Form onSubmit={ handlePostForm } className="m-auto">
+                    <ReCAPTCHA
+                        sitekey={ RECAPTCHAKEY }
+                        size="invisible"
+                    />
+                    <FormLayout>
+                        <Step3
+                            setNextStep={ gotoMusic }
+                            content={ Content.step_3}
+                            user={ user }
+                        />
+                    </FormLayout>
+                </Form>
             </Col>
         )
     }

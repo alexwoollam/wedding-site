@@ -2,7 +2,8 @@ import React from 'react';
 import Heading from '../../Text/Heading';
 import TextBlock from "../../Text/TextBlock";
 import FormControls from "../../Layout/FormControls";
-import {Button, Container} from "reactstrap";
+import {Container} from "reactstrap";
+import MyButton from "../../Button";
 
 const getFirstName = (name) =>{
     const suffix = [ 'mr', 'ms', 'miss', 'mrs', 'dr', 'prof', 'rev', 'sr', 'jr'];
@@ -16,25 +17,25 @@ const getFirstName = (name) =>{
 const Step3 = props => {
     const {
         content,
-        setPreviousStep,
+        setNextStep,
         user
     } = props;
 
     return (
-        <Container>
-            <Heading main>{content.title} { getFirstName(user.name) }</Heading>
-                <Container>
-                    <TextBlock>{content.accommodation_bumph_one}</TextBlock>
-                    <TextBlock>{content.accommodation_bumph_two}</TextBlock>
-                </Container>
-
+        <>
+            <Container>
+                <Heading main>{content.title} { getFirstName(user.name) }</Heading>
+                    <Container>
+                        <TextBlock>{content.accommodation_bumph_one}</TextBlock>
+                        <TextBlock>{content.accommodation_bumph_two}</TextBlock>
+                        <TextBlock>{content.accommodation_bumph_three}</TextBlock>
+                    </Container>
+            </Container>
             <FormControls>
-                <button className={'btn btn-prev'} onClick={ setPreviousStep }>{content.back_button}</button>
-                <Button type="submit" className={'btn btn-next'}>
-                    {content.submit_button}
-                </Button >
+                <MyButton prev is_disabled={true}>{content.back_button}</MyButton>
+                <MyButton next right is_disabled={false} onClick={ setNextStep }>{content.submit_button}</MyButton>
             </FormControls>
-        </Container>
+        </>
     );
 };
 

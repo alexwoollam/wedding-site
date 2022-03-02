@@ -15,10 +15,6 @@ function GoogleSheets( data:any, SPREADSHEET_ID:string, SHEET_ID:string ): boole
     
     const doc = new GoogleSpreadsheet( SPREADSHEET_ID );
 
-    if( data.Name.length <= 0 || data.Email.length <= 0 ){
-      return false;
-    }
-
     /* istanbul ignore next */
     const appendSpreadsheet = async (row:any) => {
         try {

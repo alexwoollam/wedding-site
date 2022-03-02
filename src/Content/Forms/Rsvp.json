@@ -6,9 +6,11 @@
       "label": "Your name",
       "availability": "Are you available?",
       "availability_options": {
-        "yes": "Yes",
-        "no": "Nope",
-        "maybe": "Maybe"
+        "availability_yes":  "Will be there with bells on",
+        "availability_also_yes":  "Will be there without bells",
+        "availability_also_also_yes":  "Will be there regardless of the bell controversy",
+        "availability_no":  "Will not be there (wish I could be wearing bells)",
+        "availability_also_no":  "Will not be there, heard people will be wearing bells"
       },
       "other_label": "Additional guest",
       "placeholder": [
@@ -25,8 +27,9 @@
       ]
     },
     "email": {
+
       "label": "Primary email",
-      "sub_label": "We'll use this to send you crap",
+      "sub_label": "Optional - we will use this to send you any updates or changes",
       "placeholder": [
         "jon_snow@the_wall.gov",
         "lando_calrissian@aol.com",
@@ -47,8 +50,11 @@
       "label": "Other guests name",
       "label_s": "Other guests names",
       "availability": "Are they available to come?",
-      "availability_yes":  "Yes",
-      "availability_no":  "No"
+      "availability_yes":  "Will be there with bells on",
+      "availability_also_yes":  "Will be there without bells",
+      "availability_also_also_yes":  "Will be there regardless of the bell controversy",
+      "availability_no":  "Will not be there (wish I could be wearing bells)",
+      "availability_also_no":  "Will not be there, heard people will be wearing bells"
     },
     "back_button": "Back",
     "continue_button": "Continue",
@@ -59,24 +65,31 @@
     "dietary": {
       "label": "do you have a dietary need or allergy we need to know about?",
       "additional_label": "have a dietary need or allergy we need to know about?",
+      "availability_yes":  "Will be there with bells on",
+      "availability_also_yes":  "Will be there without bells",
+      "availability_also_also_yes":  "Will be there regardless of the bell controversy",
+      "availability_no":  "Will not be there (wish I could be wearing bells)",
+      "availability_also_no":  "Will not be there, heard people will be wearing bells",
+      "yes_sub_label": "What details do the caterers need to know.",
+      "veg": "The main meal will be a sharing fest of local beef, if that's not your thing and you'd rather go for the vegetarian/vegan option instead then let us know below",
+      "additional_veg": "meal preference",
       "yes": "Yes",
       "no": "No",
-      "yes_sub_label": "What details do the caterers need to know. Please bare in mind; if we kill someone its a lot of paperwork",
-      "veg": "For mains we are having a dish with local beef, if that's not your thing and you'd rather go for the vegetarian option instead then let us know below",
-      "additional_veg": "meal preference",
       "veg_yes": "Yes for vegetarian",
       "veg_no": "beef please!"
     },
     "back_button": "Back",
-    "submit_button": "Continue"
+    "submit_button": "Submit"
   },
   "step_3": {
     "title": "Thanks",
-    "accommodation_bumph_one": "We look forward to seeing you, wile we have you attention please note - accommodation is limited so we'd encourage you to get booking ASAP if you’re planning to stay. The wedding party will be based at the venue for the weekend and there are some (limited) options for those who’d like to stay too. The venue is 20 minutes away from Salisbury but is very much out in the sticks so any taxis would need to be pre-booked.",
+    "subtitle": "We look forward to seeing you,",
+    "accommodation_bumph_one": "If you're planning to stay then we'd encourage you to get it booked ASAP. Accommodation is limited but there are options both onsite and in the local area. Take a look at the accommodation section for more information.",
     "accommodation_bumph_two": "If you are hoping to take advantage of the open bar, you’re welcome to park at the venue and pick your car the next day and maybe even meet us at the onsite farm shop for brunch! We’ll be setting everything up on the Friday but plan to have a relaxed evening either at the venue or the local pub (details TBC). If you happen to be local the night before we’d love to see you!",
+    "accommodation_bumph_three": "If you would like too add too our playlist, please do so (button below) - otherwise you're RSVP'd and can safely get on with life.",
     "accommodation_bumph_link_text": "Click here for additional information about accommodation options so you can get booking!",
     "accommodation_bumph_link": "/accommodation",
     "back_button": "Back",
-    "submit_button": "Submit"
+    "submit_button": "Playlist"
   }
 }

@@ -5,12 +5,14 @@ import Page from "../Components/Layout/Page";
 import Heading from "../Components/Text/Heading";
 import Content from "../Content/Pages/RSVP.json";
 import RsvpForm from "../Components/Forms/RsvpForm";
+import Bugs from "../Components/Bugs";
 
 const RSVP = () => {
     return (
         <Page>
             <Row>
                 <Col>
+                    <Bugs/>
                     <Heading main subtitle={Content.subtitle}>{Content.title}</Heading>
                 </Col>
             </Row>
