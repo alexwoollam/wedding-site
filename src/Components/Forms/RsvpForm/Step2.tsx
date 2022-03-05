@@ -14,8 +14,6 @@ const Step2 = props => {
         updateOtherGuestDetails
     } = props;
 
-    console.log(user);
-
     const firstName = () => {
         let name = user.name;
         if (name) {

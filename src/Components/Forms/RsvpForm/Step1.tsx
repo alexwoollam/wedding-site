@@ -84,7 +84,7 @@ const Step1 = props => {
                         return (
                             <Container className={"other-guests-container"} key={index}>
                                 <Row className={"other-guests-row"}>
-                                    <Col xs={10}>
+                                    <Col xs={8} md={10}>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -95,7 +95,7 @@ const Step1 = props => {
                                             onChange={ (event) => updateOtherGuestDetails(event, index) }
                                         />
                                     </Col>
-                                    <Col xs={2} style={{alignSelf: 'end'}}>
+                                    <Col xs={2} md={4} style={{alignSelf: 'end'}}>
                                         <MyButton remove onClick={(event) => removeOtherGuest(event, index)}>
                                             remove
                                         </MyButton>
@@ -146,9 +146,9 @@ const Step1 = props => {
             <FormGroup enabled={user.name.length > 3 && user.availability !== "no"}>
                 <Row>
                     <Col>
-                        <label id="additional" htmlFor="rsvp-name" style={{textAlign: 'right', width: '100%', height: '100%', lineHeight: '2.5'}}>{content.add_plus_one_button_label}</label>
+                        <label id="additional" htmlFor="rsvp-name" style={{textAlign: 'left', lineHeight: '2.5'}}>{content.add_plus_one_button_label}</label>
                     </Col>
-                    <Col xs={2}>
+                    <Col xs={4} md={2}>
                         <button id="additionalButton" className={'btn btn-add-guest'} name='is_other_guests' onClick={ setUserGuestsTrue }>{content.add_plus_one_button}</button>
                     </Col>
                 </Row>

@@ -1,8 +1,7 @@
-@import '../../variables';
 .form-controls{
   padding: 25px 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
 }

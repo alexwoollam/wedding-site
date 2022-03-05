@@ -10,7 +10,7 @@ import Bugs from "../Components/Bugs";
 function Music() {
   return (
       <Page>
-          <div className={"section"}>
+          <div className={"section"} style={{ marginBottom: '120px'}}>
               <Row>
                   <Col>
                       <Bugs/>

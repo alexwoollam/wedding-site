@@ -102,8 +102,8 @@ function RsvpForm() {
         setStep(step + 1);
     }
 
-    const gotoMusic = ( event:any ) => {
-        history.push('/music');
+    const gotoThanks = ( event:any ) => {
+        history.push('/thanks');
     }
 
     const updateUser = ( event:any ) => {
@@ -196,7 +196,7 @@ function RsvpForm() {
                     />
                     <FormLayout>
                         <Step3
-                            setNextStep={ gotoMusic }
+                            setNextStep={ gotoThanks }
                             content={ Content.step_3}
                             user={ user }
                         />

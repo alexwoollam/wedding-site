@@ -44,7 +44,8 @@ function Bugs( ) {
 
     return (
         <Row
-            className="flex justify-center w-100 h-3"
+            className="flex justify-center h-3"
+            style={{ maxWidth: '100%', overflow: 'hidden' }}
         >
             <Col
                 className="col-sm-12 col-md-6 m-auto"

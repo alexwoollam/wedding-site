@@ -1,39 +1,36 @@
 import React from 'react';
 import Heading from '../../Text/Heading';
-import TextBlock from "../../Text/TextBlock";
 import FormControls from "../../Layout/FormControls";
-import {Container} from "reactstrap";
+import {Col, Container, Row} from "reactstrap";
 import MyButton from "../../Button";
-
-const getFirstName = (name) =>{
-    const suffix = [ 'mr', 'ms', 'miss', 'mrs', 'dr', 'prof', 'rev', 'sr', 'jr'];
-    let first_name = name.split(' ')[0];
-    if( suffix.includes( first_name.toLowerCase() ) ){
-        first_name = name.split(' ')[1];
-    }
-    return first_name;
-}
+import {SearchTracks} from "../../Music/SearchTrack";
+import Bugs from "../../Bugs";
+import Content from "../../../Content/Pages/Music.json";
 
 const Step3 = props => {
     const {
         content,
         setNextStep,
-        user
     } = props;
 
     return (
         <>
             <Container>
-                <Heading main>{content.title} { getFirstName(user.name) }</Heading>
-                    <Container>
-                        <TextBlock>{content.accommodation_bumph_one}</TextBlock>
-                        <TextBlock>{content.accommodation_bumph_two}</TextBlock>
-                        <TextBlock>{content.accommodation_bumph_three}</TextBlock>
-                    </Container>
+                <Row>
+                    <Col>
+                        <Heading main subtitle={Content.subtitle}>{Content.title}</Heading>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col className={"col-12"}>
+                        <SearchTracks/>
+                    </Col>
+                </Row>
+                <Bugs/>
             </Container>
             <FormControls>
                 <MyButton prev is_disabled={true}>{content.back_button}</MyButton>
-                <MyButton next right is_disabled={false} onClick={ setNextStep }>{content.submit_button}</MyButton>
+                <MyButton next right is_disabled={false} onClick={ setNextStep }>Finish</MyButton>
             </FormControls>
         </>
     );

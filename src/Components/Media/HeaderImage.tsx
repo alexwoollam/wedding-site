@@ -1,5 +1,4 @@
 import React from 'react';
-import {Row, Col, Media} from 'reactstrap';
 import './HeaderImage.scss';
 
 interface ImageSent {
@@ -13,22 +12,11 @@ function HeaderImage( props:ImageSent ) {
   }
 
   return (
-    <Row 
-        className="Header flex justify-center header-image-block"
-        data-testid="header-image-block"
-    >
-      <Col
-        className="col-sm-12 col-md-6 m-auto "
-      >
-        <Media center="true">
-          <Media
-            object
-            src={props.src}
-            alt={props.alt}
-          />
-        </Media>
-      </Col>
-    </Row>
+    <div className={"site-heading"}>
+      <div className={"site-heading-left site-heading-side"}></div>
+      <div className={"site-heading-center"}></div>
+      <div className={"site-heading-right site-heading-side"}></div>
+    </div>
   );
 }
 

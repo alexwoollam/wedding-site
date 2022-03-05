@@ -17,7 +17,6 @@ function Image( props:ImageSent ) {
     if( ! props.src ){
         return null;
     }
-
     return (
         <Row
             className="flex justify-center image-block"
@@ -29,6 +28,7 @@ function Image( props:ImageSent ) {
                 <Media center="true">
                     <Media
                         object
+                        style={{ maxWidth: '100%' }}
                         src={image()}
                         alt={props.alt}
                     />

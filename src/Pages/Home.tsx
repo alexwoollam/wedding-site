@@ -6,12 +6,12 @@ import Heading from "../Components/Text/Heading";
 import Content from "../Content/Pages/Home.json";
 import Image from "../Components/Image";
 import Countdown, { zeroPad } from 'react-countdown';
-import Us from "../Images/us_1.jpg";
-import AlsoUs from "../Images/us_2.jpg";
 import UsAgain from "../Images/us_3.jpg";
+import Bugs from "../Components/Bugs";
+import TextBlock from "../Components/Text/TextBlock";
 
 const image = () => {
-    const images = [Us, AlsoUs, UsAgain];
+    const images = [UsAgain];
 
     return images[Math.floor(Math.random() * images.length)];
 
@@ -26,15 +26,21 @@ const Home = () => {
         <Page>
             <Row>
                 <Col>
-                    <Heading main subtitle={Content.subtitle}>{Content.title}</Heading>
+                    <Heading main>{Content.title}</Heading>
+                    <Bugs/>
                     <Image
                         src={image()}
                         alt={"Lydia & Alex, encase you forgot who we are."}
                     />
+                    <br/>
+                    <Bugs/>
                     <Countdown
                         date={"2022-08-06T14:00:00.000Z"}
                         renderer={renderer}
                     />
+                    <Heading>{Content.subtitle}</Heading>
+                   <TextBlock>Kingsettle Stud, Cholderton, SP40DX</TextBlock>
+                    <Bugs/>
                 </Col>
             </Row>
         </Page>

@@ -11,14 +11,29 @@ import 'react-app-protect/dist/index.css'
 
 const PASSWORD:string = process.env.REACT_APP_PASSWORD!;
 
-const ProtectedStyle = {
-}
-
-
-
 ReactDOM.render(
   <React.StrictMode>
-      <Protect styles={{ProtectedStyle}} boxTitle="Please use the password printed on your invite" blur={true} sha512={PASSWORD}>
+      <Protect
+          styles={{
+              input: {
+                  color: '#67805a',
+                  width: '100%',
+              },
+              header: {
+                  fontSize: '15px',
+                  background: '#67805a',
+              },
+              button : {
+                  border: '2px solid #67805a',
+                  color: '#67805a',
+                  backgroundColor: 'rgba(0,0,0,0)',
+              }
+          }}
+          boxTitle="Please use the password printed on your invite"
+          inputPlaceholder={'Password (All Caps!)'}
+          blur={true}
+          sha512={PASSWORD}
+      >
           <Provider store={ store }>
               <App />
           </Provider>
