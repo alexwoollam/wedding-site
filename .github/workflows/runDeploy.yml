@@ -22,6 +22,17 @@ jobs:
       run: |
         touch .env
         echo "NODE_ENV=production" >> .env
+        echo "REACT_APP_DEV_MODE=${{ secrets.REACT_APP_DEV_MODE }}" >> .env
+        echo "REACT_APP_PASSWORD=${{ secrets.REACT_APP_PASSWORD }}" >> .env
+        echo "REACT_APP_SPREADSHEET_ID=${{ secrets.REACT_APP_SPREADSHEET_ID }}" >> .env
+        echo "REACT_APP_SHEET_ID=${{ secrets.REACT_APP_SHEET_ID }}" >> .env
+        echo "REACT_APP_MUSIC_SHEET_ID=${{ secrets.REACT_APP_MUSIC_SHEET_ID }}" >> .env
+        echo "REACT_APP_RECAPTCHAKEY=${{ secrets.REACT_APP_RECAPTCHAKEY }}" >> .env
+        echo "REACT_APP_RECAPTCHASECRET=${{ secrets.REACT_APP_RECAPTCHASECRET }}" >> .env
+        echo "REACT_APP_G_USR=${{ secrets.REACT_APP_G_USR }}" >> .env
+        echo "REACT_APP_G_KEY=${{ secrets.REACT_APP_G_KEY }}" >> .env
+        echo "REACT_APP_SPOTIFYCLI=${{ secrets.REACT_APP_SPOTIFYCLI }}" >> .env
+        echo "REACT_APP_SPOTIFYSEC=${{ secrets.REACT_APP_SPOTIFYSEC }}" >> .env
 
     - name: Install and Build 🔧
       run: npm run build
