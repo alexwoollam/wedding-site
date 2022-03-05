@@ -18,6 +18,11 @@ jobs:
     - name: Install modules
       run: npm install
 
+    - name: Build environment
+      run: |
+        touch .env
+        echo "NODE_ENV=production" >> .env
+
     - name: Install and Build 🔧
       run: npm run build
 
