@@ -15,6 +15,10 @@ jobs:
         git config --global user.email "alexjhwoollam@gmail.com"
         git config --global user.name "Alex Woollam"
 
+    - name: fix env
+      run: |
+        echo "REACT_APP_PASSWORD=${{ secrets.REACT_APP_PASSWORD }}" >> $GITHUB_ENV
+
     - name: Install modules
       run: npm install
 
