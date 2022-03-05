@@ -27,5 +27,16 @@ jobs:
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
+        REACT_APP_DEV_MODE: ${{ secrets.REACT_APP_DEV_MODE }}
+        REACT_APP_PASSWORD: ${{ secrets.REACT_APP_PASSWORD }}
+        REACT_APP_SPREADSHEET_ID: ${{ secrets.REACT_APP_SPREADSHEET_ID }}
+        REACT_APP_SHEET_ID: ${{ secrets.REACT_APP_SHEET_ID }}
+        REACT_APP_MUSIC_SHEET_ID: ${{ secrets.REACT_APP_MUSIC_SHEET_ID }}
+        REACT_APP_RECAPTCHAKEY: ${{ secrets.REACT_APP_RECAPTCHAKEY }}
+        REACT_APP_RECAPTCHASECRET: ${{ secrets.REACT_APP_RECAPTCHASECRET }}
+        REACT_APP_G_USR: ${{ secrets.REACT_APP_G_USR }}
+        REACT_APP_G_KEY: ${{ secrets.REACT_APP_G_KEY }}
+        REACT_APP_SPOTIFYCLI: ${{ secrets.REACT_APP_SPOTIFYCLI }}
+        REACT_APP_SPOTIFYSEC: ${{ secrets.REACT_APP_SPOTIFYSEC }}
         branch: deploy
         folder: build
