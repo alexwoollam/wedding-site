@@ -46,8 +46,11 @@ const Step1 = props => {
                     type="select"
                     onChange={updateUser}
                 >
-                    <option value="yes">{content.name.availability_options.yes}</option>
-                    <option value="no">{content.name.availability_options.no}</option>
+                    <option value="yes">{content.name.availability_options.availability_yes}</option>
+                    <option value="yes">{content.name.availability_options.availability_also_yes}</option>
+                    <option value="no">{content.name.availability_options.availability_no}</option>
+                    <option value="no">{content.name.availability_options.availability_also_no}</option>
+                    <option value="yes">{content.name.availability_options.availability_also_also_yes}</option>
                 </Input>
             </FormGroup>
 
@@ -81,7 +84,7 @@ const Step1 = props => {
                         return (
                             <Container className={"other-guests-container"} key={index}>
                                 <Row className={"other-guests-row"}>
-                                    <Col xs={10}>
+                                    <Col xs={8} md={10}>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -92,7 +95,7 @@ const Step1 = props => {
                                             onChange={ (event) => updateOtherGuestDetails(event, index) }
                                         />
                                     </Col>
-                                    <Col xs={2} style={{alignSelf: 'end'}}>
+                                    <Col xs={2} md={4} style={{alignSelf: 'end'}}>
                                         <MyButton remove onClick={(event) => removeOtherGuest(event, index)}>
                                             remove
                                         </MyButton>
@@ -110,13 +113,19 @@ const Step1 = props => {
                                             type="select"
                                             onChange={(event) => updateOtherGuestDetails(event, index)}
                                         >
-                                            <option value="yes">{content.name.availability_options.yes}</option>
-                                            <option value="no">{content.name.availability_options.no}</option>
+                                            <option value="yes">{content.name.availability_options.availability_yes}</option>
+                                            <option value="yes">{content.name.availability_options.availability_also_yes}</option>
+                                            <option value="no">{content.name.availability_options.availability_no}</option>
+                                            <option value="no">{content.name.availability_options.availability_also_no}</option>
+                                            <option value="yes">{content.name.availability_options.availability_also_also_yes}</option>
                                         </Input>
                                     </Col>
                                 </Row>
                                 <Row className={"other-guests-row"} style={{marginBottom: '20px'}}>
                                     <Col xs={12}>
+                                        <Label for="availabilitySelect">
+                                            Email for {guest.name}
+                                        </Label>
                                         <input
                                             type="email"
                                             className="form-control"
@@ -126,6 +135,7 @@ const Step1 = props => {
                                             placeholder={"This is optional"}
                                             onChange={(event) => updateOtherGuestDetails(event, index)}
                                         />
+                                        <span className="sub-label">{content.email.sub_label}</span>
                                     </Col>
                                 </Row>
                             </Container>
@@ -136,16 +146,16 @@ const Step1 = props => {
             <FormGroup enabled={user.name.length > 3 && user.availability !== "no"}>
                 <Row>
                     <Col>
-                        <label id="additional" htmlFor="rsvp-name" style={{textAlign: 'right', width: '100%', height: '100%', lineHeight: '2.5'}}>{content.add_plus_one_button_label}</label>
+                        <label id="additional" htmlFor="rsvp-name" style={{textAlign: 'left', lineHeight: '2.5'}}>{content.add_plus_one_button_label}</label>
                     </Col>
-                    <Col xs={2}>
+                    <Col xs={4} md={2}>
                         <button id="additionalButton" className={'btn btn-add-guest'} name='is_other_guests' onClick={ setUserGuestsTrue }>{content.add_plus_one_button}</button>
                     </Col>
                 </Row>
             </FormGroup>
             <FormControls>
                 <MyButton prev is_disabled={true} onClick={ setPreviousStep }>{content.back_button}</MyButton>
-                { user.availability !== "no" ?
+                { user.availability !== "no" && user.name !== '' ?
                     <MyButton next right is_disabled={false} onClick={ setNextStep }>{content.continue_button}</MyButton> :
                     <Button type="submit" className={'btn btn-next'}>
                         {content.submit_button}

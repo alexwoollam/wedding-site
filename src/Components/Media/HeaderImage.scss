@@ -12,5 +12,42 @@
       }
     }
   }
-
 }
+
+.site-heading{
+  min-height: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  &-side{
+    height: 150px;
+    width: 100%;
+    flex-grow: 1;
+    background-image: url('../../Images/top/top-3.png');
+    background-size: cover;
+    background-position: top right;
+  }
+  &-left{
+  }
+  &-right{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+  }
+  &-center{
+    position: absolute;
+    left: calc(50% - (150px / 2));
+    z-index: 1;
+    height: 150px;
+    min-width: 150px;
+    flex-grow: 1;
+    background-image: url('../../Images/top/top-4.png');
+    background-size: cover;
+  }
+}
+

@@ -11,13 +11,12 @@ interface ImageSent {
 function Image( props:ImageSent ) {
 
     const image = () => {
-        return photon( 'http://lydiaandalex.com' + props.src ) + '?w=600&crop=0px,160px,570px,570px&strip=all';
+        return photon( 'http://lydiaandalex.com' + props.src ) + '?w=600&crop=0px,0px,570px,570px&strip=all';
     }
 
     if( ! props.src ){
         return null;
     }
-
     return (
         <Row
             className="flex justify-center image-block"
@@ -29,6 +28,7 @@ function Image( props:ImageSent ) {
                 <Media center="true">
                     <Media
                         object
+                        style={{ maxWidth: '100%' }}
                         src={image()}
                         alt={props.alt}
                     />

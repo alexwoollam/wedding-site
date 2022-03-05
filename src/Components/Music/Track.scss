@@ -7,7 +7,8 @@
   justify-content: space-between;
   min-height: 540px;
   &-button{
-    background-color: $dustygreen;
+    border: 2px solid $dustygreen;
+    color: $dustygreen;
     &:hover{
       background-color: $dustygreen--dark;
     }

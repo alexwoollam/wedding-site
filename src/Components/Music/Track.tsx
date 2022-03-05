@@ -42,8 +42,6 @@ const randomBackground: backgroundColor = {
     backgroundColor: randomColor[Math.floor(Math.random() * 20)],
 }
 
-
-
 function Track( props: PropsDefined ){
 
     if( ! props.data ){ 
@@ -57,7 +55,7 @@ function Track( props: PropsDefined ){
             <Container className="container mx-auto">
                 <Row>
                     {items[1].map( (track, index)=>(
-                        <Col key={index} sm={12} md={4}>
+                        <Col key={index} sm={12} md={6}>
                             <Card className="box-border m-3 p-2 border-4 rounded track-card">
                                 <CardImg className={'cover-preview'} style={randomBackground} src={ track.album.images[1].url } alt={"artwork for " + track.name } />
                                 <Button className={'m-3 track-card-button'} data-testid='add-track' onClick={ () => props.addTrack( track.id, track.name, track.artists[0].name, track.album.images[2].url ) } >Add track</Button>
@@ -71,14 +69,13 @@ function Track( props: PropsDefined ){
                                     (
                                         <div className={'track-card-preview'} data-testid="preview-button">
                                             <ReactAudioPlayer
-                                            className={'w-100'}
-                                            src={track.preview_url}
-                                            controls
+                                                className={'w-100'}
+                                                src={track.preview_url}
+                                                controls
                                             />
                                         </div>
                                     ):
-                                        <div className={'track-card-preview'} data-testid="preview-button">
-                                        </div>
+                                        <div className={'track-card-preview'} data-testid="preview-button"></div>
                                     }
                                 </CardBody>
                             </Card>

@@ -7,6 +7,7 @@ import TextBlock from '../Components/Text/TextBlock';
 import {Row, Col} from "reactstrap";
 import ListItem from "../Components/Text/ListItem";
 import Button from "../Components/Button";
+import Bugs from "../Components/Bugs";
 
 const Accommodation = () => {
     let pageSections = [] as  any;
@@ -18,6 +19,7 @@ const Accommodation = () => {
         <Page>
             <Row>
                 <Col>
+                    <Bugs/>
                     <Heading main subtitle={Content.subtitle}>{Content.title}</Heading>
                     {
                         pageSections.map((section, key) => {
@@ -34,20 +36,26 @@ const Accommodation = () => {
                                     <div className={"section"}>
                                         { content.content.links && content.content.links.map((link, key) => {
                                             return (
-                                                <Button
-                                                    external={true}
-                                                    key={key}
-                                                    link={link.url}
-                                                >
-                                                    {link.text}
-                                                </Button>
+                                                <>
+                                                    <Bugs/>
+                                                    <Button
+                                                        external={true}
+                                                        key={key}
+                                                        link={link.url}
+                                                    >
+                                                        {link.text}
+                                                    </Button>
+                                                </>
                                             )
                                         })}
                                     </div>
                                     <ul>
                                         { content.content.list && content.content.list.map((list, key) => {
                                             return (
+                                              <>
                                                 <ListItem key={key}>{list}</ListItem>
+                                                <Bugs/>
+                                              </>
                                             )
                                         })}
                                     </ul>

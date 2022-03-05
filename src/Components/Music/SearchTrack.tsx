@@ -6,6 +6,10 @@ import SelectedTracks from './SelectedTracks';
 import './SearchTrack.scss';
 import { Col, Form, Input, Button } from 'reactstrap';
 import {connect} from "react-redux";
+import GoogleSheets from "../../Controllers/Forms/GoogleSheets";
+
+const SPREADSHEET_ID:string = process.env.REACT_APP_SPREADSHEET_ID!;
+const MUSIC_SHEET_ID:string = process.env.REACT_APP_MUSIC_SHEET_ID!;
 
 class SearchTracks extends Component{
 
@@ -13,6 +17,7 @@ class SearchTracks extends Component{
         super(props);
 
         this.state = {
+            submitted: false,
             theToken: [],
             spotifyCreds: true,
             trackList: [],
@@ -75,19 +80,31 @@ class SearchTracks extends Component{
         
         var trackArray = [];
         this.state.trackList.map((track: any) => (
-            trackArray.push('spotify:track:'+track.trackid)
+            trackArray.push(
+                {
+                    'id': track.trackid,
+                    'track': track.trackname,
+                    'artist': track.trackartist
+                }
+            )
         ));
-        return trackArray;
-        /**
-         * yeeah, we're going to have to dump these to a google sheet or something.
-         */
 
+        trackArray.map((track: any, i) => {
+            GoogleSheets(track, SPREADSHEET_ID, MUSIC_SHEET_ID);
+            // eslint-disable-next-line array-callback-return
+            return;
+        });
+
+        this.setState({
+            submitted: true,
+            trackList: []
+        });
     }
 
     searchForTrack( search:any ){
         var spotifyApi = new SpotifyWebApi();
         spotifyApi.setAccessToken(this.state.theToken);
-        spotifyApi.searchTracks(search.target.value).then(
+        spotifyApi.searchTracks(search.target.value, {limit: 6}).then(
             (data) => {        
                 this.setState({
                     theTracks: data,
@@ -98,12 +115,13 @@ class SearchTracks extends Component{
 
     render() {
         return (
-            <Col
-                className='m-auto track-selector'
-            >
+            <Col className='m-auto track-selector'>
+                { this.state.submitted ? <h2>Tracks submitted, feel free to add more if you like.</h2> : null }
+
                 <SelectedTracks data={ this.state.trackList } removeTrack={ this.removeTrack } isSelected={true} />
-                { this.state.trackList.length > 0 ? <Button className={'m-3 btn-submit'} data-testid='submit-button' onClick={ this.submitTracks }>&#128378; Lets rock! &#128131;</Button> : null }
+                { this.state.trackList.length > 0 ? <Button className={'m-3 track-card-button btn btn-secondary'} data-testid='submit-button' onClick={ this.submitTracks }>&#128378; Submit! &#128131;</Button> : null }
                 <Form className="m-auto max-w-md my-10">
+                    <label>Search:</label>
                     <Input 
                     type="text"
                     id="search-track"
@@ -114,6 +132,7 @@ class SearchTracks extends Component{
                     ></Input>
                 </Form>
                 <Track data={ this.state.theTracks.tracks } addTrack={ this.addTrack } />
+                <br/>
             </Col>
         );
     };   

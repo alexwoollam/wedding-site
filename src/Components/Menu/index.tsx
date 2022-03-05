@@ -17,16 +17,14 @@ const Menu = ( props: Props ) => {
         history.push(uri);
     }
 
-    const { devmode } = props;
-
     const menuItems = {
+        'home': { title: 'Home', link: '/', visible: true },
         'rsvp': {title: 'RSVP', link: '/rsvp', visible: true},
+        'music': {title: 'Music', link: '/music', visible: true},
         'accommodation': {title: 'Accommodation', link: '/accommodation', visible: true},
         'information': {title: 'Information', link: '/information', visible: true},
         'gifts': {title: 'Gifts', link: '/gifts', visible: true},
-        'weddingParty': {title: 'Wedding Party', link: '/wedding-party', visible: {devmode}},
-        'contact': {title: 'Contact', link: '/contact', visible: {devmode}},
-        'music': {title: 'Music', link: '/music', visible: true}
+        'contact': {title: 'Contact', link: '/contact', visible: true}
     };
 
     return (

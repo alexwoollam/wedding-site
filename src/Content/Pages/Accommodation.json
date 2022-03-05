@@ -2,12 +2,21 @@
   "title": "Accommodation",
   "subtitle": "",
   "sections": {
-    "glamping": {
-      "title": "Glamping",
-      "subtitle": "For those who’d like to join us onsite",
+    "pre": {
+      "title": "",
+      "subtitle":"",
       "content": {
         "paragraphs": [
-          "We have 6 glamping tents that Beaux Belltents will be putting up and decking out with furniture and bedding. They sleep between 2 and 4 people and it is a flat cost of £200 per tent for the whole weekend whether you stay one night or two (take off £25 if you want to bring your own bedding and £5 extra per person if you’d like to upgrade your bed options).",
+          "The wedding party will be based at the venue for the weekend and there are glamping and camping options for those who’d like to stay, especially if you fancy joining the weekend celebrations. The venue is 20 minutes away from Salisbury but is very much out in the sticks so any taxis would need to be pre-booked."
+        ]
+      }
+    },
+    "glamping": {
+      "title": "Onsite Glamping",
+      "subtitle":"",
+      "content": {
+        "paragraphs": [
+          "We have glamping tents that Beaux Belltents will be putting up and decking out with furniture and bedding. They sleep between 2 and 4 people and it is a flat cost of £200 per tent for the whole weekend whether you stay one night or two (take off £25 if you want to bring your own bedding and £5 extra per person if you’d like to upgrade your bed options).",
           "You can see more at Beaux Bell Tents and book directly through them by emailing hello@beauxbelltents.co.uk (make sure to reference Lydia and Alex’s wedding, 06/08/2022 at Kingsettle Stud)."
         ],
         "links": [
@@ -19,7 +28,7 @@
       }
     },
     "camping": {
-      "title": "Camping",
+      "title": "Onsite camping",
       "subtitle": "For those who’d like to join us onsite",
       "content": {
         "paragraphs": [
@@ -28,11 +37,11 @@
       }
     },
     "general": {
-      "title": "General facilities",
+      "title": "Onsite facilities",
       "content": {
         "paragraphs": [
-          "We will also have one 5 metre communal bell tent set up for everyone camping to use as a social space. If the weather is warm we’ll open up the sides, it it’s chillier we’re getting a wood burning stove (and tent chimney!) so we don’t miss out on the campfire gatherings. If the weather is looking dodgy then we will set the tent up a bit further away so campers aren't disturbed.",
-          "There will be a luxury toilet block and use of showers."
+          "We will also have a 5-metre communal bell tent set up for everyone camping to use as a social space.",
+          "There will be a luxury toilet block and use of showers. Caravans or motorhomes are welcome but there are no electric hookups."
         ]
       }
     },
@@ -40,14 +49,7 @@
       "title": "Hotels & Airbnb",
       "content": {
         "paragraphs": [
-          "For those preferring to stay off site there’s lots of options a bit further afield depending on your taste and budget. Salisbury probably has the most options and is a 20 minute drive away. You can also look at Airbnbs or hotels in surrounding villages. If you’re planning to take advantage of the open bar we would recommend pre-booking a taxi in advance. If you’re interested in sharing a taxi so you can split the cost (and carbon footprint!) then let us know >>here<< and we will add you to all to a group so you can co-ordinate with other guests.",
-          "Just to give you an idea for an 11.30pm pick up All the Sevens have quoted £39 for a standard car and £55 for an 8 seater (or £25 and £38 if before 10pm). 01722 777777 or book@allthesevens.co.uk"
-        ],
-        "links": [
-          {
-            "text": "All the 7s",
-            "url": "https://allthesevens.co.uk/"
-          }
+          "For those preferring to stay off-site there are lots of options a bit further afield depending on your taste and budget. Salisbury probably has the most options and is a 20-minute drive away. You can also look at Airbnbs or hotels in surrounding villages. If you’re planning to take advantage of the open bar we would recommend pre-booking a taxi in advance. If you’re interested in sharing a taxi so you can split the cost (and carbon footprint!) then let us know and we will add you to all to a group so you can co-ordinate with other guests."
         ]
       }
     }

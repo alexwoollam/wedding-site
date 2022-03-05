@@ -4,6 +4,8 @@ import Page from "../Components/Layout/Page";
 import {Col, Row} from "reactstrap";
 import Heading from "../Components/Text/Heading";
 import Content from "../Content/Pages/Contact.json";
+import Bugs from "../Components/Bugs";
+import TextBlock from "../Components/Text/TextBlock";
 
 const Contact = () => {
 
@@ -11,7 +13,10 @@ const Contact = () => {
         <Page>
             <Row>
                 <Col>
-                    <Heading subtitle={Content.subtitle}>{Content.title}</Heading>
+                    <Bugs/>
+                    <Heading main >{Content.title}</Heading>
+                    <Bugs/>
+                    <TextBlock>{Content.subtitle}</TextBlock>
 
                 </Col>
             </Row>
