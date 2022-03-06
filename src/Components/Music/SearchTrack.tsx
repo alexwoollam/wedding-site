@@ -115,12 +115,12 @@ class SearchTracks extends Component{
 
     render() {
         return (
-            <Col className='m-auto track-selector'>
+            <Col className='track-selector'>
                 { this.state.submitted ? <h2>Tracks submitted, feel free to add more if you like.</h2> : null }
 
                 <SelectedTracks data={ this.state.trackList } removeTrack={ this.removeTrack } isSelected={true} />
                 { this.state.trackList.length > 0 ? <Button className={'m-3 track-card-button btn btn-secondary'} data-testid='submit-button' onClick={ this.submitTracks }>&#128378; Submit! &#128131;</Button> : null }
-                <Form className="m-auto max-w-md my-10">
+                <Form className="max-w-md-10">
                     <label>Search:</label>
                     <Input 
                     type="text"

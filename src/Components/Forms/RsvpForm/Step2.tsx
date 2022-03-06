@@ -98,7 +98,7 @@ const Step2 = props => {
                                     type="select"
                                     onChange={(event) => updateOtherGuestDetails(event, index)}
                                 >
-                                    <option value="beef">Local Beef</option>
+                                    <option value="beef">Beef</option>
                                     <option value="vegi">Vegetarian</option>
                                     <option value="vegan">Vegan</option>
                                 </Input>

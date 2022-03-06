@@ -30,7 +30,7 @@ const Step3 = props => {
             </Container>
             <FormControls>
                 <MyButton prev is_disabled={true}>{content.back_button}</MyButton>
-                <MyButton next right is_disabled={false} onClick={ setNextStep }>Finish</MyButton>
+                <MyButton next right is_disabled={false} onClick={ setNextStep }>Next</MyButton>
             </FormControls>
         </>
     );
