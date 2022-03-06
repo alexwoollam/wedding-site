@@ -17,6 +17,7 @@ ReactDOM.render(
           styles={{
               input: {
                   color: '#67805a',
+                  minWidth: '280px',
                   width: '100%',
               },
               header: {

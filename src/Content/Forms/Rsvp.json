@@ -29,7 +29,7 @@
     "email": {
 
       "label": "Primary email",
-      "sub_label": "Optional - we will use this to send you any updates or changes",
+      "sub_label": "We will use this to send you any updates or changes",
       "placeholder": [
         "jon_snow@the_wall.gov",
         "lando_calrissian@aol.com",

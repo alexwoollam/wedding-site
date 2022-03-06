@@ -8,15 +8,36 @@
     line-height: 1.5;
     padding: 0;
     color: $dustypink;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    & span{
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+    }
   }
   &-text--main{
     font-family: 'Acoustica South', sans-serif;
     font-size: 4.5rem;
     letter-spacing: 1.3px;
     font-weight: 500;
-    line-height: 0.75;
+    line-height: 1;
     padding: 0;
     color: $dustypink;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    & span{
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      margin-left: 15px;
+    }
   }
   &-subtext{
     display: inline-block;
