@@ -84,7 +84,7 @@ const Step1 = props => {
                         return (
                             <Container className={"other-guests-container"} key={index}>
                                 <Row className={"other-guests-row"}>
-                                    <Col xs={8} md={10}>
+                                    <Col xs={{ size: 12, order: 2 }} sm={{ size: 'auto', order: 1 }} md={{ size: 8 }} lg={{ size: 10 }}>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -95,7 +95,7 @@ const Step1 = props => {
                                             onChange={ (event) => updateOtherGuestDetails(event, index) }
                                         />
                                     </Col>
-                                    <Col xs={2} md={4} style={{alignSelf: 'end'}}>
+                                    <Col xs={{ size: 12, order: 1 }} sm={{ size: 2, order: 2 }} md={{ size: 2 }} style={{ marginBottom: '10px', alignSelf: 'end'}}>
                                         <MyButton remove onClick={(event) => removeOtherGuest(event, index)}>
                                             remove
                                         </MyButton>
@@ -144,11 +144,11 @@ const Step1 = props => {
                 }
             </FormGroup>
             <FormGroup enabled={user.name.length > 3 && user.availability !== "no"}>
-                <Row>
+                <Row style={{ alignItems: 'center' }}>
                     <Col>
-                        <label id="additional" htmlFor="rsvp-name" style={{textAlign: 'left', lineHeight: '2.5'}}>{content.add_plus_one_button_label}</label>
+                        <label id="additional" htmlFor="rsvp-name" style={{textAlign: 'left', lineHeight: '1.5'}}>{content.add_plus_one_button_label}</label>
                     </Col>
-                    <Col xs={4} md={2}>
+                    <Col xs={6} sm={4} md={2}>
                         <button id="additionalButton" className={'btn btn-add-guest'} name='is_other_guests' onClick={ setUserGuestsTrue }>{content.add_plus_one_button}</button>
                     </Col>
                 </Row>

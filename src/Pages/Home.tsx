@@ -18,7 +18,7 @@ const image = () => {
 }
 
 const renderer = ({ days, hours, minutes }) => (
-    <Heading main>{days} days, {zeroPad(hours)} hours and {zeroPad(minutes)} mins!</Heading>
+    <Heading main><span>{days} days, </span><span>{zeroPad(hours)} hours </span><span>& {zeroPad(minutes)} mins!</span></Heading>
 );
 
 const Home = () => {
@@ -39,7 +39,11 @@ const Home = () => {
                         renderer={renderer}
                     />
                     <Heading>{Content.subtitle}</Heading>
-                   <TextBlock>Kingsettle Stud, Cholderton, SP40DX</TextBlock>
+                    <TextBlock>
+                        <span>Kingsettle Stud, </span>
+                        <span>Cholderton, </span>
+                        <span>SP40DX</span>
+                    </TextBlock>
                     <Bugs/>
                 </Col>
             </Row>
