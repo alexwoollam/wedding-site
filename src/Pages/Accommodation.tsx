@@ -24,7 +24,6 @@ const Accommodation = () => {
                     {
                         pageSections.map((section, key) => {
                             let content = section[1];
-                            console.log(content);
                             return (
                                 <div className={"section"} key={key}>
                                     <Heading subtitle={content.subtitle}>{content.title}</Heading>
