@@ -7,11 +7,11 @@
   justify-content: space-between;
   margin: 0 auto;
   &-middle{
-    height: 150px;
+    height: 241px;
     width: 100%;
     flex-grow: 1;
     background-image: url('../../Images/bottom/bottom.png');
-    background-size: 31%;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
   }
