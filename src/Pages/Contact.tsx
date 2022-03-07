@@ -15,9 +15,11 @@ const Contact = () => {
                 <Col>
                     <Bugs/>
                     <Heading main >{Content.title}</Heading>
-                    <Bugs/>
                     <TextBlock>{Content.subtitle}</TextBlock>
-
+                    <Bugs/>
+                    <a href={"mailto: lydia_king@hotmail.co.uk"}>lydia_king@hotmail.co.uk</a>
+                    <TextBlock>Lydia: 07929 391074</TextBlock>
+                    <TextBlock>(Or if you are feeling lucky) Alex: 07775 724209</TextBlock>
                 </Col>
             </Row>
         </Page>

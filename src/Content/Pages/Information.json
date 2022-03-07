@@ -1,5 +1,5 @@
 {
-  "title": "General information about the day",
+  "title": "General information",
   "subtitle": "",
   "sections": {
     "weekend": {
@@ -26,7 +26,15 @@
       "title": "Children",
       "content": {
         "paragraphs": [
-          "Although we would love to be able to invite children outside of the wedding party, unfortunately there just isn't space for an extra 50 little humans! We're aware this may be tricky for some though due to distance or young babies. If that's you, get in touch and we can work something out."
+          "Although we would love to invite children outside of the wedding party, unfortunately there just isn't space for an extra 50 little humans! We're aware this may be tricky for some though due to distance or young babies. If that's you, get in touch and we can work something out."
+        ]
+      }
+    },
+    "gifts": {
+      "title": "Gifts",
+      "content": {
+        "paragraphs": [
+          "Your presence is present enough, but if want to give a gift, check back here soon."
         ]
       }
     }

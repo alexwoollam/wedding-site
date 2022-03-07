@@ -23,7 +23,6 @@ const Menu = ( props: Props ) => {
         'music': {title: 'Music', link: '/music', visible: true},
         'accommodation': {title: 'Accommodation', link: '/accommodation', visible: true},
         'information': {title: 'Information', link: '/information', visible: true},
-        'gifts': {title: 'Gifts', link: '/gifts', visible: true},
         'contact': {title: 'Contact', link: '/contact', visible: true}
     };
 
