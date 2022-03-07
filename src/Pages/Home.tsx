@@ -18,7 +18,7 @@ const image = () => {
 }
 
 const renderer = ({ days, hours, minutes }) => (
-    <Heading main><span>{days} days, </span><span>{zeroPad(hours)} hours </span><span>& {zeroPad(minutes)} mins!</span></Heading>
+    <Heading><span>{days} days, </span><span>{zeroPad(hours)} hours </span><span>& {zeroPad(minutes)} mins!</span></Heading>
 );
 
 const Home = () => {
@@ -34,11 +34,11 @@ const Home = () => {
                     />
                     <br/>
                     <Bugs/>
+                    <Heading main>{Content.subtitle}</Heading>
                     <Countdown
                         date={"2022-08-06T14:00:00.000Z"}
                         renderer={renderer}
                     />
-                    <Heading>{Content.subtitle}</Heading>
                     <TextBlock>
                         <span>Kingsettle Stud, </span>
                         <span>Cholderton, </span>

@@ -161,12 +161,14 @@ const Step1 = props => {
             </FormGroup>
             <FormControls>
                 <MyButton prev is_disabled={true} onClick={ setPreviousStep }>{content.back_button}</MyButton>
-                { user.availability !== "no" && user.name !== '' ?
-                    <MyButton next right is_disabled={false} onClick={ setNextStep }>{content.continue_button}</MyButton> :
-                    <Button type="submit" className={'btn btn-next'}>
-                        {content.submit_button}
-                    </Button >
+                { user.availability !== "no" && user.name.length >= 3 ?
+                    <MyButton next right is_disabled={false} onClick={ setNextStep }>{content.continue_button}</MyButton>
+                    : null
                 }
+                { user.availability === "no" ?
+                <Button type="submit" className={'btn btn-next'}>
+                    {content.submit_button}
+                </Button > : null}
             </FormControls>
         </>
     );
