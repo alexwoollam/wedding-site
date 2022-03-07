@@ -97,7 +97,7 @@ const Step2 = props => {
                     <Container className={"other-guests-container"} key={index}>
                         <FormGroup enabled >
                             <Row>
-                                <label htmlFor="dietry">Whats would {guestName(guest.name)} prefer?</label>
+                                <label htmlFor="dietry">What would {guestName(guest.name)} prefer?</label>
                                 <Input
                                     id="vegitarianSelect"
                                     name="vegetarian"
@@ -112,7 +112,7 @@ const Step2 = props => {
                         </FormGroup>
                         <FormGroup enabled>
                                 <Row>
-                                    <label htmlFor="dietry">Does {guestName(guest.name)}, {content.dietary.additional_label}</label>
+                                    <label htmlFor="dietry">Does {guestName(guest.name)} {content.dietary.additional_label}</label>
                                 </Row>
                                 <Row>
                                     <Input

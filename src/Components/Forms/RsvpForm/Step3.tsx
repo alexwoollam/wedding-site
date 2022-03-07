@@ -25,6 +25,10 @@ const Step3 = props => {
                         <Heading main subtitle={Content.subtitle}>{Content.title}</Heading>
                     </Col>
                 </Row>
+                <FormControls>
+                    <MyButton prev is_disabled={true}>{content.back_button}</MyButton>
+                    <MyButton next right is_disabled={false} onClick={ setNextStep }>Submit RSVP</MyButton>
+                </FormControls>
                 <Row>
                     <Col className={"col-12"}>
                         <SearchTracks/>
@@ -32,10 +36,6 @@ const Step3 = props => {
                 </Row>
                 <Bugs/>
             </Container>
-            <FormControls>
-                <MyButton prev is_disabled={true}>{content.back_button}</MyButton>
-                <MyButton next right is_disabled={false} onClick={ setNextStep }>Next</MyButton>
-            </FormControls>
         </>
     );
 };
