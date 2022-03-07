@@ -17,12 +17,12 @@
       "content": {
         "paragraphs": [
           "New Forest Bell Tents will be setting up a bell tent village with all the essentials for the weekend and we'll be adding some homely comforts. The bell tents are a flat price for the whole weekend and can sleep between 2 and 7 people depending on which size you go for. You can book with them directly by clicking the button below. ",
-          ""
+          "We will also have a 5-metre communal bell tent set up for everyone camping to use as a social space and a charging station."
         ],
         "links": [
           {
             "text": "New Forest Bell Tents",
-            "url": "https://booking.newforestbelltents.co.uk/book/ygbevdanrpzx?fbclid=IwAR0SWX2Am112dqb8U-qSNdaKG2MDo6JtC54pngZUWYFEGj5y6DUmvOHyHIg"
+            "link": "https://booking.newforestbelltents.co.uk/book/ygbevdanrpzx?fbclid=IwAR0SWX2Am112dqb8U-qSNdaKG2MDo6JtC54pngZUWYFEGj5y6DUmvOHyHIg"
           }
         ]
       }
@@ -33,6 +33,12 @@
       "content": {
         "paragraphs": [
           "If you are a happy camper yourself already and would just like to bring your own tent set up (or campervan!) then you can book a pitch through Susie at Kingsettle Stud. It’s £15 for a pitch for the weekend."
+        ],
+        "links": [
+          {
+            "text": "Kingsettle stud",
+            "link": "https://www.kingsettlestud.co.uk/"
+          }
         ]
       }
     },
@@ -40,7 +46,6 @@
       "title": "Onsite facilities",
       "content": {
         "paragraphs": [
-          "We will also have a 5-metre communal bell tent set up for everyone camping to use as a social space.",
           "There will be a luxury toilet block and use of showers. Caravans or motorhomes are welcome but there are no electric hookups."
         ]
       }
@@ -50,6 +55,12 @@
       "content": {
         "paragraphs": [
           "For those preferring to stay off-site there are lots of options a bit further afield depending on your taste and budget. Salisbury probably has the most options and is a 20-minute drive away. You can also look at Airbnbs or hotels in surrounding villages. If you’re planning to take advantage of the open bar we would recommend pre-booking a taxi in advance. If you’re interested in sharing a taxi so you can split the cost (and carbon footprint!) then let us know and we will add you to all to a group so you can co-ordinate with other guests."
+        ],
+        "links": [
+          {
+            "text": "Air BnB",
+            "link": "https://www.airbnb.co.uk/"
+          }
         ]
       }
     }
