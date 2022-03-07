@@ -23,9 +23,9 @@ const Thanks = () => {
                     <Container>
                         <TextBlock>{OtherContent.step_3.subtitle}</TextBlock>
                         <TextBlock>{OtherContent.step_3.accommodation_bumph_one}</TextBlock>
-                        <TextBlock>{OtherContent.step_3.accommodation_bumph_two}</TextBlock>
+                        <TextBlock>{OtherContent.step_3.accommodation_bumph_two} <a href={OtherContent.step_3.accommodation_biump_link_link}>here.</a></TextBlock>
                         <TextBlock>{OtherContent.step_3.accommodation_bumph_three}</TextBlock>
-                        <a href={OtherContent.step_3.accommodation_bumph_link}>{OtherContent.step_3.accommodation_bumph_link_text}</a>
+                        <TextBlock>{OtherContent.step_3.accommodation_bumph_four} <a href={OtherContent.step_3.accommodation_biump_link_link_two}>here.</a></TextBlock>
                     </Container>
                 </Container>
             </Row>
