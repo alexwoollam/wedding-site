@@ -13,7 +13,6 @@ import {Thanks} from './Pages/Thanks';
 import {NotThanks} from './Pages/NotThanks';
 import {Accommodation} from './Pages/Accommodation';
 import {Information} from './Pages/Information';
-import {Gifts} from './Pages/Gifts';
 import {WeddingParty} from './Pages/WeddingParty';
 import {Contact} from './Pages/Contact';
 import {Container} from 'reactstrap';
@@ -44,7 +43,6 @@ function App() {
   let rsvp: any = null;
   let accommodation: any = null;
   let information: any = null;
-  let gifts: any = null;
   let thanks: any = null;
   let oh: any = null;
   let weddingParty: any = null;
@@ -61,7 +59,6 @@ function App() {
   rsvp = <Route path="/rsvp"><Container><RSVP/></Container></Route>;
   accommodation = <Route path="/accommodation"><Container><Accommodation/></Container></Route>;
   information = <Route path="/information"><Container><Information/></Container></Route>;
-  gifts = <Route path="/gifts"><Container><Gifts/></Container></Route>;
   thanks = <Route path="/thanks"><Container><Thanks/></Container></Route>;
   oh = <Route path="/oh"><Container><NotThanks/></Container></Route>;
   music = <Route path="/music"><Container><Music/></Container></Route>;
@@ -75,7 +72,6 @@ function App() {
         {rsvp}
         {accommodation}
         {information}
-        {gifts}
         {weddingParty}
         {music}
         {thanks}
