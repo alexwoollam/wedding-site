@@ -1,7 +1,7 @@
 {
   "step_1": {
     "title": "Who's RSVPing?",
-    "subtitle": "Please enter your name and email address below.",
+    "subtitle": "",
     "name": {
       "label": "Your name",
       "availability": "Are you available?",
@@ -44,7 +44,7 @@
       ]
     },
     "add_plus_one_button": "Add",
-    "add_plus_one_button_label": "Add additional RSVP",
+    "add_plus_one_button_label": "RSVP for another guest",
     "add_plus_one_button_sub_label": "Please include anyone else who you are RSVPing on behalf of",
     "other_guests": {
       "label": "Other guests name",
@@ -83,10 +83,16 @@
   },
   "step_3": {
     "title": "Thanks",
-    "subtitle": "We look forward to seeing you,",
-    "accommodation_bumph_one": "If you're planning to stay then we'd encourage you to get it booked ASAP. Accommodation is limited but there are options both onsite and in the local area. Take a look at the accommodation section for more information.",
-    "accommodation_bumph_two": "If you're hoping to stay then there are options both onsite and in the local area. Accommodation is limited though so we'd encourage you to get it booked ASAP (it would also help us with planning the facilities needed onsite)!",
-    "accommodation_bumph_three": "",
+    "subtitle": "We look forward to celebrating with you",
+    "accommodation_bumph_one": "If you're hoping to stay then there are options both onsite and in the local area. Accommodation is limited though so we'd encourage you to get it booked ASAP (it would also help us with planning the facilities onsite)! ",
+    "accommodation_bumph_two": "More information about accommodation can be found here",
+    "accommodation_biump_link_text": "ACCOMMODATION",
+    "accommodation_biump_link_link": "/accommodation",
+    "accommodation_bumph_three": "We have the venue for the weekend so are hoping we can spend some time with those who are staying on the Sunday morning or Friday evening too.More general information about the day, venue and transport can be found here",
+    "accommodation_biump_link_text_two": "Information",
+    "accommodation_biump_link_link_two": "/information",
+    "accommodation_bumph_": "but any questions or queries, give us a call or email. lydia_king@hotmail.co.uk",
+    "accommodation_bumph_t": "07929392074",
     "accommodation_bumph_link_text": "More information about accommodation can be found here",
     "accommodation_bumph_link": "/accommodation",
     "back_button": "Back",

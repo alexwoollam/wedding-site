@@ -148,23 +148,23 @@ function RsvpForm() {
     }
 
     /* istanbul ignore else */
-    if( ! user.form ){
+    if( ! user.form ) {
         return (
             <Col className="m-auto mt-3">
-                <Form onSubmit={ handlePostForm } className="m-auto">
+                <Form onSubmit={handlePostForm} className="m-auto">
                     <ReCAPTCHA
-                        sitekey={ RECAPTCHAKEY }
+                        sitekey={RECAPTCHAKEY}
                         size="invisible"
                     />
                     <FormLayout>
                         {
                             step === 1 ?
                                 <Step1
-                                    setNextStep={ handleNextStep }
-                                    setPreviousStep={ handlePreviousStep }
-                                    content={ Content.step_1 }
-                                    updateUser={ updateUser }
-                                    user={ user }
+                                    setNextStep={handleNextStep}
+                                    setPreviousStep={handlePreviousStep}
+                                    content={Content.step_1}
+                                    updateUser={updateUser}
+                                    user={user}
                                     randomNumber={randomNumber}
                                     setUserGuestsTrue={addOtherGuest}
                                     updateOtherGuestDetails={setOtherGuestDetails}
@@ -173,12 +173,12 @@ function RsvpForm() {
                                 :
                                 step === 2 ?
                                     <Step2
-                                        setNextStep={ handleNextStep }
-                                        setPreviousStep={ handlePreviousStep }
+                                        setNextStep={handleNextStep}
+                                        setPreviousStep={handlePreviousStep}
                                         updateUser={updateUser}
                                         updateOtherGuestDetails={setOtherGuestDetails}
-                                        user={ user }
-                                        content={ Content.step_2 }
+                                        user={user}
+                                        content={Content.step_2}
                                     />
                                     : null
                         }
@@ -186,6 +186,9 @@ function RsvpForm() {
                 </Form>
             </Col>
         );
+    } else if( user.availability === 'no' ) {
+        history.push('/thanks');
+        return null;
     } else {
         return (
             <Col className="m-auto mt-3">

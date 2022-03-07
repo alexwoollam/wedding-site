@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Heading from '../../Text/Heading';
 import TextBlock from "../../Text/TextBlock";
 import FormGroup from "../../Layout/FormGroup";
 import FormControls from "../../Layout/FormControls";
 import {Container, Row, Input, Button} from "reactstrap";
+import ScrollToTop from "../../../Helpers/ScrollToTop";
 
 const Step2 = props => {
     const {
@@ -13,6 +14,10 @@ const Step2 = props => {
         updateUser,
         updateOtherGuestDetails
     } = props;
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     const firstName = () => {
         let name = user.name;
@@ -37,6 +42,7 @@ const Step2 = props => {
 
     return (
         <Container>
+            <ScrollToTop />
             <Heading>{content.title}</Heading>
             <TextBlock>{content.subtitle}</TextBlock>
             <FormGroup enabled>
@@ -48,7 +54,7 @@ const Step2 = props => {
                         type="select"
                         onChange={updateUser}
                     >
-                        <option value="beef">Local Beef</option>
+                        <option value="beef">Beef</option>
                         <option value="vegi">Vegetarian</option>
                         <option value="vegan">Vegan</option>
                     </Input>
