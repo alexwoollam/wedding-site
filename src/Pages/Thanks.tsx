@@ -21,6 +21,7 @@ const Thanks = () => {
                 <Container>
                     <Heading main>{OtherContent.step_3.title}</Heading>
                     <Container>
+                        <TextBlock>{OtherContent.step_3.subtitle}</TextBlock>
                         <TextBlock>{OtherContent.step_3.accommodation_bumph_one}</TextBlock>
                         <TextBlock>{OtherContent.step_3.accommodation_bumph_two}</TextBlock>
                         <TextBlock>{OtherContent.step_3.accommodation_bumph_three}</TextBlock>

@@ -25,6 +25,10 @@ ul {
     -webkit-font-smoothing: antialiased;
 }
 
+input {
+    font-family: san-serif!important;
+}
+
 .btn-secondary:hover{
     background-color: rgba(0,0,0,0);
 }

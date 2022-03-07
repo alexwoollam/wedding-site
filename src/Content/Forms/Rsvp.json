@@ -67,7 +67,7 @@
       "availability_no":  "Will not be there (wish I could be wearing bells)",
       "availability_also_no":  "Will not be there, heard people will be wearing bells",
       "yes_sub_label": "What details do the caterers need to know.",
-      "veg": "The main meal will be a sharing feast of local beef, roasted heritage potatoes and a range of exciting vegetable side dishes.",
+      "veg": "The main meal will be a sharing feast of local beef, roasted heritage potatoes and a range of exciting vegetable side dishes. If that's not your thing, and you'd rather go for vegetarian or vegan option please let us know below.",
       "additional_veg": "meal preference",
       "yes": "Yes",
       "no": "No",
@@ -75,7 +75,7 @@
       "veg_no": "beef please!"
     },
     "back_button": "Back",
-    "submit_button": "Submit"
+    "submit_button": "Next"
   },
   "step_3": {
     "title": "Thanks",
