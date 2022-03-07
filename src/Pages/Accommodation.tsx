@@ -6,7 +6,6 @@ import Heading from '../Components/Text/Heading';
 import TextBlock from '../Components/Text/TextBlock';
 import {Row, Col} from "reactstrap";
 import ListItem from "../Components/Text/ListItem";
-import Button from "../Components/Button";
 import Bugs from "../Components/Bugs";
 
 const Accommodation = () => {
@@ -37,13 +36,13 @@ const Accommodation = () => {
                                             return (
                                                 <>
                                                     <Bugs/>
-                                                    <Button
-                                                        external={true}
+                                                    <button
+                                                        className={"btn btn-external"}
+                                                        onClick={() => window.open(link.link, '_blank')}
                                                         key={key}
-                                                        link={link.url}
                                                     >
                                                         {link.text}
-                                                    </Button>
+                                                    </button>
                                                 </>
                                             )
                                         })}
