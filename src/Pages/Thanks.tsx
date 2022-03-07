@@ -7,8 +7,12 @@ import Content from "../Content/Pages/RSVP.json";
 import OtherContent from "../Content/Forms/Rsvp.json";
 import Bugs from "../Components/Bugs";
 import TextBlock from "../Components/Text/TextBlock";
+import {useHistory} from "react-router-dom";
 
 const Thanks = () => {
+
+    const history = useHistory();
+
     return (
         <Page>
             <Row>
@@ -23,9 +27,9 @@ const Thanks = () => {
                     <Container>
                         <TextBlock>{OtherContent.step_3.subtitle}</TextBlock>
                         <TextBlock>{OtherContent.step_3.accommodation_bumph_one}</TextBlock>
-                        <TextBlock>{OtherContent.step_3.accommodation_bumph_two} <a href={OtherContent.step_3.accommodation_biump_link_link}>here.</a></TextBlock>
+                        <TextBlock>{OtherContent.step_3.accommodation_bumph_two} <button style={{cursor: 'pointer'}} onClick={() => history.push(OtherContent.step_3.accommodation_biump_link_link)}>here.</button></TextBlock>
                         <TextBlock>{OtherContent.step_3.accommodation_bumph_three}</TextBlock>
-                        <TextBlock>{OtherContent.step_3.accommodation_bumph_four} <a href={OtherContent.step_3.accommodation_biump_link_link_two}>here.</a></TextBlock>
+                        <TextBlock>{OtherContent.step_3.accommodation_bumph_four} <button style={{cursor: 'pointer'}} onClick={() => history.push(OtherContent.step_3.accommodation_biump_link_link_two)}>here.</button></TextBlock>
                     </Container>
                 </Container>
             </Row>
