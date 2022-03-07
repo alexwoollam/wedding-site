@@ -10,6 +10,7 @@ import Music from './Pages/Music';
 import {Home} from './Pages/Home';
 import {RSVP} from './Pages/RSVP';
 import {Thanks} from './Pages/Thanks';
+import {NotThanks} from './Pages/NotThanks';
 import {Accommodation} from './Pages/Accommodation';
 import {Information} from './Pages/Information';
 import {Gifts} from './Pages/Gifts';
@@ -45,6 +46,7 @@ function App() {
   let information: any = null;
   let gifts: any = null;
   let thanks: any = null;
+  let oh: any = null;
   let weddingParty: any = null;
   let contact: any = null;
 
@@ -61,6 +63,7 @@ function App() {
   information = <Route path="/information"><Container><Information/></Container></Route>;
   gifts = <Route path="/gifts"><Container><Gifts/></Container></Route>;
   thanks = <Route path="/thanks"><Container><Thanks/></Container></Route>;
+  oh = <Route path="/oh"><Container><NotThanks/></Container></Route>;
   music = <Route path="/music"><Container><Music/></Container></Route>;
   contact = <Route path="/contact"><Container><Contact/></Container></Route>;
 
@@ -76,6 +79,7 @@ function App() {
         {weddingParty}
         {music}
         {thanks}
+        {oh}
         {contact}
         {home}
       </Switch>

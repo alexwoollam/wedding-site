@@ -187,7 +187,7 @@ function RsvpForm() {
             </Col>
         );
     } else if( user.availability === 'no' ) {
-        history.push('/thanks');
+        history.push('/oh');
         return null;
     } else {
         return (
