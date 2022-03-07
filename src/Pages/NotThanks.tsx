@@ -12,7 +12,7 @@ const NotThanks = () => {
                 <Container>
                     <Heading main>Thanks for letting us know</Heading>
                     <Container>
-                        <TextBlock>We will be sorry for not seeing you there.</TextBlock>
+                        <TextBlock>We will be sorry not seeing you there.</TextBlock>
                         <p style={{marginBottom: "400px"}}></p>
                     </Container>
                 </Container>

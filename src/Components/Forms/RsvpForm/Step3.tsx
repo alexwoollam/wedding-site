@@ -27,7 +27,7 @@ const Step3 = props => {
                 </Row>
                 <FormControls>
                     <MyButton prev is_disabled={true}>{content.back_button}</MyButton>
-                    <MyButton next right is_disabled={false} onClick={ setNextStep }>Submit RSVP</MyButton>
+                    <MyButton next right is_disabled={false} onClick={ setNextStep }>Next</MyButton>
                 </FormControls>
                 <Row>
                     <Col className={"col-12"}>
