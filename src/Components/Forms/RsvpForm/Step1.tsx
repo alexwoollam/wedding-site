@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Heading from '../../Text/Heading';
 import TextBlock from "../../Text/TextBlock";
 import FormGroup from "../../Layout/FormGroup";
 import FormControls from "../../Layout/FormControls";
 import MyButton from "../../Button";
 import {Input, Label, Row, Col, Button,Container} from "reactstrap";
+import ScrollToTop from "../../../Helpers/ScrollToTop";
 
 const Step1 = props => {
     const {
@@ -19,8 +20,13 @@ const Step1 = props => {
         removeOtherGuest
     } = props;
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <>
+            <ScrollToTop />
             <Heading>{content.title}</Heading>
             <TextBlock>{content.subtitle}</TextBlock>
             <FormGroup enabled>
@@ -55,7 +61,7 @@ const Step1 = props => {
             </FormGroup>
 
             <FormGroup enabled={user.availability === "no"}>
-                <Label for={"excuse"}>Please write a 500 word essay on why you are unable to attend.</Label>
+                <Label for={"excuse"}>Optional message</Label>
                 <Input
                     onChange={updateUser}
                     type="textarea"

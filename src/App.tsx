@@ -18,6 +18,7 @@ import {Contact} from './Pages/Contact';
 import {Container} from 'reactstrap';
 import FooterImage from './Components/Media/FooterImage';
 import {useHistory} from "react-router-dom";
+import ScrollToTop from "./Helpers/ScrollToTop";
 
 function App() {
 
@@ -66,6 +67,7 @@ function App() {
   return (
     <Router>
       <Menu devmode={devmode} />
+      <ScrollToTop />
       <Switch>
         {rsvp}
         {accommodation}

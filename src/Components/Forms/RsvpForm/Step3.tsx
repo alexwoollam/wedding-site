@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Heading from '../../Text/Heading';
 import FormControls from "../../Layout/FormControls";
 import {Col, Container, Row} from "reactstrap";
@@ -12,6 +12,10 @@ const Step3 = props => {
         content,
         setNextStep,
     } = props;
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <>
