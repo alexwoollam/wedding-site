@@ -1,6 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/optimus-princeps');
 @import url('http://fonts.cdnfonts.com/css/acoustica-south');
-
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 /*main stlyle shee*/
 @tailwind base;
 @tailwind components;
@@ -19,14 +19,10 @@ ul {
 }
 
 * {
-    font-family: 'OptimusPrincepsSemiBold', sans-serif;
+    font-family: 'Lora', serif;
     font-size: 1.07rem;
     font-smooth: antialiased;
     -webkit-font-smoothing: antialiased;
-}
-
-input {
-    font-family: san-serif!important;
 }
 
 .btn-secondary:hover{

@@ -2,6 +2,20 @@
   "title": "General information",
   "subtitle": "",
   "sections": {
+    "where": {
+      "title": "Where",
+      "content": {
+        "paragraphs": [
+          "Kingsettle Stud, Cholderton, Salisbury SP4 0DX"
+        ],
+        "links": [
+          {
+            "text": "Kingsettle stud",
+            "link": "https://www.kingsettlestud.co.uk/"
+          }
+        ]
+      }
+    },
     "weekend": {
       "title": "Weekend Celebrations",
       "content": {
