@@ -7,9 +7,15 @@ import { Provider } from 'react-redux'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Protect from 'react-app-protect'
+import * as Sentry from "@sentry/react";
+import { BrowserTracing } from "@sentry/tracing";
 import 'react-app-protect/dist/index.css'
 
-const PASSWORD:string = process.env.REACT_APP_PASSWORD!;
+Sentry.init({
+    dsn: process.env.REACT_APP_SENTRY,
+    integrations: [new BrowserTracing()],
+    tracesSampleRate: 1.0,
+});
 
 ReactDOM.render(
   <React.StrictMode>
@@ -33,7 +39,7 @@ ReactDOM.render(
           boxTitle="Please use the password printed on your invite"
           inputPlaceholder={'Password (All Caps!)'}
           blur={true}
-          sha512={PASSWORD}
+          sha512={process.env.REACT_APP_PASSWORD}
       >
           <Provider store={ store }>
               <App />
