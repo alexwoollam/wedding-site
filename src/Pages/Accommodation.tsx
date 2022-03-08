@@ -36,13 +36,15 @@ const Accommodation = () => {
                                             return (
                                                 <>
                                                     <Bugs/>
-                                                    <button
-                                                        className={"btn btn-external"}
-                                                        onClick={() => window.open(link.link, '_blank')}
+                                                    {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                                                    <a
                                                         key={key}
+                                                        className={"btn btn-external"}
+                                                        target={'_blank'}
+                                                        href={link.link}
                                                     >
                                                         {link.text}
-                                                    </button>
+                                                    </a>
                                                 </>
                                             )
                                         })}
