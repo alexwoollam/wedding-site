@@ -7,6 +7,8 @@ function Button( props ) {
         external,
         next,
         prev,
+        link,
+        onClick,
         add_guest,
         is_disabled,
         remove,
@@ -33,6 +35,7 @@ function Button( props ) {
         return (
             <button
                 className={ classConstruct() }
+                onClick={ link ? link : onClick }
             >
                 { children }
             </button>
