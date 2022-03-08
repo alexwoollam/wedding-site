@@ -41,6 +41,24 @@ const Information = () => {
                                             )
                                         })}
                                     </ul>
+                                    <section>
+                                        { content.content.links && content.content.links.map((link, key) => {
+                                            return (
+                                                <>
+                                                    <Bugs/>
+                                                    {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                                                    <a
+                                                        key={key}
+                                                        className={"btn btn-external"}
+                                                        target={'_blank'}
+                                                        href={link.link}
+                                                    >
+                                                        {link.text}
+                                                    </a>
+                                                </>
+                                            )
+                                        })}
+                                    </section>
                                 </div>
                             )
                         })
