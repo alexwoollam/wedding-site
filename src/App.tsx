@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,26 +17,11 @@ import {WeddingParty} from './Pages/WeddingParty';
 import {Contact} from './Pages/Contact';
 import {Container} from 'reactstrap';
 import FooterImage from './Components/Media/FooterImage';
-import {useHistory} from "react-router-dom";
 import ScrollToTop from "./Helpers/ScrollToTop";
 
 function App() {
 
   const devmode: string | undefined = process.env.REACT_APP_DEV_MODE;
-  const history = useHistory();
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const request = () => {
-    let path = localStorage.getItem('path');
-    if(path) {
-      localStorage.removeItem('path');
-      history.push(path);
-    }
-  }
-
-  useEffect(() => {
-    request();
-  }, [request]);
 
   let home: any = null;
   let music: any = null;
