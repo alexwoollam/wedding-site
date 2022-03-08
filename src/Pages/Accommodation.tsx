@@ -6,7 +6,6 @@ import Heading from '../Components/Text/Heading';
 import TextBlock from '../Components/Text/TextBlock';
 import {Row, Col} from "reactstrap";
 import ListItem from "../Components/Text/ListItem";
-import Button from "../Components/Button";
 import Bugs from "../Components/Bugs";
 
 const Accommodation = () => {
@@ -37,13 +36,15 @@ const Accommodation = () => {
                                             return (
                                                 <>
                                                     <Bugs/>
-                                                    <Button
-                                                        external={true}
+                                                    {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                                                    <a
                                                         key={key}
-                                                        link={link.url}
+                                                        className={"btn btn-external"}
+                                                        target={'_blank'}
+                                                        href={link.link}
                                                     >
                                                         {link.text}
-                                                    </Button>
+                                                    </a>
                                                 </>
                                             )
                                         })}

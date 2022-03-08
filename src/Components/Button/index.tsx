@@ -5,14 +5,12 @@ function Button( props ) {
     const {
         children,
         external,
-        link,
         next,
         prev,
         add_guest,
         is_disabled,
         remove,
-        right,
-        onClick
+        right
     } = props;
 
     const classConstruct = () => {
@@ -35,7 +33,6 @@ function Button( props ) {
         return (
             <button
                 className={ classConstruct() }
-                onClick={ link ? link : onClick }
             >
                 { children }
             </button>
