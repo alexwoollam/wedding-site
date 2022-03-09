@@ -64,24 +64,27 @@ function RsvpForm() {
         /* istanbul ignore next */
         event.preventDefault();
         /* istanbul ignore next */
-        if( GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID ) ){
-            setUser({...user, form: true});
-        }
 
-        if( user.other_guests.length > 0 ){
-            user.other_guests.map( (guest:any) => {
-                const guest_data = {
-                    Name: guest.name,
-                    Email: guest.email === '' ? 'Not Provided' : guest.email,
-                    Availability: guest.availability,
-                    Excuse: 'n/a',
-                    Has_Additional: 'Guest of ' + user.name,
-                    Allergies: guest.allergy,
-                    Allergy_Details: guest.allergy_details === '' ? 'n/a' : guest.allergy_details,
-                    Food_Pref: guest.vegetarian
-                };
-                return GoogleSheets(guest_data, SPREADSHEET_ID, SHEET_ID );
-            });
+        try{
+            setUser({...user, form: true});
+            if( user.other_guests.length > 0 ){
+                user.other_guests.map( (guest:any) => {
+                    const guest_data = {
+                        Name: guest.name,
+                        Email: guest.email === '' ? 'Not Provided' : guest.email,
+                        Availability: guest.availability,
+                        Excuse: 'n/a',
+                        Has_Additional: 'Guest of ' + user.name,
+                        Allergies: guest.allergy,
+                        Allergy_Details: guest.allergy_details === '' ? 'n/a' : guest.allergy_details,
+                        Food_Pref: guest.vegetarian
+                    };
+                    return GoogleSheets(guest_data, SPREADSHEET_ID, SHEET_ID );
+                });
+                GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID )
+            }
+        }catch (e) {
+            console.error(e);
         }
     }
 
@@ -138,7 +141,6 @@ function RsvpForm() {
             [event.target.name]: event.target.value,
             ...others[index]};
         setUser({...user, other_guests: [...others.slice(0, index), other, ...others.slice(index + 1)]});
-        console.log(user.other_guests);
     }
 
     const removeOtherGuest = (event: any, index) => {
