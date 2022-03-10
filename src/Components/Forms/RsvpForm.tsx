@@ -64,32 +64,27 @@ function RsvpForm() {
         /* istanbul ignore next */
         event.preventDefault();
         /* istanbul ignore next */
+        console.log('test');
 
-        try{
-            setUser({...user, form: true});
-            if( user.other_guests.length > 0 ){
-                user.other_guests.map( (guest:any) => {
-                    const guest_data = {
-                        Name: guest.name,
-                        Email: guest.email === '' ? 'Not Provided' : guest.email,
-                        Availability: guest.availability,
-                        Excuse: 'n/a',
-                        Has_Additional: 'Guest of ' + user.name,
-                        Allergies: guest.allergy,
-                        Allergy_Details: guest.allergy_details === '' ? 'n/a' : guest.allergy_details,
-                        Food_Pref: guest.vegetarian
-                    };
-                    return GoogleSheets(guest_data, SPREADSHEET_ID, SHEET_ID );
-                });
-                if(GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID )){
-                    console.log('Form sumitted');
-                } else {
-                    console.log('Form not submitted', user_data);
+        setUser({...user, form: true});
+        if( user.other_guests.length > 0 ) {
+            user.other_guests.map((guest: any) => {
+                const guest_data = {
+                    Name: guest.name,
+                    Email: guest.email === '' ? 'Not Provided' : guest.email,
+                    Availability: guest.availability,
+                    Excuse: 'n/a',
+                    Has_Additional: 'Guest of ' + user.name,
+                    Allergies: guest.allergy,
+                    Allergy_Details: guest.allergy_details === '' ? 'n/a' : guest.allergy_details,
+                    Food_Pref: guest.vegetarian
                 };
-            }
-        } catch (e) {
-            console.error(e);
+                return GoogleSheets(guest_data, SPREADSHEET_ID, SHEET_ID);
+            });
         }
+
+        GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID);
+        console.log('Form submitted', user_data);
     }
 
     const handlePreviousStep = ( event:any ) => {
