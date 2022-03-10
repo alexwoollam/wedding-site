@@ -7,6 +7,7 @@ import Step1 from './RsvpForm/Step1';
 import Step2 from './RsvpForm/Step2';
 import Step3 from './RsvpForm/Step3';
 import {Form as FormLayout} from '../Layout/Form';
+import * as Sentry from '@sentry/browser';
 import {useHistory} from "react-router-dom";
 
 interface RsvpInterface {
@@ -64,8 +65,6 @@ function RsvpForm() {
         /* istanbul ignore next */
         event.preventDefault();
         /* istanbul ignore next */
-        console.log('test');
-
         setUser({...user, form: true});
         if( user.other_guests.length > 0 ) {
             user.other_guests.map((guest: any) => {
@@ -79,12 +78,22 @@ function RsvpForm() {
                     Allergy_Details: guest.allergy_details === '' ? 'n/a' : guest.allergy_details,
                     Food_Pref: guest.vegetarian
                 };
+                Sentry.captureMessage('Form submitted', {
+                    extra: {
+                        guest_data: guest_data,
+                    }
+                });
                 return GoogleSheets(guest_data, SPREADSHEET_ID, SHEET_ID);
             });
         }
-
         GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID);
         console.log('Form submitted', user_data);
+        Sentry.captureMessage('Form submitted', {
+            extra: {
+                user_data: user_data,
+                user: user,
+            }
+        });
     }
 
     const handlePreviousStep = ( event:any ) => {
