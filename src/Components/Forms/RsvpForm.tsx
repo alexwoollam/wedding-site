@@ -81,9 +81,13 @@ function RsvpForm() {
                     };
                     return GoogleSheets(guest_data, SPREADSHEET_ID, SHEET_ID );
                 });
-                GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID )
+                if(GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID )){
+                    console.log('Form sumitted');
+                } else {
+                    console.log('Form not submitted', user_data);
+                };
             }
-        }catch (e) {
+        } catch (e) {
             console.error(e);
         }
     }
