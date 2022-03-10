@@ -66,6 +66,13 @@ function RsvpForm() {
         event.preventDefault();
         /* istanbul ignore next */
         setUser({...user, form: true});
+
+        Sentry.captureMessage('Form submitted', {
+            extra: {
+                user: user,
+            }
+        });
+
         if( user.other_guests.length > 0 ) {
             user.other_guests.map((guest: any) => {
                 const guest_data = {
@@ -78,22 +85,11 @@ function RsvpForm() {
                     Allergy_Details: guest.allergy_details === '' ? 'n/a' : guest.allergy_details,
                     Food_Pref: guest.vegetarian
                 };
-                Sentry.captureMessage('Form submitted', {
-                    extra: {
-                        guest_data: guest_data,
-                    }
-                });
                 return GoogleSheets(guest_data, SPREADSHEET_ID, SHEET_ID);
             });
         }
-        GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID);
+        console.log(GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID));
         console.log('Form submitted', user_data);
-        Sentry.captureMessage('Form submitted', {
-            extra: {
-                user_data: user_data,
-                user: user,
-            }
-        });
     }
 
     const handlePreviousStep = ( event:any ) => {
