@@ -1,0 +1,42 @@
+.gift{
+  &-section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  width: 240px;
+  min-height: 400px;
+  background-color: white;
+  border: 1px solid #bababa;
+  box-shadow: 10px 10px 40px rgb(0 0 0 / 15%);
+  border-radius: 5px 5px 5px 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  &-bottom{
+    height: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &-image{
+    background-color: #000;
+    background-position: center;
+    min-height: 240px;
+    min-width: 240px;
+    background-size: cover;
+  }
+  &-title{
+    font-size: 1rem;
+    min-height: 44px;
+  }
+  &-details{
+    font-size: 0.75rem;
+    min-height: 64px;
+  }
+  &-cost{
+  }
+}

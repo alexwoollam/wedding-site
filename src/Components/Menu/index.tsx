@@ -21,6 +21,7 @@ const Menu = ( props: Props ) => {
         'home': { title: 'Home', link: '/', visible: true },
         'rsvp': {title: 'RSVP', link: '/rsvp', visible: true},
         'music': {title: 'Music', link: '/music', visible: true},
+        'gifting': {title: 'Gift list', link: '/gift-list', visible: true},
         'accommodation': {title: 'Accommodation', link: '/accommodation', visible: true},
         'information': {title: 'Information', link: '/information', visible: true},
         'contact': {title: 'Contact', link: '/contact', visible: true}

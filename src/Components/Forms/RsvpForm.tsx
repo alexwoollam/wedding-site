@@ -47,17 +47,6 @@ function RsvpForm() {
         form: false,
     });
 
-    const user_data = {
-        Name: user.name,
-        Email: user.email === '' ? 'Not Provided' : user.email,
-        Availability: user.availability,
-        Excuse: user.excuse === '' ? 'n/a' : user.excuse,
-        Has_Additional: user.other_guests.length > 0 ? 'Yes' : 'No',
-        Allergies: user.allergy,
-        Allergy_Details: user.allergy_details === '' ? 'n/a' : user.allergy_details,
-        Food_Pref: user.vegetarian,
-    };
-
     const history = useHistory();
 
     const handlePostForm = ( event:any ) => {
@@ -88,8 +77,6 @@ function RsvpForm() {
                 return GoogleSheets(guest_data, SPREADSHEET_ID, SHEET_ID);
             });
         }
-        console.log(GoogleSheets(user_data, SPREADSHEET_ID, SHEET_ID));
-        console.log('Form submitted', user_data);
     }
 
     const handlePreviousStep = ( event:any ) => {

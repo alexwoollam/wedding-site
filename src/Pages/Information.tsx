@@ -10,7 +10,7 @@ import Bugs from "../Components/Bugs";
 
 const Information = () => {
 
-    let pageSections = [] as  any;
+    let pageSections = [] as any;
     Object.keys(Content.sections).forEach(function(key) {
         pageSections.push( [key, Content.sections[key]] );
     })
@@ -24,7 +24,6 @@ const Information = () => {
                     {
                         pageSections.map((section, key) => {
                             let content = section[1];
-                            console.log(content);
                             return (
                                 <div className={"section"} key={key}>
                                     <Heading>{content.title}</Heading>
