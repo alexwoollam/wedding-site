@@ -23,41 +23,31 @@ const Gifts = () => {
                     <Heading main >{Content.title}</Heading>
                     {
                         pageSections.map((pageSection, key) => {
-                            if(pageSection[key] === 'intro')
+                            if(pageSection[0] === 'intro')
                             {
-                                return (
-                                    <div className={"section"} key={key}>
-                                        <Bugs/>
-                                        { pageSection[1] && pageSection[1].map((paragraph, key) => {
-                                            return (
-                                                <TextBlock key={key}>{paragraph}</TextBlock>
-                                            )
-                                        })}
-                                    </div>
-                                );
-                            }
-                            if( typeof(process.env.REACT_APP_ACC_NUMBER) === 'string' && typeof(process.env.REACT_APP_SORT_CODE) === 'string' )
-                            {
-                                // FYI: I 100% disagree with this idea!
                                 return (
                                     <>
-                                        <TextBlock key={key}>Name: Dr Lydia King</TextBlock>
-                                        <TextBlock key={key}>Account: { process.env.REACT_APP_ACC_NUMBER }</TextBlock>
-                                        <TextBlock key={key}>Sort Code: { process.env.REACT_APP_SORT_CODE }</TextBlock>
+                                        <div className={"section"} key={key}>
+                                            <Bugs/>
+                                            { pageSection[1] && pageSection[1].map((paragraph, key) => {
+                                                return (
+                                                    <TextBlock key={key}>{paragraph}</TextBlock>
+                                                )
+                                            })}
+                                        </div>
+                                        <div key={key}>
+                                            <TextBlock>Account: { process.env.REACT_APP_ACC_NUMBER }</TextBlock>
+                                            <TextBlock>Sort Code: { process.env.REACT_APP_SORT_CODE }</TextBlock>
+                                        </div>
                                     </>
-                                )
-                            }
-                            if(pageSection[0] === "gifts")
-                            {
+                                );
+                            } else if( pageSection[0] === "gifts" ) {
                                 return(
                                     <div className={"section gift-section"} key={key}>
                                         { pageSection[1] && pageSection[1].map((gift, key) => {
-                                            if( gift.count === 0){
-                                                return;
-                                            }
                                             return (
                                                 <Gift
-                                                    key={key}
+                                                    key={'gift-' + key}
                                                     title={gift.title}
                                                     details={gift.details}
                                                     cost={gift.cost}
@@ -65,7 +55,6 @@ const Gifts = () => {
                                                     image={gift.image}
                                                 />
                                             );
-                                            return;
                                         })}
                                     </div>
 
