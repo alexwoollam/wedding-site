@@ -5,17 +5,10 @@
       "The best gift you can give us is your presence at our wedding but we appreciate that some people might like to give a gift to mark the occasion.",
       "After 10 years we don’t need much from a traditional gift list but financial contributions seemed to take away the personal touch… so we’ve gone for something in between!",
       "We’ve come up with a few ideas that we think will enhance married life or be something special to remind us of our wedding. We’ll do the actual purchasing of any gifts but if you’d like to contribute then the BACS details are below.",
-      "Some of the gifts don’t have a monetary value, but for those that do, there’s no need to cover the full cost. Just let us know in the reference or message what you'd like your gift to go towards so we can hold you in mind when we do or use that thing"
+      "Some of the gifts don’t have a monetary value, but for those that do, there’s no need to cover the full cost. Just let us know in the reference or message what you'd like your gift to go towards so we can hold you in mind when we do or use that thing!"
 
     ],
     "gifts": [
-      {
-        "title": "Breakfast-in-bed tray",
-        "details": "For lazy mornings.",
-        "cost": 50,
-        "count": 2,
-        "image": "BedTray"
-      },
       {
         "title": "Street food fund",
         "details": "For impulse purchases on honeymoon.",
@@ -24,11 +17,11 @@
         "image": "StreetFood"
       },
       {
-        "title": "DIY wedding dinner ware set (clay)",
-        "details": "Because... why make life easy?",
-        "cost": 45,
-        "count": 99,
-        "image": "Clay"
+        "title": "Breakfast-in-bed tray",
+        "details": "For lazy mornings.",
+        "cost": 50,
+        "count": 2,
+        "image": "BedTray"
       },
       {
         "title": "Feed our cat",
@@ -38,25 +31,11 @@
         "image": "Arya"
       },
       {
-        "title": "Pudding",
-        "details": "Your speciality pudding to put on the dessert table at the wedding.",
-        "cost": 0,
+        "title": "DIY wedding dinner ware set (clay)",
+        "details": "Because... why make life easy?",
+        "cost": 45,
         "count": 99,
-        "image": "Pudding"
-      },
-      {
-        "title": "Shed, just a shed",
-        "details": "Its a shed, for doing shed things in.",
-        "cost": 75,
-        "count": 1,
-        "image": "Shed"
-      },
-      {
-        "title": "Date day: Fish & Chips",
-        "details": "Because a beach walk isn't complete without them.",
-        "cost": 5,
-        "count": 1,
-        "image": "Chips"
+        "image": "Clay"
       },
       {
         "title": "Date day: Glass blowing",
@@ -66,11 +45,32 @@
         "image": "Glass"
       },
       {
+        "title": "Dessert",
+        "details": "Your speciality pudding to put on the dessert table at the wedding.",
+        "cost": 0,
+        "count": 99,
+        "image": "Pudding"
+      },
+      {
         "title": "Cheese & Wine date night",
         "details": "For a fantastically unhealthy date night!",
         "cost": 40,
         "count": 1,
         "image": "Cheese"
+      },
+      {
+        "title": "Date day: Fish & Chips",
+        "details": "Because a beach walk isn't complete without them.",
+        "cost": 5,
+        "count": 1,
+        "image": "Chips"
+      },
+      {
+        "title": "Shed, just a shed",
+        "details": "Its a shed, for doing shed things in.",
+        "cost": 75,
+        "count": 1,
+        "image": "Shed"
       },
       {
         "title": "Date night: Hockey!",
