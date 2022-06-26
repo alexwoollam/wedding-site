@@ -32,6 +32,8 @@ jobs:
         REACT_APP_G_KEY: ${{ secrets.REACT_APP_G_KEY }}
         REACT_APP_SPOTIFYCLI: ${{ secrets.REACT_APP_SPOTIFYCLI }}
         REACT_APP_SPOTIFYSEC: ${{ secrets.REACT_APP_SPOTIFYSEC }}
+        REACT_APP_ACC_NUMBER: ${{ secrets.REACT_APP_ACC_NUMBER }}
+        REACT_APP_SORT_CODE: ${{ secrets.REACT_APP_SORT_CODE }}
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.0
