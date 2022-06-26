@@ -36,8 +36,8 @@ const Gifts = () => {
                                             })}
                                         </div>
                                         <div key={key}>
-                                            <TextBlock>Account: { process.env.REACT_APP_ACC_NUMBER }</TextBlock>
-                                            <TextBlock>Sort Code: { process.env.REACT_APP_SORT_CODE }</TextBlock>
+                                            <TextBlock>Account: { process.env.REACT_APP_ACC_NUMBER }<br/>
+                                                Sort Code: { process.env.REACT_APP_SORT_CODE }</TextBlock>
                                         </div>
                                     </>
                                 );
