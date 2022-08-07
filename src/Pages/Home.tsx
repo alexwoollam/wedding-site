@@ -41,10 +41,6 @@ const Home = () => {
                         <span>SP40DX</span>
                     </TextBlock>
                     <Bugs/>
-                    <Countdown
-                        date={"2022-08-06T14:00:00.000Z"}
-                        renderer={renderer}
-                    />
                 </Col>
             </Row>
         </Page>
